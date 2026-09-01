@@ -1,0 +1,52 @@
+/* NSK AI design tokens — base (paper) family.
+   Per-product and industry pages override these on a page wrapper; see README
+   "Colour" in the design handoff. */
+:root {
+  --paper: #F6F1EF;
+  --surface: #FFFFFF;
+  --hairline: #D9CFCB;
+  --ink: #16100F;
+  --ink-muted: #5C4F4C;
+  --ink-faint: #B4A7A3;
+  --accent: #E01A0D;
+  --accent-dark: #8E1108;
+  --status: #8C7F7B;
+
+  --footer-bg: #2A0704;
+  --footer-text: #F6F1EF;
+  --footer-accent: #F26B5E;
+  --footer-rule: #5C4F4C;
+
+  --serif: "Gambetta", "Iowan Old Style", Georgia, serif;
+  --sans: "Author", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --page-x: 100px;
+  --ease-move: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* No responsive breakpoints were designed; 1440px is the design width. */
+body { min-width: 1440px; }
+
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}

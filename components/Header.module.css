@@ -1,0 +1,140 @@
+.header {
+  font-family: var(--sans);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 72px;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--page-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.wordmark {
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.10em;
+  color: var(--ink);
+}
+.wordmark:hover { color: var(--ink); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 56px;
+  font-size: 14px;
+  font-weight: 400;
+  height: 100%;
+}
+
+.group {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.trigger {
+  color: var(--ink-muted);
+  padding: 8px 0;
+  cursor: default;
+  transition: color 160ms ease;
+}
+.group:hover .trigger,
+.group:focus-within .trigger { color: var(--ink); }
+
+.link {
+  color: var(--ink-muted);
+  padding: 8px 0;
+  transition: color 160ms ease;
+}
+.link:hover { color: var(--accent); }
+
+.panel {
+  position: absolute;
+  left: -44px;
+  top: 71px;
+  width: 376px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 24px 48px rgba(22, 16, 15, 0.10);
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+}
+.group:hover .panel,
+.group:focus-within .panel { display: flex; }
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+  color: var(--ink);
+  transition: transform 200ms var(--ease-move), background 200ms ease;
+}
+.row:hover {
+  transform: translateX(6px);
+  background: rgba(22, 16, 15, 0.035);
+  color: var(--ink);
+}
+
+.tile {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 260ms var(--ease-move);
+}
+.row:hover .tile { transform: scale(1.08) rotate(-3deg); }
+
+.rowBody { flex: 1; }
+
+.rowName {
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 200ms ease;
+}
+.row:hover .rowName { color: var(--row-accent); }
+
+.rowDesc {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 40px;
+  padding: 0 16px;
+  background: var(--accent);
+  color: var(--paper);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 160ms ease;
+}
+.cta:hover { background: var(--accent-dark); color: var(--paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  .row, .tile { transition: none; }
+  .row:hover { transform: none; }
+  .row:hover .tile { transform: none; }
+}
