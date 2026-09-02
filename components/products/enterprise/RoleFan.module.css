@@ -1,0 +1,66 @@
+.fan {
+  position: relative;
+  height: 396px;
+}
+
+.card {
+  position: absolute;
+  left: 0;
+  width: 340px;
+  overflow: hidden;
+  background: #FFFDF8;
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  transform-origin: left center;
+  transition:
+    transform 460ms var(--ease-move),
+    height 380ms var(--ease-move),
+    box-shadow 460ms ease;
+}
+
+.cardDark {
+  composes: card;
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.head {
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #C08706;
+}
+
+.dotAccent {
+  composes: dot;
+  background: var(--accent);
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.note {
+  padding: 0 18px 18px 34px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.noteDark {
+  composes: note;
+  color: #C4A96E;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .cardDark { transition: height 380ms ease; }
+}

@@ -1,0 +1,322 @@
+/* Rudani. Structure follows `Rudani.dc.html`; the page is monochrome, so the
+   .rudani palette carries greys rather than a hue. */
+
+.h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+}
+
+.h2Small {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero { padding: 96px var(--page-x) 56px; }
+
+.breadcrumb {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.heroTitle {
+  margin: 28px 0 0;
+  max-width: 19ch;
+  font-weight: 500;
+  font-size: 76px;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+.heroLead {
+  margin: 32px 0 0;
+  max-width: 60ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #676763;
+  text-wrap: pretty;
+}
+
+.heroActions {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.buttonSolid,
+.buttonOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.buttonSolid {
+  background: var(--ink);
+  color: var(--paper);
+  transition: background 160ms ease;
+}
+.buttonSolid:hover { background: var(--ink-muted); color: var(--paper); }
+
+.buttonOutline {
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  transition: border-color 160ms ease;
+}
+.buttonOutline:hover { border-color: var(--ink); color: var(--ink); }
+
+/* --- The answer stage ---------------------------------------------------- */
+
+.stage {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 88px var(--page-x) 96px;
+  border-top: 1px solid var(--hairline);
+}
+
+.stageHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.stageEyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8C8C88;
+}
+
+.stageTitle {
+  margin: 20px 0 0;
+  font-size: 44px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  max-width: 22ch;
+}
+
+.stageNote {
+  margin: 0;
+  max-width: 36ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(242, 242, 240, 0.55);
+}
+
+/* --- Four rules ---------------------------------------------------------- */
+
+.rules { padding: 104px var(--page-x) 112px; }
+
+.rulesHead { display: flex; align-items: baseline; gap: 20px; }
+
+.rulesLabel {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.rulesCount { composes: rulesLabel; color: #676763; }
+
+/* --- Deployment ---------------------------------------------------------- */
+
+.deployment {
+  padding: 104px var(--page-x) 112px;
+  background: #E7E7E4;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.deployGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+  margin-top: 48px;
+}
+
+.deployTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.deployBody {
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #676763;
+}
+
+.productionGrid {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.productionLabel {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #676763;
+}
+
+.productionList {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.productionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  border-top: 1px solid var(--hairline);
+  padding: 16px 0;
+}
+
+.productionName { font-size: 15px; color: #676763; }
+
+.productionValue { font-size: 15px; color: var(--ink); }
+
+/* --- The rest of the system ---------------------------------------------- */
+
+.rest { padding: 112px var(--page-x); }
+
+/* Rudani lists all five siblings, so this row is five wide. */
+.restGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.restTile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  color: #676763;
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 280ms ease,
+    color 280ms ease,
+    border-color 280ms ease;
+}
+.restTile:hover {
+  transform: translate(-5px, -7px);
+  background: var(--ink);
+  color: #A2A29E;
+  border-color: var(--ink);
+}
+
+.restStatus {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.restName {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.restTile:hover .restName { color: inherit; }
+
+/* --- Closing band -------------------------------------------------------- */
+
+.closing {
+  padding: 104px var(--page-x);
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 1px solid var(--ink);
+}
+
+.closingTitle {
+  margin: 0;
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  max-width: 680px;
+}
+
+.closingLead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(242, 242, 240, 0.72);
+  max-width: 48ch;
+}
+
+.closingActions {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.closingSolid,
+.closingOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.closingSolid {
+  background: var(--paper);
+  color: var(--ink);
+  transition: background 160ms ease;
+}
+.closingSolid:hover { background: #C3C3BF; color: var(--ink); }
+
+.closingOutline {
+  color: var(--paper);
+  border: 1px solid rgba(242, 242, 240, 0.4);
+  transition: border-color 160ms ease;
+}
+.closingOutline:hover { border-color: var(--paper); color: var(--paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  .restTile { transition: background 280ms ease, color 280ms ease; }
+  .restTile:hover { transform: none; }
+}

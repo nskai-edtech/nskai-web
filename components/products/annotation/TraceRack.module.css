@@ -1,0 +1,197 @@
+.grid {
+  display: grid;
+  grid-template-columns: 392px 1fr;
+  gap: 88px;
+  align-items: start;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8FCBBB;
+}
+
+.title {
+  margin: 20px 0 0;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #EEF2EE;
+}
+
+.lead {
+  margin: 20px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #A9C4BA;
+}
+
+.list {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item {
+  appearance: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  padding: 16px 18px;
+  border: none;
+  border-left: 2px solid rgba(246, 241, 239, 0.18);
+  background: transparent;
+  transition: background 260ms ease, border-color 260ms ease;
+}
+
+.itemOn {
+  composes: item;
+  border-left-color: #0E7C66;
+  background: rgba(246, 241, 239, 0.06);
+}
+
+.sector {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #89A79C;
+  transition: color 260ms ease;
+}
+
+.sectorOn { composes: sector; color: #8FCBBB; }
+
+.summary {
+  margin-top: 6px;
+  font-size: 16px;
+  color: #EEF2EE;
+}
+
+.panelWrap {
+  position: relative;
+  min-height: 640px;
+}
+
+.panel {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(246, 241, 239, 0.18);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    opacity 320ms ease,
+    transform 420ms var(--ease-move);
+}
+
+.panelHead {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #89A79C;
+}
+
+.quote {
+  margin-top: 24px;
+  padding: 22px;
+  background: rgba(246, 241, 239, 0.06);
+  font-size: 15px;
+  line-height: 1.6;
+  color: #EEF2EE;
+}
+
+.passes {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.pass {
+  padding: 20px;
+  background: rgba(246, 241, 239, 0.05);
+}
+
+.passWho {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #89A79C;
+}
+
+.passLabel { margin-top: 12px; font-size: 18px; color: #EEF2EE; }
+
+.passReason {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #A9C4BA;
+}
+
+.splitRow {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.splitRule { height: 1px; flex: 1; background: #0E7C66; }
+
+.splitText {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8FCBBB;
+}
+
+.ruling {
+  margin-top: 24px;
+  padding: 24px;
+  background: #0E7C66;
+  color: #EEF2EE;
+}
+
+.rulingHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.rulingWho {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rulingVerdict {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.rulingBody {
+  margin: 16px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.amendment {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(238, 242, 238, 0.3);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel { transition: opacity 320ms ease; }
+}

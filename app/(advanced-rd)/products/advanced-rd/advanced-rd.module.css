@@ -1,0 +1,371 @@
+/* Advanced R&D. Structure follows `Advanced R-D.dc.html`; red on warm grey from
+   the .advancedRd palette. */
+
+.h2 {
+  margin: 20px 0 0;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  max-width: 26ch;
+}
+
+.h2Small {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.labelAccent {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.labelMuted { composes: labelAccent; color: var(--ink-muted); }
+
+.labelDark { composes: labelAccent; color: var(--accent-dark); }
+
+.sectionLabels { display: flex; align-items: baseline; gap: 20px; }
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero { padding: 96px var(--page-x) 48px; }
+
+.breadcrumb { display: flex; align-items: baseline; gap: 16px; }
+
+.crumbAccent { composes: labelAccent; }
+
+.crumbMuted { composes: labelAccent; color: var(--ink-muted); }
+
+.heroTitle {
+  margin: 28px 0 0;
+  max-width: 20ch;
+  font-weight: 500;
+  font-size: 76px;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.heroLead {
+  margin: 32px 0 0;
+  max-width: 62ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+.heroActions {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.buttonSolid,
+.buttonOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.buttonSolid {
+  background: var(--accent);
+  color: var(--paper);
+  transition: background 160ms ease;
+}
+.buttonSolid:hover { background: var(--accent-dark); color: var(--paper); }
+
+.buttonOutline {
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  transition: border-color 160ms ease;
+}
+.buttonOutline:hover { border-color: var(--ink); color: var(--ink); }
+
+/* --- Method -------------------------------------------------------------- */
+
+.method { padding: 104px var(--page-x) 112px; }
+
+.commitments {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.commitment {
+  position: relative;
+  padding: 32px 28px 36px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  overflow: hidden;
+  transition:
+    border-color 320ms ease,
+    transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.commitment:hover {
+  border-color: var(--panel-accent);
+  transform: translateY(-4px);
+}
+
+/* A rule that sweeps across the top edge on hover. */
+.sweep {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--panel-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 620ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.commitment:hover .sweep { transform: scaleX(1); }
+
+.commitmentTitle {
+  margin: 28px 0 0;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.commitmentBody {
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.commitmentIndex {
+  font-family: var(--sans);
+  margin-top: 28px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #A09896;
+}
+
+/* --- Open lines of work -------------------------------------------------- */
+
+.lines {
+  position: relative;
+  padding: 104px var(--page-x) 112px;
+  background: #EFEBEA;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.linesHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.linesNote {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.lineRows {
+  margin-top: 48px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.lineRow {
+  display: grid;
+  grid-template-columns: 64px 56px 1fr 320px 140px;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 24px;
+  border-top: 1px solid var(--hairline);
+}
+
+.lineIndex {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #A09896;
+}
+
+.lineIcon { color: var(--accent-dark); }
+
+.lineTitle {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.lineBody {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.lineFigure { letter-spacing: -0.01em; }
+
+.lineValue {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.lineUnit {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
+/* --- Who you work with --------------------------------------------------- */
+
+.people {
+  padding: 104px var(--page-x) 112px;
+  background: #FFD9D4;
+  border-bottom: 1px solid var(--accent);
+}
+
+.peopleHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.peopleNote {
+  margin: 0;
+  max-width: 32ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+/* --- The rest of the system ---------------------------------------------- */
+
+.rest { padding: 112px var(--page-x); }
+
+.restGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.restTile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  color: var(--ink-muted);
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 280ms ease,
+    color 280ms ease,
+    border-color 280ms ease;
+}
+.restTile:hover {
+  transform: translate(-5px, -7px);
+  background: #FFD9D4;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.restStatus {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.restName {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* --- Closing band -------------------------------------------------------- */
+
+.closing {
+  padding: 104px var(--page-x);
+  background: var(--accent);
+  border-top: 1px solid #240605;
+}
+
+.closingTitle {
+  margin: 0;
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  max-width: 680px;
+  color: var(--paper);
+}
+
+.closingLead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #FFD9D4;
+  max-width: 48ch;
+}
+
+.closingActions {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.closingSolid,
+.closingOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.closingSolid {
+  background: #240605;
+  color: var(--paper);
+  transition: background 160ms ease;
+}
+.closingSolid:hover { background: var(--accent-dark); color: var(--paper); }
+
+.closingOutline {
+  color: var(--paper);
+  border: 1px solid var(--paper);
+  transition: background 160ms ease, color 160ms ease;
+}
+.closingOutline:hover { background: var(--paper); color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .commitment, .restTile { transition: border-color 320ms ease; }
+  .commitment:hover, .restTile:hover { transform: none; }
+}

@@ -26,3 +26,67 @@
   --footer-accent: #B08355;
   --footer-rule: #4A2E1A;
 }
+
+/* Enterprise AI — amber on warm paper. */
+.enterprise {
+  --paper: #F7F2EA;
+  --hairline: #DED2BE;
+  --ink: #191510;
+  --ink-muted: #6B6155;
+  --ink-faint: #A2947F;
+  --accent: #E8A317;
+  --accent-dark: #9A6604;
+
+  --footer-bg: #141009;
+  --footer-text: #F7F2EA;
+  --footer-accent: #C4A96E;
+  --footer-rule: #4A3A16;
+}
+
+/* Data Annotation — green. */
+.annotation {
+  --paper: #EEF2EE;
+  --hairline: #C7D3C8;
+  --ink: #0F1512;
+  --ink-muted: #55655C;
+  --ink-faint: #8CA093;
+  --accent: #0E7C66;
+  --accent-dark: #06231D;
+
+  --footer-bg: #08120E;
+  --footer-text: #EEF2EE;
+  --footer-accent: #8FCBBB;
+  --footer-rule: #55655C;
+}
+
+/* Rudani — monochrome. */
+.rudani {
+  --paper: #F2F2F0;
+  --hairline: #D6D6D2;
+  --ink: #0B0B0A;
+  --ink-muted: #4A4A46;
+  --ink-faint: #8C8C88;
+  --accent: #3A3A38;
+  --accent-dark: #0B0B0A;
+
+  --footer-bg: #0B0B0A;
+  --footer-text: #F2F2F0;
+  --footer-accent: #8C8C88;
+  --footer-rule: #4A4A46;
+}
+
+/* Advanced R&D — red on warm grey. */
+.advancedRd {
+  --paper: #F7F4F3;
+  --hairline: #DFD9D8;
+  --ink: #15100F;
+  --ink-muted: #6A6260;
+  --ink-faint: #9C9391;
+  --accent: #E01A0D;
+  --accent-dark: #8E1108;
+
+  --footer-bg: #240605;
+  --footer-text: #F7F4F3;
+  --footer-accent: #F26B5E;
+  --footer-rule: #6A6260;
+}

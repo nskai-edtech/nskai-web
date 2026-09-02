@@ -1,0 +1,64 @@
+.wrap { position: relative; height: 3400px; background: #06231D; }
+
+.sticky { position: sticky; top: 72px; height: 768px; }
+
+.canvas { display: block; width: 100%; height: 768px; }
+
+.captions {
+  position: absolute;
+  left: var(--page-x);
+  top: 96px;
+  width: 452px;
+}
+
+.caption { position: absolute; left: 0; top: 0; width: 452px; }
+
+.capEyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8FCBBB;
+}
+
+.capTitle {
+  margin: 20px 0 0;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #EEF2EE;
+}
+
+.capBody {
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #A9C4BA;
+}
+
+.readout {
+  position: absolute;
+  left: var(--page-x);
+  bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #8FCBBB;
+  font-variant-numeric: tabular-nums;
+}
+
+.readoutRule { width: 14px; height: 1px; background: #8FCBBB; }
+
+.dots {
+  position: absolute;
+  right: var(--page-x);
+  bottom: 52px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot { width: 28px; height: 2px; }

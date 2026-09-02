@@ -1,0 +1,77 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.card {
+  position: relative;
+  padding: 28px 24px 24px;
+  background: var(--paper);
+  border: 1px solid #E7DEDC;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 420ms ease,
+    box-shadow 420ms ease,
+    transform 520ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.icon {
+  opacity: 0.55;
+  transition:
+    transform 620ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 420ms ease;
+}
+
+.title {
+  margin-top: 26px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  max-width: 16ch;
+}
+
+.rule {
+  width: 14px;
+  height: 1px;
+  margin-top: 16px;
+  transition: width 620ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.body {
+  margin: 16px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.foot {
+  margin-top: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.note {
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: var(--ink-muted);
+  transition: color 420ms ease;
+}
+
+.index {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #A09896;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .icon, .rule { transition: none; }
+}

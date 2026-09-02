@@ -1,0 +1,47 @@
+.rack {
+  margin-top: 40px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 64px 1fr 460px;
+  gap: 40px;
+  align-items: start;
+  padding: 44px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.num {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #A2A29E;
+  padding-top: 10px;
+  transition: color 520ms ease;
+}
+
+.numOn { composes: num; color: var(--ink); }
+
+.title {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.16;
+  color: #C3C3BF;
+  transition: color 520ms ease;
+}
+
+.titleOn { composes: title; color: var(--ink); }
+
+.body {
+  margin: 6px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #C3C3BF;
+  transition: color 520ms ease;
+}
+
+.bodyOn { composes: body; color: var(--ink-muted); }

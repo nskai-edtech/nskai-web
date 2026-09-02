@@ -1,0 +1,205 @@
+.picker {
+  margin-top: 44px;
+  display: flex;
+  gap: 8px;
+}
+
+.pick {
+  appearance: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  max-width: 340px;
+  padding: 14px 18px;
+  background: transparent;
+  color: rgba(242, 242, 240, 0.66);
+  border: 1px solid rgba(242, 242, 240, 0.22);
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 1.45;
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease;
+}
+
+.pickOn {
+  composes: pick;
+  background: #F2F2F0;
+  color: #0B0B0A;
+  border-color: #F2F2F0;
+}
+
+.grid {
+  position: relative;
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 64px;
+  align-items: start;
+}
+
+/* The citation threads are drawn into this, over both columns. */
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.answerCard {
+  border: 1px solid rgba(242, 242, 240, 0.16);
+  padding: 32px 36px 28px;
+  min-height: 392px;
+  display: flex;
+  flex-direction: column;
+}
+
+.queryRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.queryLabel {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C8C88;
+  flex: none;
+}
+
+.query {
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+
+.caret {
+  display: inline-block;
+  width: 9px;
+  height: 19px;
+  margin-left: 2px;
+  background: #F2F2F0;
+  vertical-align: text-bottom;
+}
+
+.answer {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(242, 242, 240, 0.16);
+  font-size: 19px;
+  line-height: 1.72;
+  letter-spacing: -0.005em;
+}
+
+.answer span { transition: opacity 260ms ease; }
+
+.marker {
+  font-size: 11px;
+  vertical-align: super;
+  border: 1px solid rgba(242, 242, 240, 0.45);
+  padding: 1px 4px;
+  margin: 0 1px 0 2px;
+  border-radius: 2px;
+}
+
+.stats {
+  margin-top: auto;
+  padding-top: 28px;
+  display: flex;
+  gap: 40px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #8C8C88;
+}
+
+.stat { color: #F2F2F0; font-variant-numeric: tabular-nums; }
+
+.sources {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sourcesLabel {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C8C88;
+  padding-bottom: 6px;
+}
+
+.source {
+  padding: 16px 18px;
+  border: 1px solid rgba(242, 242, 240, 0.16);
+  background: transparent;
+  transition:
+    opacity 420ms ease,
+    transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 380ms ease,
+    background 380ms ease;
+}
+
+/* A source that the answer actually leaned on. */
+.sourceCited {
+  composes: source;
+  border-color: rgba(242, 242, 240, 0.85);
+  background: rgba(242, 242, 240, 0.06);
+}
+
+.sourceHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sourceDomain {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8C8C88;
+}
+
+.sourceCited .sourceDomain,
+.sourceCited .sourceNum { color: rgba(242, 242, 240, 0.6); }
+
+.sourceState {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C8C88;
+}
+
+.sourceCited .sourceState { color: #F2F2F0; }
+
+.sourceTitle {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(242, 242, 240, 0.72);
+}
+
+.sourceCited .sourceTitle { color: #F2F2F0; }
+
+.sourceNum {
+  margin-top: 10px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #8C8C88;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .source, .answer span { transition: none; }
+}

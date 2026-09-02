@@ -1,0 +1,145 @@
+.wrap {
+  position: relative;
+  height: 4000px;
+  background: #191510;
+  margin-top: 96px;
+}
+
+.sticky {
+  position: sticky;
+  top: 72px;
+  height: 790px;
+}
+
+.row {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.copy {
+  flex: 1;
+  padding: 84px 0 0 var(--page-x);
+}
+
+.phaseRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.phase {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #E8A317;
+  font-variant-numeric: tabular-nums;
+}
+
+.ticks { display: flex; gap: 6px; }
+
+.tick {
+  width: 26px;
+  height: 2px;
+  transition: background 260ms ease;
+}
+
+.captions {
+  position: relative;
+  margin-top: 28px;
+  width: 450px;
+  height: 340px;
+}
+
+/* Opacity is written every frame off the smoothed clock, so no CSS transition. */
+.caption {
+  position: absolute;
+  inset: 0;
+}
+
+.capTitle {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #F7F2EA;
+}
+
+.capBody {
+  margin: 18px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #CBBFA9;
+}
+
+.capTrace {
+  margin-top: 24px;
+  font-size: 12px;
+  color: #C4A96E;
+}
+
+.boardCol {
+  width: 740px;
+  position: relative;
+}
+
+.board {
+  position: absolute;
+  inset: 0;
+}
+
+.cell {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  border: 1px solid #3A342A;
+  transition: border-color 420ms ease, background 520ms ease;
+}
+
+.engineer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  will-change: transform;
+  display: flex;
+  align-items: flex-end;
+  padding: 6px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.benchLabel,
+.teamLabel {
+  position: absolute;
+  top: 28px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #8C806C;
+}
+
+.benchLabel { left: 30px; }
+.teamLabel { left: 200px; }
+
+.readout {
+  position: absolute;
+  left: var(--page-x);
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #C4A96E;
+}
+
+.readoutRule {
+  width: 14px;
+  height: 1px;
+  background: #C4A96E;
+}
