@@ -27,3 +27,9 @@ Wikimedia Commons at 1600px wide:
 
 The pages render correctly with these missing — the frames hold their size — so
 the build does not depend on them.
+
+The solutions overview uses one more:
+
+| File | Source file on Commons |
+| --- | --- |
+| `sol-band.jpg` | Werkkamer van de administratie in het gebouw op Keizersgracht 174-176 te Amsterd, Bestanddeelnr 189-1303.jpg |

@@ -4,13 +4,13 @@ import FigureCanvas from "@/components/home/FigureCanvas";
 import ProductRail from "@/components/home/ProductRail";
 import QuantBand from "@/components/home/QuantBand";
 import ResolveText from "@/components/home/ResolveText";
+import ServiceGrid from "@/components/ServiceGrid";
 import WeightMatrix from "@/components/home/WeightMatrix";
 import {
   capabilities,
   deployments,
   productBlocks,
   promises,
-  services,
 } from "@/lib/home-content";
 import { products } from "@/lib/nav";
 import styles from "./home.module.css";
@@ -183,34 +183,7 @@ export default function HomePage() {
           transformation that drives impact.
         </p>
         <div className={styles.servicesLabel}>Our services</div>
-        <div className={styles.serviceGrid}>
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className={styles.serviceCard}
-              style={{ "--svc-accent": service.accent } as CSSProperties}
-            >
-              <div className={styles.serviceTop}>
-                <div className={styles.serviceTitle}>{service.title}</div>
-                <div className={styles.serviceDot} />
-              </div>
-              <div className={styles.serviceRule} />
-              <p className={styles.serviceLead}>{service.lead}</p>
-              <div className={styles.serviceBody}>
-                <div className={styles.serviceDetail}>
-                  {service.detail.map((line, i) => (
-                    <div
-                      key={line}
-                      className={i === 0 ? styles.detailStrong : styles.detailMuted}
-                    >
-                      {line}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ServiceGrid />
       </section>
 
       <section className={styles.deploySection}>

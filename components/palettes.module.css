@@ -107,3 +107,67 @@
   --footer-accent: #85858E;
   --footer-rule: #3A3A42;
 }
+
+/* Foundation — black on white, with a mono accent face. */
+.foundation {
+  --paper: #FFFFFF;
+  --hairline: #E2E2E2;
+  --ink: #000000;
+  --ink-muted: #5A5A5A;
+  --ink-faint: #8A8A8A;
+  --accent: #000000;
+  --accent-dark: #000000;
+
+  --footer-bg: #111111;
+  --footer-text: #FFFFFF;
+  --footer-accent: #9A9A9A;
+  --footer-rule: #9A9A9A;
+}
+
+/* Community — red on white. */
+.community {
+  --paper: #FFFFFF;
+  --hairline: #F0D8DA;
+  --ink: #160809;
+  --ink-muted: #6B5457;
+  --ink-faint: #C7898D;
+  --accent: #E0132B;
+  --accent-dark: #8E0C1C;
+
+  --footer-bg: #190809;
+  --footer-text: #FFFFFF;
+  --footer-accent: #C7898D;
+  --footer-rule: #C7898D;
+}
+
+/* Udara — cream and gold. */
+.udara {
+  --paper: #FBF6EC;
+  --hairline: #E4D6B4;
+  --ink: #1A1408;
+  --ink-muted: #57503F;
+  --ink-faint: #8C8271;
+  --accent: #A97A06;
+  --accent-dark: #14100A;
+
+  --footer-bg: #14100A;
+  --footer-text: #F7F1E2;
+  --footer-accent: #C7B98F;
+  --footer-rule: #3A3222;
+}
+
+/* RAG Bootcamp — cool blue-grey. */
+.bootcamp {
+  --paper: #EFF3F5;
+  --hairline: #CFDBE1;
+  --ink: #0C161B;
+  --ink-muted: #4C6068;
+  --ink-faint: #7E9099;
+  --accent: #1F6F8B;
+  --accent-dark: #0C161B;
+
+  --footer-bg: #0C161B;
+  --footer-text: #EFF3F5;
+  --footer-accent: #7E9099;
+  --footer-rule: #4C6068;
+}

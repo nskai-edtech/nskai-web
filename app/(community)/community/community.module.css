@@ -1,0 +1,263 @@
+/* Community. Structure follows `Community.dc.html`; red on white. */
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.monoAccent { composes: mono; }
+
+.monoOnAccent { composes: mono; color: rgba(255, 255, 255, 0.72); }
+
+.h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero { padding: 104px var(--page-x) 64px; }
+
+.heroTitle {
+  margin: 26px 0 0;
+  max-width: 20ch;
+  font-weight: 500;
+  font-size: 76px;
+  line-height: 1.03;
+  letter-spacing: -0.012em;
+}
+
+.heroLead {
+  margin: 30px 0 0;
+  max-width: 56ch;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+.heroActions {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.buttonSolid,
+.buttonOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.buttonSolid {
+  background: var(--accent);
+  color: #FFFFFF;
+  transition: background 200ms ease;
+}
+.buttonSolid:hover { background: var(--accent-dark); color: #FFFFFF; }
+
+.buttonOutline {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+.buttonOutline:hover { color: var(--ink); }
+
+/* --- The flyer wall ------------------------------------------------------ */
+
+.wall { padding: 0 0 96px; }
+
+.wallHead {
+  padding: 0 var(--page-x) 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 40px;
+}
+
+.flyers {
+  padding: 0 var(--page-x);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.flyer { transition: transform 260ms var(--ease-move); }
+.flyer:hover { transform: translateY(-8px); }
+
+.flyerFrame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: #FFF1F2;
+}
+
+/* Flyers are portrait art on a square tile, so they are contained not cropped. */
+.flyerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.wallNote {
+  margin: 26px 0 0;
+  padding: 0 var(--page-x);
+  max-width: 64ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+/* --- What runs ----------------------------------------------------------- */
+
+.formats { padding: 0 var(--page-x) 104px; }
+
+.formatsHead {
+  border-top: 1px solid var(--hairline);
+  padding-top: 44px;
+}
+
+.formatsLead {
+  margin: 16px 0 0;
+  max-width: 62ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.formatGrid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.format {
+  border: 1px solid var(--hairline);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.formatFrame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #FFF1F2;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.formatBody { padding: 24px 22px 28px; }
+
+.formatTitle {
+  margin: 12px 0 0;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+.formatText {
+  margin: 10px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+/* --- Discord ------------------------------------------------------------- */
+
+.discordSection { padding: 0 var(--page-x) 112px; }
+
+.discord {
+  background: var(--accent);
+  color: #FFFFFF;
+  padding: 64px 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 56px;
+  align-items: center;
+}
+
+.discordTitle {
+  margin: 18px 0 0;
+  font-size: 46px;
+  font-weight: 500;
+  letter-spacing: -0.008em;
+  max-width: 26ch;
+  color: #FFFFFF;
+}
+
+.discordLead {
+  margin: 18px 0 0;
+  max-width: 54ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.discordButton {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 58px;
+  padding: 0 30px;
+  background: #FFFFFF;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  flex: none;
+  transition: transform 200ms ease;
+}
+.discordButton:hover { transform: translateY(-3px); color: var(--ink); }
+
+/* --- Closing band -------------------------------------------------------- */
+
+.closing {
+  padding: 96px var(--page-x);
+  background: #FFF1F2;
+  border-top: 1px solid var(--hairline);
+}
+
+.closingTitle {
+  margin: 0;
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: -0.008em;
+  max-width: 22ch;
+}
+
+.closingLead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 52ch;
+}
+
+.closingActions {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flyer, .discordButton { transition: none; }
+  .flyer:hover, .discordButton:hover { transform: none; }
+}

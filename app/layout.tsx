@@ -34,6 +34,11 @@ export default function RootLayout({
           href="https://api.fontshare.com/v2/css?f%5B%5D=gambetta@1,2&display=swap"
           rel="stylesheet"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
         {children}

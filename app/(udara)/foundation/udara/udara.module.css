@@ -1,0 +1,510 @@
+/* The Udara Project. Structure follows `Udara Project.dc.html`; cream and gold,
+   with Spline Sans Mono for labels and figures. */
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.monoMuted {
+  composes: mono;
+  letter-spacing: 0.13em;
+  color: var(--ink-faint);
+}
+
+.monoAccent { composes: mono; letter-spacing: 0.13em; }
+
+.h2 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+}
+
+.h2Small {
+  margin: 20px 0 0;
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  max-width: 20ch;
+}
+
+.section { padding: 0 var(--page-x) 112px; }
+
+.ruled { border-top: 1px solid var(--hairline); padding-top: 44px; }
+
+.ruledHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 40px;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero {
+  padding: 104px var(--page-x) 64px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.heroTitle {
+  margin: 26px 0 0;
+  max-width: 18ch;
+  font-weight: 500;
+  font-size: 76px;
+  line-height: 1.02;
+  letter-spacing: -0.028em;
+}
+
+.heroLead {
+  margin: 30px 0 0;
+  max-width: 54ch;
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+.heroActions {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.heroFigure { margin: 0; }
+
+.figure { margin: 0; }
+
+.frameWide,
+.frameTall,
+.frameSquare {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  background: #F3E9D4;
+}
+
+.frameWide { aspect-ratio: 16 / 9; }
+.frameTall { aspect-ratio: 4 / 5; }
+.frameSquare { aspect-ratio: 1 / 1; }
+
+.imageBottom,
+.imageTop,
+.imageCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imageBottom { object-position: 50% 100%; }
+.imageTop { object-position: top; }
+
+.frameWide + figcaption,
+.frameTall + figcaption,
+.frameSquare + figcaption { margin-top: 14px; }
+
+/* --- Headline figures ---------------------------------------------------- */
+
+.headline { padding: 0 var(--page-x) 104px; }
+
+.headlineGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.headlineCell { background: var(--paper); padding: 26px 22px; }
+
+.headlineValue {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.headlineCell .monoMuted { margin-top: 10px; }
+
+.headlineNote {
+  margin: 22px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6B6252;
+  max-width: 86ch;
+}
+
+/* --- Reach --------------------------------------------------------------- */
+
+.reachGrid {
+  border-top: 1px solid var(--ink);
+  padding-top: 44px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 64px;
+  align-items: start;
+}
+
+.reachLead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.note { background: var(--paper); padding: 18px 20px; }
+
+.noteTitle { margin-top: 8px; font-size: 17px; font-weight: 500; }
+
+.noteBody { margin-top: 4px; font-size: 15px; color: var(--ink-muted); }
+
+/* --- Five days ----------------------------------------------------------- */
+
+.days {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.day { background: var(--paper); padding: 24px 20px 28px; }
+
+.dayTitle {
+  margin-top: 14px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.daysNote {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 74ch;
+  text-wrap: pretty;
+}
+
+/* --- Who was in the room ------------------------------------------------- */
+
+.cohort {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.cohortCell { background: var(--paper); padding: 26px 22px 28px; }
+
+.cohortValue {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.cohortBody {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.meter { margin-top: 14px; height: 6px; background: #EFE3C9; }
+
+.meterFill { height: 100%; background: #C79A0B; }
+
+.languages {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #6B6252;
+  line-height: 1.7;
+}
+
+/* --- The Build and speakers ---------------------------------------------- */
+
+.buildGrid,
+.speakerGrid {
+  border-top: 1px solid var(--hairline);
+  padding-top: 44px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.buildLead {
+  margin: 18px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 50ch;
+  text-wrap: pretty;
+}
+
+.table {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.tableRow {
+  background: var(--paper);
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.tableLabel { font-size: 16px; color: var(--ink-muted); }
+
+.tableValue {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.speaker { background: var(--paper); padding: 16px 20px; }
+
+.speakerName { font-size: 17px; font-weight: 500; }
+
+.speakerRole { margin-top: 3px; font-size: 15px; color: #6B6252; }
+
+/* --- Diaries ------------------------------------------------------------- */
+
+/* Set in columns so the quotes fill like a page of print. */
+.diaries {
+  margin-top: 36px;
+  columns: 3;
+  column-gap: 32px;
+}
+
+.diary {
+  margin: 0 0 32px;
+  break-inside: avoid;
+  border-top: 1px solid var(--hairline);
+  padding-top: 18px;
+}
+
+.diaryLead {
+  composes: diary;
+  border-top: 2px solid var(--ink);
+}
+
+.quote {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.quoteLead {
+  composes: quote;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.diaryWho {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6B6252;
+}
+
+/* --- Where support goes -------------------------------------------------- */
+
+.support {
+  padding: 96px var(--page-x);
+  background: #14100A;
+  color: #F7F1E2;
+}
+
+.supportHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 40px;
+  border-bottom: 1px solid #3A3222;
+  padding-bottom: 22px;
+}
+
+.supportTitle {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.supportEyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #C7B98F;
+}
+
+.supportLead {
+  margin: 28px 0 0;
+  font-size: 20px;
+  line-height: 1.55;
+  max-width: 70ch;
+  color: #E8DFC6;
+  text-wrap: pretty;
+}
+
+.supportGrid {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: #3A3222;
+  border: 1px solid #3A3222;
+}
+
+.supportCell { background: #14100A; padding: 28px 24px; }
+
+.supportWhen {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F5B60D;
+}
+
+.supportBody {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #E8DFC6;
+}
+
+.supportActions {
+  margin-top: 40px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* --- Buttons ------------------------------------------------------------- */
+
+.buttonSolid,
+.buttonOutline,
+.buttonGold,
+.buttonGhost {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.buttonSolid {
+  background: var(--ink);
+  color: var(--paper);
+  transition: background 160ms ease;
+}
+.buttonSolid:hover { background: var(--accent); color: var(--paper); }
+
+.buttonOutline {
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+  transition: border-color 160ms ease;
+}
+.buttonOutline:hover { border-color: var(--ink); color: var(--ink); }
+
+.buttonGold { background: #F5B60D; color: #14100A; }
+.buttonGold:hover { color: #14100A; }
+
+.buttonGhost { border: 1px solid #6B6252; color: #F7F1E2; }
+.buttonGhost:hover { color: #F7F1E2; }
+
+/* --- Closing band -------------------------------------------------------- */
+
+.closing {
+  padding: 96px var(--page-x);
+  background: #F5B60D;
+  color: #14100A;
+  border-top: 1px solid #14100A;
+}
+
+.closingTitle {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+}
+
+.closingLead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4A3A02;
+  max-width: 52ch;
+}
+
+.closingActions {
+  margin-top: 32px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.closingSolid,
+.closingOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.closingSolid { background: #14100A; color: #F5B60D; }
+.closingSolid:hover { color: #F5B60D; }
+
+.closingOutline { border: 1px solid #14100A; color: #14100A; }
+.closingOutline:hover { color: #14100A; }

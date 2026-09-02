@@ -19,6 +19,7 @@
 
   --serif: "Gambetta", "Iowan Old Style", Georgia, serif;
   --sans: "Author", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "Spline Sans Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --page-x: 100px;
   --ease-move: cubic-bezier(0.2, 0.8, 0.2, 1);
