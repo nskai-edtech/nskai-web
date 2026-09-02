@@ -4,10 +4,13 @@ The six industry pages each open on an archival photograph, and some carry a
 second one. The handoff says to **self-host** these rather than hotlink
 Wikimedia, so this directory holds them and the pages reference `/plates/<file>`.
 
-Every plate is public domain or carries no known restrictions. Fetch each from
-Wikimedia Commons at 1600px wide:
+**These are present in the repo.** Every plate is public domain or carries no
+known restrictions, fetched from Wikimedia Commons at:
 
     https://commons.wikimedia.org/wiki/Special:FilePath/<SOURCE>?width=1600
+
+Commons served them at 1920px wide. The largest frame on any page is ~1240px,
+so they can be downscaled if page weight matters more than headroom.
 
 | File | Source file on Commons |
 | --- | --- |
@@ -25,8 +28,8 @@ Wikimedia Commons at 1600px wide:
 | `ene-plate-hero.jpg` | Lewis Hine Power house mechanic working on steam pump.jpg |
 | `ene-det-1.jpg` | Mechanic at Steam Pump in Electric Power House, circa 1921.jpg |
 
-The pages render correctly with these missing — the frames hold their size — so
-the build does not depend on them.
+The pages render correctly without them — the frames hold their size — so the
+build does not depend on any of these files.
 
 The solutions overview uses one more:
 
