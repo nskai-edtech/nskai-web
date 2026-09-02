@@ -1,0 +1,42 @@
+/* The frame around each plate's one motion piece. Shared by all six pages;
+   what sits inside it is different every time. */
+
+.stage { padding: 0 var(--page-x) 112px; }
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 48px;
+  border-top: 1px solid var(--hairline);
+  padding-top: 36px;
+}
+
+.title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 40px;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+}
+
+.note {
+  margin: 0;
+  max-width: 32ch;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.body { margin-top: 40px; }
+
+/* Retail's strip runs to the edges, so its heading keeps the page inset while
+   the strip itself bleeds. */
+.stageWide { padding: 0 0 112px; }
+
+.headInset {
+  composes: head;
+  margin: 0 var(--page-x);
+}
+
+.bodyBleed { margin-top: 40px; }

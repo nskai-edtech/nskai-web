@@ -90,3 +90,20 @@
   --footer-accent: #F26B5E;
   --footer-rule: #6A6260;
 }
+
+/* Industry pages — one cool neutral shared by all six. Each page keeps its own
+   plate number and motion piece, but the palette does not change between them. */
+.industry {
+  --paper: #EFEFF1;
+  --hairline: #CFCFD4;
+  --ink: #101014;
+  --ink-muted: #62626B;
+  --ink-faint: #9B9BA3;
+  --accent: #101014;
+  --accent-dark: #2A2A31;
+
+  --footer-bg: #101014;
+  --footer-text: #EFEFF1;
+  --footer-accent: #85858E;
+  --footer-rule: #3A3A42;
+}

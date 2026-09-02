@@ -1,0 +1,473 @@
+/* Shared furniture for the six industry plates. Structure follows the
+   `.dc.html` prototypes; the cool-neutral palette comes from `.industry`. */
+
+.label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* --- Head and hero ------------------------------------------------------- */
+
+.head { padding: 88px var(--page-x) 0; }
+
+.rule {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 18px;
+}
+
+.breadcrumb {
+  composes: label;
+  color: var(--ink);
+}
+
+.stamp { display: flex; gap: 36px; }
+
+.stampItem { composes: label; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 96px;
+  padding: 64px 0 0;
+  align-items: start;
+}
+
+/* The plates set their titles in the serif at its lightest weight. */
+.title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 88px;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+}
+
+.lead {
+  margin: 36px 0 0;
+  max-width: 46ch;
+  font-size: 19px;
+  line-height: 1.62;
+  color: var(--ink-muted);
+}
+
+.actions {
+  margin-top: 44px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Square corners here, unlike the product pages. */
+.buttonSolid,
+.buttonOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 54px;
+  padding: 0 30px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.buttonSolid {
+  background: var(--ink);
+  color: var(--paper);
+  transition: background 160ms ease;
+}
+.buttonSolid:hover { background: var(--accent-dark); color: var(--paper); }
+
+.buttonOutline {
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  transition: border-color 160ms ease;
+}
+.buttonOutline:hover { border-color: var(--ink); color: var(--ink); }
+
+.plateFigure { margin: 0; }
+
+.plateFrame {
+  border: 1px solid var(--hairline);
+  padding: 14px;
+  background: var(--paper);
+}
+
+.plateImage {
+  display: block;
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  background: #E4E4E7;
+  filter: grayscale(1) contrast(1.05);
+}
+
+.plateCaption {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  text-align: right;
+}
+
+.captionText { max-width: 34ch; text-align: left; }
+
+/* --- The problem --------------------------------------------------------- */
+
+.problem { padding: 104px var(--page-x) 96px; }
+
+.problemGrid {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  border-top: 1px solid var(--hairline);
+  padding-top: 36px;
+}
+
+.problemText {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.68;
+  color: var(--ink);
+}
+
+/* --- Where it applies ---------------------------------------------------- */
+
+.applies { padding: 0 var(--page-x) 104px; }
+
+.appliesHead {
+  border-top: 1px solid var(--hairline);
+  padding-top: 36px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.appliesNote { font-size: 11.5px; color: var(--ink-faint); }
+
+.appliesGrid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 460px;
+  gap: 64px;
+  align-items: start;
+}
+
+.appliesList {
+  margin-top: 8px;
+  display: grid;
+  gap: 32px;
+}
+
+/* Pages without a second photograph run the three across the full width. */
+.appliesWide { margin-top: 40px; }
+
+.appliesColumns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.applyItem {
+  border-top: 1px solid var(--hairline);
+  padding-top: 18px;
+}
+
+.applyIndex {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+}
+
+.applyTitle {
+  margin-top: 10px;
+  font-size: 19px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.applyBody {
+  margin: 10px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.detailFigure { margin: 0; }
+
+.detailFrame { border: 1px solid var(--hairline); padding: 14px; }
+
+.detailImage {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  background: #E4E4E7;
+  filter: grayscale(1) contrast(1.05);
+}
+
+.detailCaption {
+  margin-top: 12px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* --- A worked example ---------------------------------------------------- */
+
+.worked { padding: 0 var(--page-x) 112px; }
+
+.workedGrid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 64px;
+  align-items: start;
+  border-top: 1px solid var(--hairline);
+  padding-top: 36px;
+}
+
+.workedRows { display: flex; flex-direction: column; }
+
+.workedRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.workedLabel { font-size: 17px; color: var(--ink-muted); }
+
+.workedValue {
+  font-size: 34px;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.workedNote {
+  padding-top: 16px;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+/* --- Compliance and deployment ------------------------------------------- */
+
+.notes {
+  padding: 96px var(--page-x);
+  background: #E4E4E7;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: start;
+}
+
+.complianceList {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.complianceRow {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.complianceIndex {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  padding-top: 4px;
+}
+
+.complianceText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--ink);
+}
+
+.deploymentList {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.deploymentRow {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.deploymentWhen {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.deploymentWhat { font-size: 16px; line-height: 1.55; }
+
+/* --- Deployed here ------------------------------------------------------- */
+
+.deployed { padding: 104px var(--page-x); }
+
+.deployedGrid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* The row steps in from the left rather than changing colour. */
+.deployedRow {
+  display: grid;
+  grid-template-columns: 240px 1fr 24px;
+  gap: 32px;
+  align-items: baseline;
+  padding: 26px 0;
+  border-top: 1px solid var(--hairline);
+  color: var(--ink);
+  transition: padding-left 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.deployedRow:hover { padding-left: 12px; color: var(--ink); }
+
+.deployedName { font-size: 22px; letter-spacing: -0.015em; }
+
+.deployedNote { font-size: 15px; color: var(--ink-muted); }
+
+.deployedArrow { justify-self: end; color: var(--ink-faint); }
+
+/* --- The other plates ---------------------------------------------------- */
+
+.otherPlates { padding: 0 var(--page-x) 112px; }
+
+.plateGrid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.plateLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 148px;
+  padding: 20px;
+  border: 1px solid var(--hairline);
+  color: var(--ink-muted);
+  transition:
+    background 280ms ease,
+    color 280ms ease,
+    border-color 280ms ease;
+}
+.plateLink:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.plateNumeral {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.plateName {
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.plateLink:hover .plateName { color: var(--paper); }
+
+/* --- Closing band -------------------------------------------------------- */
+
+.closing {
+  padding: 104px var(--page-x);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.closingTitle {
+  margin: 0;
+  font-weight: 400;
+  font-size: 46px;
+  letter-spacing: -0.025em;
+  max-width: 24ch;
+}
+
+.closingLead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(239, 239, 241, 0.7);
+  max-width: 48ch;
+}
+
+.closingActions {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.closingSolid,
+.closingOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 54px;
+  padding: 0 30px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.closingSolid {
+  background: var(--paper);
+  color: var(--ink);
+  transition: background 160ms ease;
+}
+.closingSolid:hover { background: #CFCFD4; color: var(--ink); }
+
+.closingOutline {
+  color: var(--paper);
+  border: 1px solid rgba(239, 239, 241, 0.4);
+  transition: border-color 160ms ease;
+}
+.closingOutline:hover { border-color: var(--paper); color: var(--paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  .deployedRow, .plateLink { transition: none; }
+  .deployedRow:hover { padding-left: 0; }
+}
