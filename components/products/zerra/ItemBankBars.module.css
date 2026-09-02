@@ -1,0 +1,38 @@
+.plate {
+  margin-top: 20px;
+  background: #EBE4E1;
+  border: 1px solid var(--hairline);
+  padding: 24px;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 260px;
+}
+
+.bar {
+  flex: 1;
+  transform-origin: bottom;
+  transition:
+    transform 240ms var(--ease-move),
+    opacity 240ms ease;
+}
+
+.axis {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #8E827E;
+}
+
+.readout {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar { transition: opacity 240ms ease; }
+}

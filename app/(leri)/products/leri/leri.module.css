@@ -1,0 +1,376 @@
+/* Leri. Structure follows `Leri.dc.html`; the warm paper family and brown
+   accent come from the .leri palette on the chrome. */
+
+.h2 {
+  margin: 0;
+  max-width: 22ch;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.h2Small {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  padding: 88px var(--page-x) 0;
+  overflow: hidden;
+}
+
+.orbit {
+  position: absolute;
+  right: -120px;
+  top: -40px;
+  width: 720px;
+  height: 720px;
+  pointer-events: none;
+}
+
+.ringOuter,
+.ringMiddle,
+.ringInner {
+  position: absolute;
+}
+
+.ringOuter {
+  inset: 0;
+  animation: spin 64s linear infinite;
+}
+
+.ringMiddle {
+  inset: 70px;
+  animation: spin 42s linear infinite reverse;
+}
+
+.ringInner {
+  inset: 150px;
+  animation: spin 28s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.heroBody { position: relative; }
+
+.breadcrumb {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.crumbAccent {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.crumbDot {
+  font-size: 12px;
+  color: #B08355;
+}
+
+.crumbMuted {
+  composes: crumbAccent;
+  color: var(--ink-muted);
+}
+
+.heroTitle {
+  margin: 28px 0 0;
+  max-width: 17ch;
+  font-weight: 500;
+  font-size: 82px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.heroLead {
+  margin: 32px 0 0;
+  max-width: 52ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+/* Reply against resolve, weighted so resolve takes the wider column. */
+.compare {
+  margin-top: 72px;
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.compareReply {
+  flex: 1;
+  padding: 22px 28px 22px 0;
+  border-right: 1px solid var(--hairline);
+}
+
+.compareResolve {
+  flex: 1.35;
+  padding: 22px 0 22px 28px;
+}
+
+.compareLabelMuted {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.compareLabelAccent {
+  composes: compareLabelMuted;
+  color: var(--accent);
+}
+
+.compareTextMuted {
+  margin-top: 10px;
+  font-size: 17px;
+  color: var(--ink-muted);
+}
+
+.compareText {
+  margin-top: 10px;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+/* --- Ledger -------------------------------------------------------------- */
+
+.ledgerSection { padding: 104px var(--page-x) 0; }
+
+.ledgerHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/* --- Stack panels -------------------------------------------------------- */
+
+.stackSection { padding: 104px var(--page-x) 0; }
+
+.stack {
+  margin-top: 32px;
+  display: flex;
+  gap: 8px;
+  height: 280px;
+}
+
+/* The panel you point at takes the room from the others. */
+.panel {
+  flex: 1;
+  background: var(--panel-bg);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    flex 420ms var(--ease-move),
+    background 420ms ease,
+    color 420ms ease;
+}
+.panel:hover {
+  flex: 2.2;
+  background: var(--panel-hover-bg);
+  color: #F1E9E2;
+}
+
+.panelLabel {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.panelTitle {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* --- Claims -------------------------------------------------------------- */
+
+.claims {
+  padding: 104px var(--page-x);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.claimCard {
+  padding: 32px;
+  background: #E6D3BC;
+  color: var(--ink);
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  transition: background 320ms ease, color 320ms ease;
+}
+.claimCard:hover {
+  background: var(--flood-bg);
+  color: #F1E9E2;
+}
+
+.claimTitle {
+  font-size: 44px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.claimBody {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  transition: color 320ms ease, opacity 320ms ease;
+}
+
+.claimCaption {
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--ink-faint);
+  transition: color 320ms ease, opacity 320ms ease;
+}
+
+.claimCard:hover .claimBody,
+.claimCard:hover .claimCaption {
+  color: #F1E9E2;
+  opacity: 0.78;
+}
+
+/* --- The rest of the system ---------------------------------------------- */
+
+.rest { padding: 0 var(--page-x) 104px; }
+
+.restGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.restTile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  color: var(--ink-muted);
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 280ms ease,
+    color 280ms ease,
+    border-color 280ms ease;
+}
+.restTile:hover {
+  transform: translate(-5px, -7px);
+  background: #EFE0CE;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.restStatus {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.restName {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* --- Closing band -------------------------------------------------------- */
+
+/* Leri's band is the accent brown, not the shared yellow. */
+.closing {
+  padding: 104px var(--page-x);
+  background: var(--accent);
+  border-top: 1px solid var(--ink);
+}
+
+.closingTitle {
+  margin: 0;
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  max-width: 680px;
+  color: #F1E9E2;
+}
+
+.closingLead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #E4CDB8;
+  max-width: 48ch;
+}
+
+.closingActions {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.closingSolid,
+.closingOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.closingSolid {
+  background: var(--ink);
+  color: #F1E9E2;
+  transition: background 160ms ease;
+}
+.closingSolid:hover { background: var(--accent); color: #F1E9E2; }
+
+/* NOTE: the prototype gives this button a green border (#BFE3D9) and a green
+   hover ink (#0E7C66) — Data Annotation's palette, not Leri's. Carried over
+   as drawn; see the handoff note. */
+.closingOutline {
+  color: #F1E9E2;
+  border: 1px solid #BFE3D9;
+  transition: background 160ms ease, color 160ms ease;
+}
+.closingOutline:hover { background: #F1E9E2; color: #0E7C66; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ringOuter, .ringMiddle, .ringInner { animation: none; }
+  .panel, .restTile { transition: background 420ms ease, color 420ms ease; }
+  .restTile:hover { transform: none; }
+}

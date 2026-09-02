@@ -1,0 +1,28 @@
+/* Per-page palettes. Each class overrides only the tokens that move; the rest
+   are inherited from :root in globals.css. See "Colour" in the design handoff. */
+
+/* Zerra — blue. */
+.zerra {
+  --accent: #1E3A8A;
+  --accent-dark: #0B2A6B;
+
+  --footer-bg: #0B1A34;
+  --footer-accent: #7E9BE0;
+  --footer-rule: #2F52A8;
+}
+
+/* Leri — warm brown. Shifts the paper family as well as the accent. */
+.leri {
+  --paper: #F1E9E2;
+  --hairline: #D8C7B6;
+  --ink: #221309;
+  --ink-muted: #6E5B4C;
+  --ink-faint: #9C8875;
+  --accent: #7A4A28;
+  --accent-dark: #6B4423;
+
+  --footer-bg: #1A1009;
+  --footer-text: #F1E9E2;
+  --footer-accent: #B08355;
+  --footer-rule: #4A2E1A;
+}

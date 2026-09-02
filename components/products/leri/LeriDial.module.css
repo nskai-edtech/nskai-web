@@ -1,0 +1,130 @@
+.wrap {
+  position: relative;
+  height: 3600px;
+  background: #221309;
+  margin-top: 96px;
+}
+
+.sticky {
+  position: sticky;
+  top: 72px;
+  height: 780px;
+  overflow: hidden;
+}
+
+.row {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.copy {
+  flex: 1;
+  padding: 88px 0 0 var(--page-x);
+}
+
+.stepRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.step {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #C9A57E;
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: #4A2E1A;
+  position: relative;
+}
+
+.progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 1px;
+  width: 12%;
+  background: #E6D3BC;
+}
+
+.captions {
+  position: relative;
+  margin-top: 26px;
+  width: 470px;
+  height: 320px;
+}
+
+.caption {
+  position: absolute;
+  inset: 0;
+  transition:
+    opacity 380ms ease,
+    transform 460ms var(--ease-move);
+}
+
+.capTitle {
+  margin: 0;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #F1E9E2;
+}
+
+.capBody {
+  margin: 18px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #C9B3A0;
+}
+
+.capTrace {
+  margin-top: 24px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #B08355;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.dialCol {
+  width: 700px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dial { overflow: visible; }
+
+.ring { transform-origin: 310px 310px; }
+
+.wedge { transition: opacity 320ms ease; }
+
+.formula {
+  position: absolute;
+  left: var(--page-x);
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #B08355;
+}
+
+.formulaRule {
+  width: 14px;
+  height: 1px;
+  background: #B08355;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caption, .wedge { transition: none; }
+}

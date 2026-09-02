@@ -1,0 +1,61 @@
+.equation {
+  height: 26px;
+  font-size: 17px;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+
+.value { color: var(--accent); }
+
+.frame {
+  margin-top: 20px;
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  width: max-content;
+}
+
+.bracketLeft,
+.bracketRight {
+  width: 8px;
+  border: 1px solid var(--ink);
+}
+.bracketLeft { border-right: none; }
+.bracketRight { border-left: none; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(16, 26px);
+  gap: 4px;
+  width: max-content;
+}
+
+.cell {
+  width: 26px;
+  height: 26px;
+  outline: 1px solid transparent;
+  outline-offset: 0;
+  transition:
+    background 200ms ease,
+    opacity 200ms ease,
+    outline-color 200ms ease;
+}
+
+.note {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.noteRule {
+  width: 14px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.noteText {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #8E827E;
+}

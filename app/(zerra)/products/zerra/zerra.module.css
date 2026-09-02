@@ -1,0 +1,413 @@
+/* Zerra. Structure follows `Zerra.dc.html`; the blue comes from the page
+   palette in components/palettes.module.css, so --accent is Zerra's blue here. */
+
+.h2 {
+  margin: 20px 0 0;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.h2Narrow {
+  composes: h2;
+  max-width: 24ch;
+}
+
+.eyebrowAccent {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero { padding: 96px var(--page-x) 56px; }
+
+.breadcrumb {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.crumbAccent {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.crumbDot {
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.crumbMuted {
+  composes: crumbAccent;
+  color: var(--ink-muted);
+}
+
+.heroTitle {
+  margin: 28px 0 0;
+  max-width: 21ch;
+  font-weight: 500;
+  font-size: 76px;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.heroLead {
+  margin: 32px 0 0;
+  max-width: 62ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+.curve { margin-top: 56px; }
+
+.stageIntro {
+  margin-top: 88px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.stageIntroText {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 22px;
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.stageIntroCue {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.cueRule {
+  width: 1px;
+  height: 28px;
+  background: var(--accent);
+}
+
+/* --- The mechanism ------------------------------------------------------- */
+
+.mechanism { padding: 112px var(--page-x) 0; }
+
+.stepGrid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.stepCard {
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  padding: 24px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 420ms var(--ease-move),
+    border-color 320ms ease,
+    box-shadow 420ms ease;
+}
+.stepCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--step-accent);
+  box-shadow: 0 14px 30px rgba(22, 16, 15, 0.08);
+}
+
+.stepBadge {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.stepTitle {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.stepLead {
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+/* The extra line only comes out on the card you are reading. */
+.stepBody {
+  margin-top: auto;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    max-height 460ms var(--ease-move),
+    opacity 320ms ease,
+    transform 460ms var(--ease-move);
+}
+.stepCard:hover .stepBody {
+  max-height: 160px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stepDetail {
+  padding-top: 16px;
+  border-top: 1px solid var(--hairline);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+/* --- In-house assessment ------------------------------------------------- */
+
+.assessment {
+  padding: 112px var(--page-x);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 96px;
+  align-items: start;
+}
+
+.assessmentLead {
+  margin: 20px 0 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.assurances {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.assurance {
+  border-top: 1px solid var(--hairline);
+  padding: 14px 0;
+  font-size: 16px;
+}
+
+/* The first row's rule is the accent; the last closes the stack. */
+.assuranceFirst {
+  composes: assurance;
+  border-top-color: var(--accent);
+}
+
+.assuranceLast {
+  composes: assurance;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.barsHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.barsLabel {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.barsHint {
+  font-size: 12px;
+  color: #8E827E;
+}
+
+/* --- Claims -------------------------------------------------------------- */
+
+.claims {
+  padding: 0 var(--page-x) 112px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.claimCard {
+  padding: 32px;
+  background: #EBE4E1;
+  color: var(--ink);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  transition: background 320ms ease, color 320ms ease;
+}
+.claimCard:hover {
+  background: var(--flood-bg);
+  color: var(--flood-ink);
+}
+
+.claimTitle {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.claimBody {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  transition: color 320ms ease, opacity 320ms ease;
+}
+
+.claimCaption {
+  margin-top: auto;
+  font-size: 12px;
+  color: #8E827E;
+  transition: color 320ms ease, opacity 320ms ease;
+}
+
+.claimCard:hover .claimBody,
+.claimCard:hover .claimCaption {
+  color: var(--flood-ink);
+  opacity: 0.78;
+}
+
+/* --- The rest of the system ---------------------------------------------- */
+
+.rest { padding: 112px var(--page-x); }
+
+.restTitle {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.restGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.restTile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  color: var(--ink-muted);
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 280ms ease,
+    color 280ms ease,
+    border-color 280ms ease;
+}
+.restTile:hover {
+  transform: translate(-5px, -7px);
+  background: #E3E9F8;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.restStatus {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.restName {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* --- Closing band -------------------------------------------------------- */
+
+.closing {
+  padding: 104px var(--page-x);
+  background: #FFD60A;
+  border-top: 1px solid var(--ink);
+}
+
+.closingTitle {
+  margin: 0;
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  max-width: 680px;
+}
+
+.closingLead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4D3B00;
+  max-width: 48ch;
+}
+
+.closingActions {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.closingSolid,
+.closingOutline {
+  font-family: var(--sans);
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.closingSolid {
+  background: var(--ink);
+  color: var(--paper);
+  transition: background 160ms ease;
+}
+.closingSolid:hover { background: var(--accent); color: var(--paper); }
+
+.closingOutline {
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  transition: background 160ms ease, color 160ms ease;
+}
+.closingOutline:hover { background: var(--ink); color: #FFD60A; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stepCard, .restTile { transition: border-color 320ms ease, background 320ms ease; }
+  .stepCard:hover, .restTile:hover { transform: none; }
+}

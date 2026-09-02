@@ -1,0 +1,53 @@
+.rail {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms ease;
+}
+
+.item {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tile {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  color: var(--ink-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 320ms ease,
+    border-color 320ms ease,
+    color 320ms ease,
+    transform 420ms var(--ease-move);
+}
+
+/* The nav icons are authored at 20px; the rail draws them a little larger. */
+.tile svg {
+  width: 22px;
+  height: 22px;
+}
+
+.tile.on {
+  background: var(--rail-accent);
+  border-color: var(--rail-accent);
+  color: var(--rail-accent-ink);
+  transform: translateX(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile { transition: none; }
+  .tile.on { transform: none; }
+}
