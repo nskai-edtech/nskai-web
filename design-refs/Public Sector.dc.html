@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=1440">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f%5B%5D=author&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f%5B%5D=gambetta@1,2&display=swap" rel="stylesheet">
+<script src="./nsk-detail.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#EFEFF1;}
+*{box-sizing:border-box;}
+a{color:#101014;text-decoration:none;}
+a:hover{color:#2A2A31;}
+:focus-visible{outline:2px solid #101014;outline-offset:2px;}
+@keyframes sol-drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="width:100%;min-width:1440px;background:#EFEFF1;color:#101014;font-family:'Gambetta','Iowan Old Style',Georgia,serif;-webkit-font-smoothing:antialiased">
+
+<header style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;position:sticky;top:0;z-index:30;height:72px;background:#EFEFF1;display:flex;align-items:center;padding:0 100px;border-bottom:1px solid #CFCFD4">
+  <a href="./NSK AI Homepage.dc.html" style="font-weight:500;font-size:20px;letter-spacing:0.10em;color:#101014">NSK AI</a>
+  <nav style="display:flex;align-items:center;gap:32px;margin-left:56px;font-size:14px;font-weight:400;height:100%">
+    <div data-menugroup="1" style="position:relative;height:100%;display:flex;align-items:center">
+      <div data-menutrigger="1" style="color:#62626B;padding:8px 0;cursor:default;transition:color 160ms ease">Products</div>
+      <div data-menupanel="1" style="position:absolute;left:-44px;top:71px;width:376px;background:#EFEFF1;border:1px solid #CFCFD4;box-shadow:0 24px 48px rgba(16,16,20,0.10);padding:8px;display:none;flex-direction:column;gap:1px">
+        <a href="./Zerra.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#1E3A8A;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="3" y="3" width="26" height="26"></rect><rect x="10" y="10" width="12" height="12"></rect><rect x="14" y="14" width="4" height="4" fill="currentColor" stroke="none"></rect></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#1E3A8A">Zerra</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Adaptive upskilling and assessment.</p>
+          </div>
+        </a>
+        <a href="./Leri.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#7A4A28;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><polygon points="16,2 25,6 29,16 25,26 16,30 7,26 3,16 7,6"></polygon><circle cx="16" cy="16" r="2.5" fill="currentColor" stroke="none"></circle></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#7A4A28">Leri</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Agents that resolve, not just reply.</p>
+          </div>
+        </a>
+        <a href="./Enterprise AI.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#E8A317;color:#101014;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><line x1="4" y1="10" x2="28" y2="10"></line><line x1="4" y1="16" x2="28" y2="16"></line><line x1="4" y1="22" x2="28" y2="22"></line><line x1="10" y1="4" x2="10" y2="28"></line><line x1="16" y1="4" x2="16" y2="28"></line><line x1="22" y1="4" x2="22" y2="28"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#E8A317">Enterprise AI</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Systems built inside your organisation.</p>
+          </div>
+        </a>
+        <a href="./Data Annotation.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#0E7C66;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M3 23a13 13 0 0 1 26 0"></path><line x1="3" y1="23" x2="29" y2="23"></line><circle cx="11" cy="19" r="1.6" fill="currentColor" stroke="none"></circle><circle cx="21" cy="19" r="1.6"></circle></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#0E7C66">Data Annotation</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Human-labelled data, written to spec.</p>
+          </div>
+        </a>
+        <a href="./Rudani.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#3A3A38;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="14" cy="14" r="9"></circle><line x1="20.5" y1="20.5" x2="28" y2="28"></line><line x1="9" y1="12" x2="19" y2="12"></line><line x1="9" y1="16" x2="16" y2="16"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#3A3A38">Rudani</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Questions answered from your own documents.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div data-menugroup="1" style="position:relative;height:100%;display:flex;align-items:center">
+      <div data-menutrigger="1" style="color:#62626B;padding:8px 0;cursor:default;transition:color 160ms ease">Solutions</div>
+      <div data-menupanel="1" style="position:absolute;left:-44px;top:71px;width:376px;background:#EFEFF1;border:1px solid #CFCFD4;box-shadow:0 24px 48px rgba(16,16,20,0.10);padding:8px;display:none;flex-direction:column;gap:1px">
+        <a href="./Financial Services.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#1E3A8A;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="4" y="5" width="24" height="22"></rect><line x1="4" y1="12" x2="28" y2="12"></line><line x1="16" y1="12" x2="16" y2="27"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#1E3A8A">Financial services</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Reconciliation and resolution on the ledger.</p>
+          </div>
+        </a>
+        <a href="./Telecommunications.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#E01A0D;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M16 26V12"></path><path d="M8 20a11 11 0 0 1 16 0"></path><path d="M4 15a17 17 0 0 1 24 0"></path><circle cx="16" cy="27" r="1.8" fill="currentColor" stroke="none"></circle></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#E01A0D">Telecommunications</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Support in the customer&rsquo;s own language.</p>
+          </div>
+        </a>
+        <a href="./Public Sector.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#0E7C66;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><polygon points="16,4 29,11 3,11"></polygon><line x1="7" y1="11" x2="7" y2="25"></line><line x1="16" y1="11" x2="16" y2="25"></line><line x1="25" y1="11" x2="25" y2="25"></line><line x1="3" y1="27" x2="29" y2="27"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#0E7C66">Public sector</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Retrieval over records that cannot leave.</p>
+          </div>
+        </a>
+        <a href="./Retail and Commerce.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#E8A317;color:#101014;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="6" y="11" width="20" height="16"></rect><path d="M11 11a5 5 0 0 1 10 0"></path></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#E8A317">Retail and commerce</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Refund decisions in one exchange.</p>
+          </div>
+        </a>
+        <a href="./Health and Insurance.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#8E1108;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><line x1="16" y1="6" x2="16" y2="26"></line><line x1="6" y1="16" x2="26" y2="16"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#8E1108">Health and insurance</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Clinical labelling with agreement rates.</p>
+          </div>
+        </a>
+        <a href="./Energy and Industry.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#7A4A28;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><polygon points="18,3 8,18 15,18 13,29 24,13 17,13"></polygon></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#7A4A28">Energy and industry</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Models quantized for hardware on site.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div data-menugroup="1" style="position:relative;height:100%;display:flex;align-items:center">
+      <div data-menutrigger="1" style="color:#62626B;padding:8px 0;cursor:default;transition:color 160ms ease">Company</div>
+      <div data-menupanel="1" style="position:absolute;left:-44px;top:71px;width:376px;background:#EFEFF1;border:1px solid #CFCFD4;box-shadow:0 24px 48px rgba(16,16,20,0.10);padding:8px;display:none;flex-direction:column;gap:1px">
+        <a href="./Company.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#FF5A1F;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="12" cy="12" r="4"></circle><circle cx="22" cy="13" r="3"></circle><path d="M5 26a7 7 0 0 1 14 0"></path><path d="M20 26a5 5 0 0 1 8-4"></path></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#FF5A1F">About us</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Who we are and how we work.</p>
+          </div>
+        </a>
+        <a href="./Company.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#101014;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(16,16,20,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#1E3A8A;color:#EFEFF1;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="16" cy="13" r="8"></circle><polyline points="11,20 9,29 16,25 23,29 21,20"></polyline></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#1E3A8A">Careers</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#62626B">Open roles in Lagos and London.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a href="./Foundation.dc.html" style="color:#62626B;padding:8px 0;transition:color 160ms ease">Foundation</a>
+    <a href="./Community.dc.html" style="color:#62626B;padding:8px 0;transition:color 160ms ease">Community</a>
+  </nav>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:24px">
+    <a href="./Contact.dc.html" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:40px;padding:0 16px;background:#101014;color:#EFEFF1;border-radius:4px;font-size:14px;font-weight:500;transition:background 160ms ease" style-hover="background:#4A4A46;color:#EFEFF1">Contact</a>
+  </div>
+</header>
+
+<section style="padding:88px 100px 0">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:32px;border-bottom:1px solid #CFCFD4;padding-bottom:18px">
+    <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#101014">Solutions · Public sector</div>
+    <div style="display:flex;gap:36px"><div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">Plate III</div><div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">NSK·SOL·03</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 520px;gap:96px;padding:64px 0 0;align-items:start">
+    <div>
+      <h1 style="margin:0;font-family:'Gambetta',Georgia,serif;font-weight:400;font-size:70px;line-height:1.08;letter-spacing:-0.015em;max-width:18ch">Records that cannot leave</h1>
+      <p style="margin:36px 0 0;max-width:46ch;font-size:19px;line-height:1.62;color:#62626B;text-wrap:pretty">Search across an archive that is not permitted to move.</p>
+      <div style="margin-top:44px;display:flex;gap:16px;align-items:center">
+        <a href="./Contact.dc.html" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:54px;padding:0 30px;background:#101014;color:#EFEFF1;font-size:15px;font-weight:500;transition:background 160ms ease" style-hover="background:#2A2A31;color:#EFEFF1">Talk to us about public sector</a>
+        <a href="./Solutions.dc.html" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:54px;padding:0 30px;color:#101014;border:1px solid #CFCFD4;font-size:15px;font-weight:500;transition:border-color 160ms ease" style-hover="border-color:#101014">All plates</a>
+      </div>
+    </div>
+    <div>
+      <div style="border:1px solid #CFCFD4;padding:14px;background:#EFEFF1">
+        <image-slot id="pub-plate-hero" shape="rect" fit="cover" placeholder="Drop the plate — black and white" src="https://commons.wikimedia.org/wiki/Special:FilePath/Office%20of%20War%20Information%20research%20workers%208d28681v.jpg?width=1600" style="display:block;width:100%;height:560px;background:#E4E4E7;filter:grayscale(1) contrast(1.08)"></image-slot>
+      </div>
+      <div style="margin-top:14px;display:flex;justify-content:space-between;gap:24px;font-size:12px;line-height:1.5;color:#62626B">
+        <div style="max-width:34ch">Fig. 1 — Research clerks at work on a government archive. Library of Congress, public domain.</div>
+        <div style="text-align:right;white-space:nowrap">Plate III<br/>NSK·SOL·03</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:104px 100px 96px">
+  <div style="display:grid;grid-template-columns:200px 1fr 1fr;gap:64px;align-items:start;border-top:1px solid #CFCFD4;padding-top:36px">
+    <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">The problem</div>
+    <p style="margin:0;font-size:18px;line-height:1.68;color:#101014;text-wrap:pretty">A ministry holds forty years of files: scanned, unindexed, and legally resident. A single freedom-of-information request costs a fortnight of somebody’s time.</p>
+    <p style="margin:0;font-size:18px;line-height:1.68;color:#101014;text-wrap:pretty">The same fifty documents are found again from scratch each time, by a different officer.</p>
+  </div>
+</section>
+
+<section style="padding:0 100px 112px">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:48px;border-top:1px solid #CFCFD4;padding-top:36px">
+    <h2 style="margin:0;font-family:'Gambetta',Georgia,serif;font-weight:400;font-size:40px;letter-spacing:-0.02em;max-width:22ch">Riffle the drawer.</h2>
+    <p style="margin:0;max-width:32ch;font-size:14px;line-height:1.6;color:#62626B">Riffle the drawer. Each card is stamped as the index accepts it.</p>
+  </div>
+  <div style="margin-top:40px">
+<div style="display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start">
+      <div data-riffle="1" style="position:relative;height:340px">
+        <div data-riffle-card="1" style="position:absolute;left:0;top:0;width:520px;padding:28px 32px;background:#EFEFF1;border:1px solid #CFCFD4;transition:transform 520ms cubic-bezier(0.2,0.7,0.2,1),opacity 420ms ease">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">MIN/FIN/1984/0417</div><div data-riffle-stamp="1" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#101014;border:1px solid #101014;padding:3px 8px;opacity:0;transition:opacity 380ms ease">Indexed</div></div>
+          <div style="margin-top:20px;font-family:'Gambetta',Georgia,serif;font-size:30px;letter-spacing:-0.01em">Ministry of Finance</div>
+          <div style="margin-top:16px;display:flex;gap:28px;font-size:13px;color:#62626B;font-variant-numeric:tabular-nums"><div>1984</div><div>128 pages</div><div>scanned, unindexed</div></div>
+        </div>
+        <div data-riffle-card="1" style="position:absolute;left:0;top:0;width:520px;padding:28px 32px;background:#EFEFF1;border:1px solid #CFCFD4;transition:transform 520ms cubic-bezier(0.2,0.7,0.2,1),opacity 420ms ease">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">MIN/WKS/1991/2280</div><div data-riffle-stamp="1" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#101014;border:1px solid #101014;padding:3px 8px;opacity:0;transition:opacity 380ms ease">Indexed</div></div>
+          <div style="margin-top:20px;font-family:'Gambetta',Georgia,serif;font-size:30px;letter-spacing:-0.01em">Public Works</div>
+          <div style="margin-top:16px;display:flex;gap:28px;font-size:13px;color:#62626B;font-variant-numeric:tabular-nums"><div>1991</div><div>64 pages</div><div>scanned, unindexed</div></div>
+        </div>
+        <div data-riffle-card="1" style="position:absolute;left:0;top:0;width:520px;padding:28px 32px;background:#EFEFF1;border:1px solid #CFCFD4;transition:transform 520ms cubic-bezier(0.2,0.7,0.2,1),opacity 420ms ease">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">MIN/EDU/1978/0031</div><div data-riffle-stamp="1" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#101014;border:1px solid #101014;padding:3px 8px;opacity:0;transition:opacity 380ms ease">Indexed</div></div>
+          <div style="margin-top:20px;font-family:'Gambetta',Georgia,serif;font-size:30px;letter-spacing:-0.01em">Education</div>
+          <div style="margin-top:16px;display:flex;gap:28px;font-size:13px;color:#62626B;font-variant-numeric:tabular-nums"><div>1978</div><div>412 pages</div><div>scanned, unindexed</div></div>
+        </div>
+        <div data-riffle-card="1" style="position:absolute;left:0;top:0;width:520px;padding:28px 32px;background:#EFEFF1;border:1px solid #CFCFD4;transition:transform 520ms cubic-bezier(0.2,0.7,0.2,1),opacity 420ms ease">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">MIN/HLT/2003/1190</div><div data-riffle-stamp="1" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#101014;border:1px solid #101014;padding:3px 8px;opacity:0;transition:opacity 380ms ease">Indexed</div></div>
+          <div style="margin-top:20px;font-family:'Gambetta',Georgia,serif;font-size:30px;letter-spacing:-0.01em">Health</div>
+          <div style="margin-top:16px;display:flex;gap:28px;font-size:13px;color:#62626B;font-variant-numeric:tabular-nums"><div>2003</div><div>88 pages</div><div>scanned, unindexed</div></div>
+        </div>
+        <div data-riffle-card="1" style="position:absolute;left:0;top:0;width:520px;padding:28px 32px;background:#EFEFF1;border:1px solid #CFCFD4;transition:transform 520ms cubic-bezier(0.2,0.7,0.2,1),opacity 420ms ease">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px"><div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">MIN/AGR/1969/0004</div><div data-riffle-stamp="1" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#101014;border:1px solid #101014;padding:3px 8px;opacity:0;transition:opacity 380ms ease">Indexed</div></div>
+          <div style="margin-top:20px;font-family:'Gambetta',Georgia,serif;font-size:30px;letter-spacing:-0.01em">Agriculture</div>
+          <div style="margin-top:16px;display:flex;gap:28px;font-size:13px;color:#62626B;font-variant-numeric:tabular-nums"><div>1969</div><div>1,204 pages</div><div>scanned, unindexed</div></div>
+        </div>
+      </div>
+      <div>
+        <button data-riffle-next="1" style="height:52px;padding:0 26px;background:#101014;color:#EFEFF1;border:none;font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:background 160ms ease" style-hover="background:#2A2A31">Index the next record</button>
+        <div style="margin-top:24px;display:flex;flex-direction:column;border-top:1px solid #CFCFD4">
+          <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #CFCFD4;font-size:13px;color:#62626B"><div>Records accepted</div><div data-riffle-count="1" style="color:#101014;font-variant-numeric:tabular-nums">0</div></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #CFCFD4;font-size:13px;color:#62626B"><div>Left the building</div><div style="color:#101014">0</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 100px 104px">
+  <div style="border-top:1px solid #CFCFD4;padding-top:36px;display:flex;align-items:baseline;justify-content:space-between;gap:48px">
+    <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">Where it applies</div>
+    <div style="font-size:11.5px;color:#9B9BA3">Records first. Nothing leaves the building.</div>
+  </div>
+  <div style="margin-top:32px;border:1px solid #CFCFD4;padding:16px"><image-slot id="pub-det-1" shape="rect" fit="cover" placeholder="Drop a photograph" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mannelijke%20kantoorbedienden%20achter%20schrijfmachines%2C%20Bestanddeelnr%20189-0019.jpg?width=1600" style="display:block;width:100%;height:340px;background:#E4E4E7;filter:grayscale(1) contrast(1.1)"></image-slot>
+  <div style="margin-top:12px;font-size:11.5px;line-height:1.5;color:#62626B">Fig. 2 &mdash; Clerks at their typewriters, 1930s. Nationaal Archief, public domain.</div></div>
+  
+  <div style="margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px">
+    <div data-applies="1" style="position:relative;border-top:1px solid #CFCFD4;padding-top:18px"><div data-rule="1" style="position:absolute;left:0;top:-1px;height:1px;width:0;background:#101014;transition:width 460ms cubic-bezier(0.2,0.8,0.2,1)"></div>
+      <div data-applies-num="1" style="font-size:10px;letter-spacing:0.14em;color:#9B9BA3;font-variant-numeric:tabular-nums;transition:color 300ms ease">01</div>
+      <div style="margin-top:10px;font-size:19px;line-height:1.25;letter-spacing:-0.01em">Information requests</div>
+      <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#62626B;text-wrap:pretty">A request answered from the archive itself, with the page cited and the officer who ran it named.</p>
+    </div>
+    <div data-applies="1" style="position:relative;border-top:1px solid #CFCFD4;padding-top:18px"><div data-rule="1" style="position:absolute;left:0;top:-1px;height:1px;width:0;background:#101014;transition:width 460ms cubic-bezier(0.2,0.8,0.2,1)"></div>
+      <div data-applies-num="1" style="font-size:10px;letter-spacing:0.14em;color:#9B9BA3;font-variant-numeric:tabular-nums;transition:color 300ms ease">02</div>
+      <div style="margin-top:10px;font-size:19px;line-height:1.25;letter-spacing:-0.01em">Case files and precedent</div>
+      <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#62626B;text-wrap:pretty">Earlier decisions found by their substance, so a new one is taken against what was decided before.</p>
+    </div>
+    <div data-applies="1" style="position:relative;border-top:1px solid #CFCFD4;padding-top:18px"><div data-rule="1" style="position:absolute;left:0;top:-1px;height:1px;width:0;background:#101014;transition:width 460ms cubic-bezier(0.2,0.8,0.2,1)"></div>
+      <div data-applies-num="1" style="font-size:10px;letter-spacing:0.14em;color:#9B9BA3;font-variant-numeric:tabular-nums;transition:color 300ms ease">03</div>
+      <div style="margin-top:10px;font-size:19px;line-height:1.25;letter-spacing:-0.01em">Procurement records</div>
+      <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:#62626B;text-wrap:pretty">Contracts, amendments and correspondence read together, on hardware that never leaves the premises.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 100px 112px">
+  <div style="display:grid;grid-template-columns:200px 1fr;gap:64px;align-items:start;border-top:1px solid #CFCFD4;padding-top:36px">
+    <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">A worked example</div>
+    <div style="display:flex;flex-direction:column">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCFD4">
+        <div style="font-size:17px;color:#62626B">Documents indexed</div>
+        <div style="font-family:'Gambetta',Georgia,serif;font-size:34px;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">41.6M</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCFD4">
+        <div style="font-size:17px;color:#62626B">Median answer</div>
+        <div style="font-family:'Gambetta',Georgia,serif;font-size:34px;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">1.9s</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCFD4">
+        <div style="font-size:17px;color:#62626B">FOI turnaround</div>
+        <div style="font-family:'Gambetta',Georgia,serif;font-size:34px;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">2 days, from 14</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCFD4">
+        <div style="font-size:17px;color:#62626B">Files that left the building</div>
+        <div style="font-family:'Gambetta',Georgia,serif;font-size:34px;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">0</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:baseline;padding:22px 0;border-bottom:1px solid #CFCFD4">
+        <div style="font-size:17px;color:#62626B">Answers refused for want of evidence</div>
+        <div style="font-family:'Gambetta',Georgia,serif;font-size:34px;letter-spacing:-0.02em;font-variant-numeric:tabular-nums">logged, not hidden</div>
+      </div>
+      <div style="padding-top:16px;font-size:12px;color:#9B9BA3">Figures from one deployment, quoted with the client’s permission. Yours will differ.</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:96px 100px;background:#E4E4E7;border-top:1px solid #CFCFD4;border-bottom:1px solid #CFCFD4">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start">
+    <div>
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">Notes on compliance</div>
+      <div style="margin-top:24px;display:flex;flex-direction:column;gap:18px">
+        <div style="display:grid;grid-template-columns:28px 1fr;gap:16px;align-items:start">
+          <div style="font-size:11px;letter-spacing:0.1em;color:#9B9BA3;font-variant-numeric:tabular-nums;padding-top:4px">01</div>
+          <p style="margin:0;font-size:15px;line-height:1.62;color:#101014">Data resident on ministry hardware, with an air-gapped index.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:28px 1fr;gap:16px;align-items:start">
+          <div style="font-size:11px;letter-spacing:0.1em;color:#9B9BA3;font-variant-numeric:tabular-nums;padding-top:4px">02</div>
+          <p style="margin:0;font-size:15px;line-height:1.62;color:#101014">Every query attributable to a named officer, and every citation to a page.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:28px 1fr;gap:16px;align-items:start">
+          <div style="font-size:11px;letter-spacing:0.1em;color:#9B9BA3;font-variant-numeric:tabular-nums;padding-top:4px">03</div>
+          <p style="margin:0;font-size:15px;line-height:1.62;color:#101014">Retention and disposal schedules are honoured by the index itself.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">Deployment</div>
+      <div style="margin-top:24px;display:flex;flex-direction:column">
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-top:1px solid #CFCFD4">
+          <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#62626B">Month 1</div>
+          <div style="font-size:16px;line-height:1.55">Air-gapped install and a scan pipeline for the paper backlog</div>
+        </div>
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-top:1px solid #CFCFD4">
+          <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#62626B">Month 2</div>
+          <div style="font-size:16px;line-height:1.55">Index built department by department</div>
+        </div>
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-top:1px solid #CFCFD4">
+          <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#62626B">Month 3</div>
+          <div style="font-size:16px;line-height:1.55">Officers query directly, citations point at the page</div>
+        </div>
+        <div style="display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-top:1px solid #CFCFD4">
+          <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#62626B">Month 4</div>
+          <div style="font-size:16px;line-height:1.55">Disposal schedule wired into the index</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:104px 100px">
+  <div style="display:grid;grid-template-columns:200px 1fr;gap:64px;align-items:start">
+    <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">Deployed here</div>
+    <div style="display:flex;flex-direction:column">
+      <a href="./Rudani.dc.html" style="display:grid;grid-template-columns:240px 1fr 24px;gap:32px;align-items:baseline;padding:26px 0;border-top:1px solid #CFCFD4;color:#101014;transition:padding-left 320ms cubic-bezier(0.2,0.7,0.2,1)" style-hover="padding-left:12px;color:#101014">
+        <div style="font-family:'Gambetta',Georgia,serif;font-size:30px;letter-spacing:-0.015em">Rudani</div>
+        <div style="font-size:16px;color:#62626B">The answer, with the paragraph behind it</div>
+        <div style="font-size:16px;color:#9B9BA3;text-align:right">→</div>
+      </a>
+      <a href="./Enterprise AI.dc.html" style="display:grid;grid-template-columns:240px 1fr 24px;gap:32px;align-items:baseline;padding:26px 0;border-top:1px solid #CFCFD4;color:#101014;transition:padding-left 320ms cubic-bezier(0.2,0.7,0.2,1)" style-hover="padding-left:12px;color:#101014">
+        <div style="font-family:'Gambetta',Georgia,serif;font-size:30px;letter-spacing:-0.015em">Enterprise AI</div>
+        <div style="font-size:16px;color:#62626B">Built and operated inside the ministry</div>
+        <div style="font-size:16px;color:#9B9BA3;text-align:right">→</div>
+      </a>
+      <div style="border-top:1px solid #CFCFD4"></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 100px 112px">
+  <div style="border-top:1px solid #CFCFD4;padding-top:36px">
+    <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#62626B">The other plates</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:28px">
+    <a href="Financial Services.dc.html" style="display:flex;flex-direction:column;justify-content:space-between;min-height:180px;padding:22px;background:#EFEFF1;border:1px solid #CFCFD4;color:#62626B;transition:transform 320ms cubic-bezier(0.2,0.7,0.2,1),background 320ms ease,color 320ms ease,border-color 320ms ease" style-hover="transform:translateY(-6px);background:#101014;color:#9B9BA3;border-color:#101014">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase">Plate I</div>
+      <div style="font-family:'Gambetta',Georgia,serif;font-size:22px;line-height:1.15;letter-spacing:-0.01em;color:inherit">Financial services</div>
+    </a>
+    <a href="Telecommunications.dc.html" style="display:flex;flex-direction:column;justify-content:space-between;min-height:180px;padding:22px;background:#EFEFF1;border:1px solid #CFCFD4;color:#62626B;transition:transform 320ms cubic-bezier(0.2,0.7,0.2,1),background 320ms ease,color 320ms ease,border-color 320ms ease" style-hover="transform:translateY(-6px);background:#101014;color:#9B9BA3;border-color:#101014">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase">Plate II</div>
+      <div style="font-family:'Gambetta',Georgia,serif;font-size:22px;line-height:1.15;letter-spacing:-0.01em;color:inherit">Telecommunications</div>
+    </a>
+    <a href="Retail and Commerce.dc.html" style="display:flex;flex-direction:column;justify-content:space-between;min-height:180px;padding:22px;background:#EFEFF1;border:1px solid #CFCFD4;color:#62626B;transition:transform 320ms cubic-bezier(0.2,0.7,0.2,1),background 320ms ease,color 320ms ease,border-color 320ms ease" style-hover="transform:translateY(-6px);background:#101014;color:#9B9BA3;border-color:#101014">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase">Plate IV</div>
+      <div style="font-family:'Gambetta',Georgia,serif;font-size:22px;line-height:1.15;letter-spacing:-0.01em;color:inherit">Retail and commerce</div>
+    </a>
+    <a href="Health and Insurance.dc.html" style="display:flex;flex-direction:column;justify-content:space-between;min-height:180px;padding:22px;background:#EFEFF1;border:1px solid #CFCFD4;color:#62626B;transition:transform 320ms cubic-bezier(0.2,0.7,0.2,1),background 320ms ease,color 320ms ease,border-color 320ms ease" style-hover="transform:translateY(-6px);background:#101014;color:#9B9BA3;border-color:#101014">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase">Plate V</div>
+      <div style="font-family:'Gambetta',Georgia,serif;font-size:22px;line-height:1.15;letter-spacing:-0.01em;color:inherit">Health and insurance</div>
+    </a>
+    <a href="Energy and Industry.dc.html" style="display:flex;flex-direction:column;justify-content:space-between;min-height:180px;padding:22px;background:#EFEFF1;border:1px solid #CFCFD4;color:#62626B;transition:transform 320ms cubic-bezier(0.2,0.7,0.2,1),background 320ms ease,color 320ms ease,border-color 320ms ease" style-hover="transform:translateY(-6px);background:#101014;color:#9B9BA3;border-color:#101014">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase">Plate VI</div>
+      <div style="font-family:'Gambetta',Georgia,serif;font-size:22px;line-height:1.15;letter-spacing:-0.01em;color:inherit">Energy and industry</div>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding:104px 100px;background:#101014;color:#EFEFF1">
+  <h2 style="margin:0;font-family:'Gambetta',Georgia,serif;font-weight:400;font-size:56px;letter-spacing:-0.03em;max-width:20ch">Bring us the case you have not been able to close.</h2>
+  <p style="margin:20px 0 0;font-size:18px;line-height:1.6;color:rgba(239,239,241,0.72);max-width:46ch">We will tell you which part of it is a model problem and which part is not.</p>
+  <div style="margin-top:32px;display:flex;gap:16px;align-items:center">
+    <a href="./Contact.dc.html" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:54px;padding:0 30px;background:#EFEFF1;color:#101014;font-size:15px;font-weight:500;transition:background 160ms ease" style-hover="background:#C0C0C6;color:#101014">Contact</a>
+    <a href="./NSK AI Homepage.dc.html" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:54px;padding:0 30px;color:#EFEFF1;border:1px solid rgba(239,239,241,0.4);font-size:15px;font-weight:500;transition:border-color 160ms ease" style-hover="border-color:#EFEFF1;color:#EFEFF1">Back to NSK AI</a>
+  </div>
+</section>
+
+<footer style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;background:#101014;color:#EFEFF1;padding:80px 100px 40px">
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px">
+    <a href="./NSK AI Homepage.dc.html" style="font-size:28px;font-weight:500;letter-spacing:0.10em;color:#EFEFF1">NSK AI</a>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#85858E">Solutions</div>
+      <a href="Financial Services.dc.html" style="color:#EFEFF1;font-size:14px">Financial services</a>
+      <a href="Telecommunications.dc.html" style="color:#EFEFF1;font-size:14px">Telecommunications</a>
+      <a href="Public Sector.dc.html" style="color:#EFEFF1;font-size:14px">Public sector</a>
+      <a href="Retail and Commerce.dc.html" style="color:#EFEFF1;font-size:14px">Retail and commerce</a>
+      <a href="Health and Insurance.dc.html" style="color:#EFEFF1;font-size:14px">Health and insurance</a>
+      <a href="Energy and Industry.dc.html" style="color:#EFEFF1;font-size:14px">Energy and industry</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#85858E">Products</div>
+      <a href="./Zerra.dc.html" style="color:#EFEFF1;font-size:14px">Zerra</a>
+      <a href="./Leri.dc.html" style="color:#EFEFF1;font-size:14px">Leri</a>
+      <a href="./Rudani.dc.html" style="color:#EFEFF1;font-size:14px">Rudani</a>
+      <a href="./Data Annotation.dc.html" style="color:#EFEFF1;font-size:14px">Data Annotation</a>
+      <a href="./Enterprise AI.dc.html" style="color:#EFEFF1;font-size:14px">Enterprise AI</a>
+      <a href="./Advanced R-D.dc.html" style="color:#EFEFF1;font-size:14px">Advanced R&amp;D</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;font-size:14px">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#85858E">Offices</div>
+      <div>Lagos &middot; London</div>
+    </div>
+  </div>
+  <div style="margin-top:64px;padding-top:24px;border-top:1px solid #3A3A42;display:flex;justify-content:space-between;font-size:12px;color:#85858E">
+    <div>Lagos and London</div>
+    <div>NSK AI &copy; 2026</div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.rootRef = React.createRef();
+    this.timers = [];
+  }
+
+  componentDidMount() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    this.reconcile(root);
+    this.loupe(root);
+    this.riffle(root);
+    this.strip(root);
+    this.redact(root);
+    this.precision(root);
+    this.applies(root);
+  }
+
+  applies(root) {
+    root.querySelectorAll('[data-applies]').forEach(card => {
+      const rule = card.querySelector('[data-rule]');
+      const num = card.querySelector('[data-applies-num]');
+      card.addEventListener('pointerenter', () => {
+        if (rule) rule.style.width = '100%';
+        if (num) num.style.color = '#101014';
+      });
+      card.addEventListener('pointerleave', () => {
+        if (rule) rule.style.width = '0';
+        if (num) num.style.color = '#9B9BA3';
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    this.timers.forEach(clearTimeout);
+  }
+
+  renderVals() {
+    return { rootRef: this.rootRef };
+  }
+
+  reconcile(root) {
+    const wrap = root.querySelector('[data-recon]');
+    if (!wrap) return;
+    const list = wrap.querySelector('[data-recon-list]');
+    const handle = wrap.querySelector('[data-recon-handle]');
+    const rows = [].slice.call(wrap.querySelectorAll('[data-recon-row]'));
+    const outP = wrap.querySelector('[data-recon-paired]');
+    const outE = wrap.querySelector('[data-recon-exc]');
+    const outL = wrap.querySelector('[data-recon-left]');
+    const apply = y => {
+      const r = list.getBoundingClientRect();
+      const py = Math.max(0, Math.min(r.height, y));
+      handle.style.top = py + 'px';
+      let paired = 0, exc = 0;
+      rows.forEach(row => {
+        const rr = row.getBoundingClientRect();
+        const passed = rr.top - r.top + rr.height * 0.6 < py;
+        const isExc = row.dataset.exception === '1';
+        const state = row.querySelector('[data-recon-state]');
+        if (passed && isExc) {
+          exc++;
+          row.style.color = '#101014';
+          row.style.background = 'rgba(16,16,20,0.045)';
+          if (state) { state.textContent = 'Exception'; state.style.color = '#101014'; }
+        } else if (passed) {
+          paired++;
+          row.style.color = '#62626B';
+          row.style.background = 'transparent';
+          if (state) { state.textContent = 'Paired'; state.style.color = '#9B9BA3'; }
+        } else {
+          row.style.color = '#9B9BA3';
+          row.style.background = 'transparent';
+          if (state) { state.innerHTML = '&nbsp;'; }
+        }
+      });
+      if (outP) outP.textContent = paired;
+      if (outE) outE.textContent = exc;
+      if (outL) outL.textContent = rows.length - paired - exc;
+    };
+    let dragging = false;
+    const at = e => apply(e.clientY - list.getBoundingClientRect().top);
+    wrap.addEventListener('pointerdown', e => { dragging = true; at(e); });
+    window.addEventListener('pointerup', () => { dragging = false; });
+    wrap.addEventListener('pointermove', e => { if (dragging) at(e); });
+    this.timers.push(setTimeout(() => apply(list.getBoundingClientRect().height * 0.22), 260));
+  }
+
+  loupe(root) {
+    const stage = root.querySelector('[data-loupe]');
+    if (!stage) return;
+    const layer = stage.querySelector('[data-loupe-layer]');
+    const ring = stage.querySelector('[data-loupe-ring]');
+    const R = 150;
+    stage.addEventListener('pointermove', e => {
+      const r = stage.getBoundingClientRect();
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      const mask = 'radial-gradient(circle ' + R + 'px at ' + x + 'px ' + y + 'px, #000 62%, rgba(0,0,0,0) 66%)';
+      layer.style.opacity = '1';
+      layer.style.webkitMaskImage = mask;
+      layer.style.maskImage = mask;
+      ring.style.left = x + 'px';
+      ring.style.top = y + 'px';
+      ring.style.opacity = '1';
+    });
+    stage.addEventListener('pointerleave', () => {
+      layer.style.opacity = '0';
+      ring.style.opacity = '0';
+    });
+  }
+
+  riffle(root) {
+    const stack = root.querySelector('[data-riffle]');
+    if (!stack) return;
+    const cards = [].slice.call(stack.querySelectorAll('[data-riffle-card]'));
+    const btn = root.querySelector('[data-riffle-next]');
+    const count = root.querySelector('[data-riffle-count]');
+    let idx = 0, accepted = 0;
+    const paint = () => {
+      cards.forEach((c, i) => {
+        const rel = (i - idx + cards.length) % cards.length;
+        c.style.transform = 'translate(' + (rel * 14) + 'px,' + (rel * 16) + 'px) rotate(' + ((rel - 0.6) * 0.5).toFixed(2) + 'deg)';
+        c.style.zIndex = String(cards.length - rel);
+        c.style.opacity = rel > 3 ? '0' : String(1 - rel * 0.14);
+      });
+    };
+    paint();
+    if (btn) btn.addEventListener('click', () => {
+      const top = cards[idx % cards.length];
+      const stamp = top.querySelector('[data-riffle-stamp]');
+      if (stamp) stamp.style.opacity = '1';
+      accepted = Math.min(cards.length, accepted + 1);
+      if (count) count.textContent = accepted;
+      this.timers.push(setTimeout(() => { idx = (idx + 1) % cards.length; paint(); }, 240));
+    });
+  }
+
+  strip(root) {
+    const wrap = root.querySelector('[data-strip]');
+    if (!wrap) return;
+    const track = wrap.querySelector('[data-strip-track]');
+    const cards = [].slice.call(wrap.querySelectorAll('[data-case]'));
+    wrap.addEventListener('pointerenter', () => { track.style.animationPlayState = 'paused'; });
+    wrap.addEventListener('pointerleave', () => { track.style.animationPlayState = 'running'; });
+    cards.forEach(c => {
+      const body = c.querySelector('[data-case-body]');
+      c.addEventListener('pointerenter', () => {
+        c.style.transform = 'translateY(-8px)';
+        c.style.borderColor = '#101014';
+        if (body) { body.style.maxHeight = '140px'; body.style.opacity = '1'; }
+      });
+      c.addEventListener('pointerleave', () => {
+        c.style.transform = 'none';
+        c.style.borderColor = '#CFCFD4';
+        if (body) { body.style.maxHeight = '0'; body.style.opacity = '0'; }
+      });
+    });
+  }
+
+  redact(root) {
+    const tiers = [].slice.call(root.querySelectorAll('[data-tier]'));
+    if (!tiers.length) return;
+    const bars = [].slice.call(root.querySelectorAll('[data-bar]'));
+    const count = root.querySelector('[data-redact-count]');
+    const on = {};
+    const paint = () => {
+      let shown = 0;
+      bars.forEach(b => {
+        const open = !!on[b.dataset.tier];
+        b.style.transform = open ? 'scaleX(0)' : 'scaleX(1)';
+        if (open) shown++;
+      });
+      if (count) count.textContent = shown;
+      tiers.forEach(t => {
+        const open = !!on[t.dataset.tier];
+        t.style.background = open ? '#101014' : 'transparent';
+        t.style.borderColor = open ? '#101014' : '#CFCFD4';
+        t.querySelectorAll('div').forEach(d => { d.style.color = open ? '#EFEFF1' : d.dataset.keep || d.style.color; });
+        const st = t.querySelector('[data-tier-state]');
+        if (st) { st.textContent = open ? 'Granted' : 'Withheld'; st.style.color = open ? '#EFEFF1' : '#9B9BA3'; }
+      });
+    };
+    tiers.forEach(t => t.addEventListener('click', () => { on[t.dataset.tier] = !on[t.dataset.tier]; paint(); }));
+    paint();
+  }
+
+  precision(root) {
+    const input = root.querySelector('[data-bits]');
+    if (!input) return;
+    const steps = [16, 12, 8, 6, 5, 4, 3];
+    const dps = { 16: 4, 12: 3, 8: 2, 6: 2, 5: 1, 4: 1, 3: 0 };
+    const err = { 16: '0.0', 12: '0.0', 8: '+0.1', 6: '+0.2', 5: '+0.3', 4: '+0.4', 3: '+2.9' };
+    const runs = { 16: 'server only', 12: 'server only', 8: 'server, gateway', 6: 'gateway', 5: 'gateway, handheld', 4: 'gateway, handheld, control room', 3: 'anything, but wrong more often' };
+    const ws = [].slice.call(root.querySelectorAll('[data-w]'));
+    const outB = root.querySelector('[data-out-bits]');
+    const outS = root.querySelector('[data-out-size]');
+    const outL = root.querySelector('[data-out-lat]');
+    const outE = root.querySelector('[data-out-err]');
+    const outR = root.querySelector('[data-out-runs]');
+    const paint = () => {
+      const bits = steps[parseInt(input.value, 10)] || 16;
+      const dp = dps[bits];
+      ws.forEach(w => {
+        const v = parseFloat(w.dataset.full);
+        const q = Math.round(v * Math.pow(10, dp)) / Math.pow(10, dp);
+        w.textContent = q.toFixed(dp);
+        w.style.color = bits <= 3 ? '#9B9BA3' : '#101014';
+      });
+      if (outB) outB.textContent = bits + ' bit';
+      if (outS) outS.textContent = (7 * bits / 8).toFixed(1) + ' GB';
+      if (outL) outL.textContent = Math.round(38 * bits / 4) + ' ms';
+      if (outE) outE.textContent = err[bits] + ' pts';
+      if (outR) outR.textContent = runs[bits];
+    };
+    input.addEventListener('input', paint);
+    paint();
+  }
+}
+</script>
+</body>
+</html>
