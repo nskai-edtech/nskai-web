@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=1440">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f%5B%5D=author&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f%5B%5D=gambetta@1,2&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="./nsk-detail.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#EFF3F5;}
+*{box-sizing:border-box;}
+a{text-decoration:none;color:#0C161B;}
+a:hover{color:#1F6F8B;}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="width:100%;min-width:1440px;background:#EFF3F5;color:#0C161B;font-family:'Gambetta','Iowan Old Style',Georgia,serif;-webkit-font-smoothing:antialiased">
+
+<header style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;position:sticky;top:0;z-index:30;height:72px;background:#EFF3F5;display:flex;align-items:center;padding:0 100px;border-bottom:1px solid #CFDBE1">
+  <a href="./NSK AI Homepage.dc.html" style="font-weight:500;font-size:20px;letter-spacing:0.10em;color:#0C161B">NSK AI</a>
+  <nav style="display:flex;align-items:center;gap:32px;margin-left:56px;font-size:14px;font-weight:400;height:100%">
+    <div data-menugroup="1" style="position:relative;height:100%;display:flex;align-items:center">
+      <div data-menutrigger="1" style="color:#4C6068;padding:8px 0;cursor:default;transition:color 160ms ease">Products</div>
+      <div data-menupanel="1" style="position:absolute;left:-44px;top:71px;width:376px;background:#EFF3F5;border:1px solid #CFDBE1;box-shadow:0 24px 48px rgba(15,21,18,0.10);padding:8px;display:none;flex-direction:column;gap:1px">
+        <a href="./Zerra.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#1E3A8A;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="3" y="3" width="26" height="26"></rect><rect x="10" y="10" width="12" height="12"></rect><rect x="14" y="14" width="4" height="4" fill="currentColor" stroke="none"></rect></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#1E3A8A">Zerra</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Adaptive upskilling and assessment.</p>
+          </div>
+        </a>
+        <a href="./Leri.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#7A4A28;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><polygon points="16,2 25,6 29,16 25,26 16,30 7,26 3,16 7,6"></polygon><circle cx="16" cy="16" r="2.5" fill="currentColor" stroke="none"></circle></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#7A4A28">Leri</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Agents that resolve, not just reply.</p>
+          </div>
+        </a>
+        <a href="./Enterprise AI.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#E8A317;color:#0C161B;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><line x1="4" y1="10" x2="28" y2="10"></line><line x1="4" y1="16" x2="28" y2="16"></line><line x1="4" y1="22" x2="28" y2="22"></line><line x1="10" y1="4" x2="10" y2="28"></line><line x1="16" y1="4" x2="16" y2="28"></line><line x1="22" y1="4" x2="22" y2="28"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#E8A317">Enterprise AI</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Systems built inside your organisation.</p>
+          </div>
+        </a>
+        <a href="./Data Annotation.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#0E7C66;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M3 23a13 13 0 0 1 26 0"></path><line x1="3" y1="23" x2="29" y2="23"></line><circle cx="11" cy="19" r="1.6" fill="currentColor" stroke="none"></circle><circle cx="21" cy="19" r="1.6"></circle></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#0E7C66">Data Annotation</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Human-labelled data, written to spec.</p>
+          </div>
+        </a>
+        <a href="./Rudani.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#3A3A38;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="14" cy="14" r="9"></circle><line x1="20.5" y1="20.5" x2="28" y2="28"></line><line x1="9" y1="12" x2="19" y2="12"></line><line x1="9" y1="16" x2="16" y2="16"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#3A3A38">Rudani</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Questions answered from your own documents.</p>
+          </div>
+        </a>
+        <a href="./Advanced R-D.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#E01A0D;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M3 16C3 6 13 6 16 16C19 26 29 26 29 16C29 6 19 6 16 16C13 26 3 26 3 16Z"></path></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#E01A0D">Advanced R&amp;D</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Joint research on open questions.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div data-menugroup="1" style="position:relative;height:100%;display:flex;align-items:center">
+      <div data-menutrigger="1" style="color:#4C6068;padding:8px 0;cursor:default;transition:color 160ms ease">Solutions</div>
+      <div data-menupanel="1" style="position:absolute;left:-44px;top:71px;width:376px;background:#EFF3F5;border:1px solid #CFDBE1;box-shadow:0 24px 48px rgba(15,21,18,0.10);padding:8px;display:none;flex-direction:column;gap:1px">
+        <a href="./Financial Services.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#1E3A8A;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="4" y="5" width="24" height="22"></rect><line x1="4" y1="12" x2="28" y2="12"></line><line x1="16" y1="12" x2="16" y2="27"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#1E3A8A">Financial services</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Reconciliation and resolution on the ledger.</p>
+          </div>
+        </a>
+        <a href="./Telecommunications.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#E01A0D;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M16 26V12"></path><path d="M8 20a11 11 0 0 1 16 0"></path><path d="M4 15a17 17 0 0 1 24 0"></path><circle cx="16" cy="27" r="1.8" fill="currentColor" stroke="none"></circle></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#E01A0D">Telecommunications</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Support in the customer&rsquo;s own language.</p>
+          </div>
+        </a>
+        <a href="./Public Sector.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#0E7C66;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><polygon points="16,4 29,11 3,11"></polygon><line x1="7" y1="11" x2="7" y2="25"></line><line x1="16" y1="11" x2="16" y2="25"></line><line x1="25" y1="11" x2="25" y2="25"></line><line x1="3" y1="27" x2="29" y2="27"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#0E7C66">Public sector</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Retrieval over records that cannot leave.</p>
+          </div>
+        </a>
+        <a href="./Retail and Commerce.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#E8A317;color:#0C161B;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><rect x="6" y="11" width="20" height="16"></rect><path d="M11 11a5 5 0 0 1 10 0"></path></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#E8A317">Retail and commerce</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Refund decisions in one exchange.</p>
+          </div>
+        </a>
+        <a href="./Health and Insurance.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#0E2932;color:#EFF3F5;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><line x1="16" y1="6" x2="16" y2="26"></line><line x1="6" y1="16" x2="26" y2="16"></line></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#8E1108">Health and insurance</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Clinical labelling with agreement rates.</p>
+          </div>
+        </a>
+        <a href="./Energy and Industry.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#7A4A28;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><polygon points="18,3 8,18 15,18 13,29 24,13 17,13"></polygon></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#7A4A28">Energy and industry</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Models quantized for hardware on site.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div data-menugroup="1" style="position:relative;height:100%;display:flex;align-items:center">
+      <div data-menutrigger="1" style="color:#4C6068;padding:8px 0;cursor:default;transition:color 160ms ease">Company</div>
+      <div data-menupanel="1" style="position:absolute;left:-44px;top:71px;width:376px;background:#EFF3F5;border:1px solid #CFDBE1;box-shadow:0 24px 48px rgba(15,21,18,0.10);padding:8px;display:none;flex-direction:column;gap:1px">
+        <a href="./Company.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#FF5A1F;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="12" cy="12" r="4"></circle><circle cx="22" cy="13" r="3"></circle><path d="M5 26a7 7 0 0 1 14 0"></path><path d="M20 26a5 5 0 0 1 8-4"></path></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#FF5A1F">About us</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Who we are and how we work.</p>
+          </div>
+        </a>
+        <a href="./Company.dc.html" style="display:flex;align-items:flex-start;gap:14px;padding:14px;color:#0C161B;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),background 200ms ease" style-hover="transform:translateX(6px);background:rgba(15,21,18,0.035)">
+          <div style="flex:none;width:36px;height:36px;background:#1E3A8A;color:#F6F1EF;display:flex;align-items:center;justify-content:center;transition:transform 260ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform:scale(1.08) rotate(-3deg)">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="16" cy="13" r="8"></circle><polyline points="11,20 9,29 16,25 23,29 21,20"></polyline></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-size:15px;font-weight:500;transition:color 200ms ease" style-hover="color:#1E3A8A">Careers</div>
+            <p style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#4C6068">Open roles in Lagos and London.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a href="./Foundation.dc.html" style="color:#1F6F8B;padding:8px 0;transition:color 160ms ease">Foundation</a>
+    <a href="./Community.dc.html" style="color:#4C6068;padding:8px 0;transition:color 160ms ease">Community</a>
+  </nav>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:24px">
+    <a href="./Contact.dc.html" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:40px;padding:0 16px;background:#1F6F8B;color:#EFF3F5;border-radius:4px;font-size:14px;font-weight:500;transition:background 160ms ease" style-hover="background:#0E2932;color:#EFF3F5">Contact</a>
+  </div>
+</header>
+<section style="padding:112px 100px 72px">
+  <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#1F6F8B">Foundation &middot; Programme</div>
+  <h1 style="margin:28px 0 0;max-width:22ch;font-weight:500;font-size:72px;line-height:1.04;letter-spacing:-0.025em">The 2025 RAG and AI Agents Bootcamp</h1>
+  <p style="margin:32px 0 0;max-width:62ch;font-size:19px;line-height:1.6;color:#4C6068;text-wrap:pretty">Six weeks of live sessions on retrieval-augmented generation and agent systems, taught between 19 July and 31 August 2025 by practitioners from Apple, Thermo Fisher Scientific, ServiceLink, Anterior AI and Lemonaide Music. Free, online, open to anyone who registered.</p>
+  <div style="margin-top:36px;display:flex;gap:16px;align-items:center">
+    <a href="https://www.youtube.com/@Nskaicommunity" target="_blank" rel="noopener" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;background:#0C161B;color:#EFF3F5;border-radius:4px;font-size:15px;font-weight:500;transition:background 160ms ease" style-hover="background:#E01A0D;color:#EFF3F5">
+      <svg width="20" height="14" viewBox="0 0 24 17" fill="none" aria-hidden="true"><rect x="0.6" y="0.6" width="22.8" height="15.8" rx="4" stroke="currentColor" stroke-width="1.2"></rect><polygon points="9.5,4.8 16,8.5 9.5,12.2" fill="currentColor"></polygon></svg>
+      Watch every session on YouTube
+    </a>
+    <a href="./Foundation.dc.html" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:52px;padding:0 24px;border:1px solid #CFDBE1;color:#0C161B;border-radius:4px;font-size:15px;font-weight:500;transition:border-color 160ms ease" style-hover="border-color:#0C161B;color:#0C161B">The Foundation</a>
+  </div>
+</section>
+
+<section style="padding:0 100px 96px">
+  <div style="display:grid;grid-template-columns:0.62fr 1fr;gap:96px;align-items:start;border-top:1px solid #CFDBE1;padding-top:40px">
+    <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Why the Foundation ran it</div>
+    <div>
+      <p style="margin:0;font-size:20px;line-height:1.55;max-width:56ch;text-wrap:pretty">The NSK AI Foundation exists to put frontier technique in the hands of people who would otherwise pay for it or never see it. The bootcamp was the clearest form of that: the same retrieval and agent engineering our teams do commercially, taught by the people who do it, at no cost, on the record, to anyone who signed up.</p>
+      <p style="margin:20px 0 0;font-size:17px;line-height:1.6;color:#4C6068;max-width:60ch;text-wrap:pretty">Every recording stays public. Nothing taught here is held back from the Foundation&rsquo;s audience and sold elsewhere.</p>
+      <p style="margin:20px 0 0;font-size:15px;line-height:1.6;color:#7E9099;max-width:60ch">The Foundation is registered as the Bambara Artificial Intelligence Foundation.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 100px 104px">
+  <div style="display:grid;grid-template-columns:0.62fr 1fr;gap:96px;align-items:start;border-top:1px solid #CFDBE1;padding-top:40px">
+    <div>
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Run with</div>
+      <div style="margin-top:24px;background:#CFDBE1;border:1px solid #CFDBE1;overflow:hidden">
+        <img src="uploads/IMG_2396.PNG" alt="Intro to AI Agents: from RAG to deployment, six-week bootcamp" style="width:100%;height:auto;display:block"/>
+      </div>
+    </div>
+    <div>
+      <p style="margin:0;font-size:20px;line-height:1.55;max-width:56ch;text-wrap:pretty">The cohort was organised with three developer communities, which carried the announcement into their own campuses and chapters rather than leaving recruitment to our channels alone.</p>
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:1px;background:#CFDBE1;border:1px solid #CFDBE1">
+        <div style="background:#EFF3F5;padding:20px 24px;font-size:17px;font-weight:500">GDG Addis</div>
+        <div style="background:#EFF3F5;padding:20px 24px;font-size:17px;font-weight:500">Women Techmakers Addis</div>
+        <div style="background:#EFF3F5;padding:20px 24px;font-size:17px;font-weight:500">Google Developer Groups on Campus, Sudan University of Science &amp; Technology</div>
+      </div>
+      <p style="margin:28px 0 0;font-size:16px;line-height:1.6;color:#4C6068;max-width:58ch">Registration was open and free, six weeks from 19 July to 31 August 2025, with the theme announced as <em>Intro to AI Agents: from RAG to deployment</em>.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 100px 96px">
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#CFDBE1;border:1px solid #CFDBE1">
+    <div style="background:#EFF3F5;padding:26px 24px">
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-weight:400;font-variant-numeric:tabular-nums;font-size:40px;line-height:1;color:#0C161B">1,370</div>
+      <div style="margin-top:10px;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Participants</div>
+    </div>
+    <div style="background:#EFF3F5;padding:26px 24px">
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-weight:400;font-variant-numeric:tabular-nums;font-size:40px;line-height:1;color:#0C161B">50</div>
+      <div style="margin-top:10px;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Countries</div>
+    </div>
+    <div style="background:#EFF3F5;padding:26px 24px">
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-weight:400;font-variant-numeric:tabular-nums;font-size:40px;line-height:1;color:#0C161B">7</div>
+      <div style="margin-top:10px;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Live sessions</div>
+    </div>
+    <div style="background:#EFF3F5;padding:26px 24px">
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-weight:400;font-variant-numeric:tabular-nums;font-size:40px;line-height:1;color:#0C161B">0</div>
+      <div style="margin-top:10px;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Cost to attend</div>
+    </div>
+  </div>
+</section>
+
+<section data-gallery="1" style="padding:0 100px 104px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #CFDBE1;padding-top:40px;margin-bottom:44px">
+    <h2 style="margin:0;font-size:40px;font-weight:500;letter-spacing:-0.015em">The programme, as it ran</h2>
+    <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">August 2025 &middot; all sessions 6pm WAT</div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 32px">
+      <div data-sess="1" style="display:flex;flex-direction:column;transition:opacity 300ms ease">
+        <div style="position:relative;width:100%;aspect-ratio:1;background:#CFDBE1;overflow:hidden;border:1px solid #CFDBE1">
+          <img src="uploads/Generative%20ai%20paper%20talk_batcheditor_fotor.jpg" alt="Generative AI Meets Real-World Problem Solving" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#1F6F8B">01</div>
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Sat 2 August &middot; 6pm WAT</div>
+        </div>
+        <h3 style="margin:12px 0 0;font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-0.01em">Generative AI Meets Real-World Problem Solving</h3>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #CFDBE1">
+          <div style="font-size:15px;font-weight:500">Kevin Tuei</div>
+          <div style="margin-top:3px;font-size:13px;line-height:1.5;color:#4C6068">AWS UG AI/ML Kenya Leader</div>
+        </div>
+      </div>
+      <div data-sess="1" style="display:flex;flex-direction:column;transition:opacity 300ms ease">
+        <div style="position:relative;width:100%;aspect-ratio:1;background:#CFDBE1;overflow:hidden;border:1px solid #CFDBE1">
+          <img src="uploads/IMG_3101_optimized_1000.png" alt="Behind the Curtain: building production-grade AI agents that actually work" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#1F6F8B">02</div>
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Sat 9 August &middot; 6pm WAT</div>
+        </div>
+        <h3 style="margin:12px 0 0;font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-0.01em">Behind the Curtain: building production-grade AI agents that actually work</h3>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #CFDBE1">
+          <div style="font-size:15px;font-weight:500">Rajshekar Prabhakar</div>
+          <div style="margin-top:3px;font-size:13px;line-height:1.5;color:#4C6068">VP of Artificial Intelligence, ServiceLink</div>
+        </div>
+      </div>
+      <div data-sess="1" style="display:flex;flex-direction:column;transition:opacity 300ms ease">
+        <div style="position:relative;width:100%;aspect-ratio:1;background:#CFDBE1;overflow:hidden;border:1px solid #CFDBE1">
+          <img src="uploads/Data_analytics_with_ai_agents__optimized_1000.png" alt="Data Analytics Using Agents" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#1F6F8B">03</div>
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Fri 15 August &middot; 6pm WAT</div>
+        </div>
+        <h3 style="margin:12px 0 0;font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-0.01em">Data Analytics Using Agents</h3>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #CFDBE1">
+          <div style="font-size:15px;font-weight:500">Prabhu Rajendran</div>
+          <div style="margin-top:3px;font-size:13px;line-height:1.5;color:#4C6068">Senior Manager, Global Strategic Pricing, Thermo Fisher Scientific</div>
+        </div>
+      </div>
+      <div data-sess="1" style="display:flex;flex-direction:column;transition:opacity 300ms ease">
+        <div style="position:relative;width:100%;aspect-ratio:1;background:#CFDBE1;overflow:hidden;border:1px solid #CFDBE1">
+          <img src="uploads/WhatsApp%20Image%202025-08-16%20at%2018.08.06.jpeg" alt="Music Generation" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#1F6F8B">04</div>
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Sat 16 August &middot; 6pm WAT</div>
+        </div>
+        <h3 style="margin:12px 0 0;font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-0.01em">Music Generation</h3>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #CFDBE1">
+          <div style="font-size:15px;font-weight:500">Anirudh Mani</div>
+          <div style="margin-top:3px;font-size:13px;line-height:1.5;color:#4C6068">Co-founder, Lemonaide Music</div>
+        </div>
+      </div>
+      <div data-sess="1" style="display:flex;flex-direction:column;transition:opacity 300ms ease">
+        <div style="position:relative;width:100%;aspect-ratio:1;background:#CFDBE1;overflow:hidden;border:1px solid #CFDBE1">
+          <img src="uploads/IMG_3292.PNG" alt="Merging Minds: introduction and demos of model merging in LLMs" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#1F6F8B">05</div>
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Thu 21 August &middot; 6pm WAT</div>
+        </div>
+        <h3 style="margin:12px 0 0;font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-0.01em">Merging Minds: introduction and demos of model merging in LLMs</h3>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #CFDBE1">
+          <div style="font-size:15px;font-weight:500">Sai Prabhakar</div>
+          <div style="margin-top:3px;font-size:13px;line-height:1.5;color:#4C6068">AI Researcher, Anterior AI &middot; NSK AI community advisor</div>
+        </div>
+      </div>
+      <div data-sess="1" style="display:flex;flex-direction:column;transition:opacity 300ms ease">
+        <div style="position:relative;width:100%;aspect-ratio:1;background:#CFDBE1;overflow:hidden;border:1px solid #CFDBE1">
+          <img src="uploads/IMG_3309%282%29.PNG" alt="Keynote" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#1F6F8B">06</div>
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Sat 23 August &middot; 6pm WAT</div>
+        </div>
+        <h3 style="margin:12px 0 0;font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-0.01em">Keynote</h3>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #CFDBE1">
+          <div style="font-size:15px;font-weight:500">Nimshi Venkat</div>
+          <div style="margin-top:3px;font-size:13px;line-height:1.5;color:#4C6068">Senior Machine Learning Engineer, Apple</div>
+        </div>
+      </div>
+      <div data-sess="1" style="display:flex;flex-direction:column;transition:opacity 300ms ease">
+        <div style="position:relative;width:100%;aspect-ratio:1;background:#CFDBE1;overflow:hidden;border:1px solid #CFDBE1">
+          <img src="uploads/IMG_3573.PNG" alt="Closing keynote, Jesse Zwaan" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#1F6F8B">07</div>
+          <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Thu 28 August &middot; 6pm WAT</div>
+        </div>
+        <h3 style="margin:12px 0 0;font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-0.01em">Closing keynote</h3>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid #CFDBE1">
+          <div style="font-size:15px;font-weight:500">Jesse Zwaan</div>
+          <div style="margin-top:3px;font-size:13px;line-height:1.5;color:#4C6068">Software Engineer, Anterior AI</div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section style="padding:0 100px 104px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #CFDBE1;padding-top:40px;margin-bottom:44px">
+    <h2 style="margin:0;font-size:40px;font-weight:500;letter-spacing:-0.015em">Who taught, and who ran it</h2>
+    <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">14 speakers &middot; 6 organisers</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+    <figure style="margin:0">
+      <div style="width:100%;background:#CFDBE1;border:1px solid #CFDBE1;overflow:hidden">
+        <img src="uploads/IMG_3877.PNG" alt="The fourteen speakers of the AI RAG Bootcamp" style="width:100%;height:auto;display:block"/>
+      </div>
+      <figcaption style="margin-top:14px;font-size:15px;line-height:1.55;color:#4C6068;max-width:48ch">Speakers came from Apple, LangChain, Anterior, Stanford Healthcare, Thermo Fisher Scientific, ServiceLink, Neptune Medical, Swoop, Tublian and Lemonaide Music. None were paid to teach.</figcaption>
+    </figure>
+    <figure style="margin:0">
+      <div style="width:100%;background:#CFDBE1;border:1px solid #CFDBE1;overflow:hidden">
+        <img src="uploads/IMG_3775%281%29.PNG" alt="The organising team behind the bootcamp" style="width:100%;height:auto;display:block"/>
+      </div>
+      <figcaption style="margin-top:14px;font-size:15px;line-height:1.55;color:#4C6068;max-width:48ch">A six-person organising team handled curriculum, community, design and the Discord across the six weeks.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section style="padding:0 100px 112px">
+  <div style="display:grid;grid-template-columns:0.62fr 1fr;gap:96px;align-items:start;border-top:1px solid #CFDBE1;padding-top:40px">
+    <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">How it ran</div>
+    <div>
+      <p style="margin:0;font-size:20px;line-height:1.55;color:#0C161B;max-width:56ch;text-wrap:pretty">Every session was live and recorded, with the recording and materials left public afterwards, so people in timezones that made 6pm WAT impossible were not excluded.</p>
+      <p style="margin:22px 0 0;font-size:20px;line-height:1.55;color:#0C161B;max-width:56ch;text-wrap:pretty">Participants were expected to build rather than watch. They formed their own teams and shipped a product against a closing hackathon, and every team had to draw its members from at least three different countries. That rule was the curriculum as much as the lectures were: nobody finished the cohort having worked only with people they already knew.</p>
+      <div style="margin-top:32px;display:flex;gap:16px;align-items:center">
+        <a href="https://www.youtube.com/@Nskaicommunity" target="_blank" rel="noopener" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;background:#0C161B;color:#EFF3F5;border-radius:4px;font-size:15px;font-weight:500;transition:background 160ms ease" style-hover="background:#E01A0D;color:#EFF3F5">
+          <svg width="20" height="14" viewBox="0 0 24 17" fill="none" aria-hidden="true"><rect x="0.6" y="0.6" width="22.8" height="15.8" rx="4" stroke="currentColor" stroke-width="1.2"></rect><polygon points="9.5,4.8 16,8.5 9.5,12.2" fill="currentColor"></polygon></svg>
+          Session recordings
+        </a>
+        <a href="./Foundation.dc.html" style="font-size:16px;font-weight:500;color:#1F6F8B">Back to the Foundation &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 100px 96px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #CFDBE1;padding-top:40px;margin-bottom:44px">
+    <h2 style="margin:0;font-size:40px;font-weight:500;letter-spacing:-0.015em">What the cohort shipped</h2>
+    <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Closing hackathon &middot; September 2025</div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#CFDBE1;border:1px solid #CFDBE1;margin-bottom:56px">
+    <div style="background:#EFF3F5;padding:26px 24px">
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:40px;line-height:1">18</div>
+      <div style="margin-top:10px;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Projects submitted</div>
+    </div>
+    <div style="background:#EFF3F5;padding:26px 24px">
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:40px;line-height:1">12</div>
+      <div style="margin-top:10px;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Sectors addressed</div>
+    </div>
+    <div style="background:#EFF3F5;padding:26px 24px">
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:40px;line-height:1">3</div>
+      <div style="margin-top:10px;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Countries per team, minimum</div>
+    </div>
+    <div style="background:#EFF3F5;padding:26px 24px">
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:40px;line-height:1">5</div>
+      <div style="margin-top:10px;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Countries represented</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:0.62fr 1fr;gap:96px;align-items:start;margin-bottom:52px">
+    <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">Reading the submissions</div>
+    <p style="margin:0;font-size:19px;line-height:1.6;color:#4C6068;max-width:60ch;text-wrap:pretty">Teams were based in Ethiopia, Kenya, Nigeria, Senegal and Chad. Almost none of them built a chatbot for its own sake: the recurring shape was a retrieval system pointed at a document set a public institution had already published but nobody could use &mdash; national curricula, tourism records, health guidance, credit policy, government service requirements. Adaptive and self-reflective retrieval, graph retrieval and citation-backed answers appeared across the field, not just in the strongest entries.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#CFDBE1;border:1px solid #CFDBE1">
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">Kiisab</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Adaptive testing across the Senegalese national curriculum, with difficulty set by performance.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">LifeLine</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Public service navigator for Kenyan citizens: healthcare, education and NHIF requirements.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">Credit Explain</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Cites the clause behind a credit or regulatory decision, with audit-ready metrics.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">Yeneta</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Tutoring in six African languages, with progress carried across sessions.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">MediRAG</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Hybrid graph and vector retrieval over medical sources, with contradiction detection.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">Chikka_AI</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Feeding, vaccination and disease guidance for backyard poultry farmers.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">OkooAI</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Trip planning grounded in official Ethiopian tourism records rather than blogs.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">SupplyChain Genie</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Reads shipment documents, scores delay risk and proposes alternate routes.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px">
+      <div style="font-size:17px;font-weight:500">EchoCheck</div>
+      <div style="margin-top:8px;font-size:14px;line-height:1.55;color:#4C6068">Cross-checks a model&rsquo;s answer against trusted sources before it is shown.</div>
+    </div>
+    <div style="background:#EFF3F5;padding:24px;grid-column:span 3;color:#7E9099;font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.06em">And nine more: Hometown Atlas, CLARIFY, Data Analyzer RAG, SmartCV Chat, NewsAI, CookMate AI, Health-RAG-Chatbot, The Answering Machine, RAG Chatbot for Businesses.</div>
+  </div>
+</section>
+
+<section style="padding:0 100px 112px">
+  <div style="border-top:1px solid #CFDBE1;padding-top:40px;display:grid;grid-template-columns:0.62fr 1fr;gap:96px;align-items:start">
+    <div>
+      <div style="font-family:'Spline Sans Mono',ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7E9099">One year later</div>
+      <div style="margin-top:24px;padding:24px;border:1px solid #CFDBE1">
+        <div style="font-size:17px;font-weight:500">Ian Karanja</div>
+        <div style="margin-top:4px;font-size:14px;line-height:1.5;color:#4C6068">Nairobi, Kenya &middot; team RAGENGINEERS, LifeLine</div>
+      </div>
+    </div>
+    <div>
+      <p style="margin:0;font-size:20px;line-height:1.55;max-width:56ch;text-wrap:pretty">We have one piece of feedback from the 2025 cohort, and it arrived unprompted a year after the sessions ended. Ian Karanja joined while finishing a computer science degree, looking for a way across the gap between coursework and production systems. During the cohort he worked on LifeLine, a navigator for Kenyan public services.</p>
+        <blockquote style="margin:28px 0 0;padding-left:24px;border-left:2px solid #1F6F8B;font-size:19px;line-height:1.6;max-width:54ch;text-wrap:pretty">&ldquo;The bootcamp specifically helped me master the end-to-end process of indexing multi-source data, optimizing vector embeddings, and refining retrieval pipelines to reduce hallucination.&rdquo;</blockquote>
+      <p style="margin:28px 0 0;font-size:17px;line-height:1.6;color:#4C6068;max-width:60ch;text-wrap:pretty">In the year since, he has built LungScanAI, a system using specialised retrieval pipelines and ensemble analytics over medical data. In his words, the cohort &ldquo;strips away the fluff and forces you to build real, production-ready RAG architectures and systems that solve high-impact, real-world problems from day one.&rdquo;</p>
+      <p style="margin:20px 0 0;font-size:15px;line-height:1.6;color:#7E9099;max-width:60ch">We ran no exit survey. This is the only participant account we hold, and we have not generalised from it.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 100px 112px">
+  <div style="display:grid;grid-template-columns:0.62fr 1fr;gap:96px;align-items:end;border-top:1px solid #CFDBE1;padding-top:40px">
+    <div style="background:#CFDBE1;border:1px solid #CFDBE1;overflow:hidden">
+      <img src="uploads/WhatsApp%20Image%202025-09-14%20at%2011.31.36.jpeg" alt="Thank you for attending, AI RAG Bootcamp" style="width:100%;height:auto;display:block"/>
+    </div>
+    <div>
+      <h2 style="margin:0;font-size:40px;font-weight:500;letter-spacing:-0.015em;max-width:24ch">Six weeks, on the record.</h2>
+      <p style="margin:24px 0 0;font-size:19px;line-height:1.6;color:#4C6068;max-width:52ch;text-wrap:pretty">Every session from August 2025 is still public, in full, in the order it was taught.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding:104px 100px;background:#FFD60A;border-top:1px solid #0C161B;color:#16100F">
+  <h2 style="margin:0;font-size:52px;font-weight:500;letter-spacing:-0.02em;max-width:680px">Teach a cohort, or join one.</h2>
+  <p style="margin:20px 0 0;font-size:18px;line-height:1.6;color:#4D3B00;max-width:50ch">Instructors, partner institutions and participants all come through the same door.</p>
+  <div style="margin-top:32px;display:flex;gap:16px;align-items:center">
+    <a href="#" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:52px;padding:0 26px;background:#16100F;color:#FFD60A;font-size:15px;font-weight:500;border-radius:4px">Get involved</a>
+    <a href="./Community.dc.html" style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;display:inline-flex;align-items:center;flex:none;white-space:nowrap;height:52px;padding:0 26px;border:1px solid #16100F;color:#16100F;font-size:15px;font-weight:500;border-radius:4px">Join the Discord</a>
+  </div>
+</section>
+
+<footer style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;background:#0C2129;color:#EFF3F5;padding:80px 100px 40px">
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px">
+    <a href="./NSK AI Homepage.dc.html" style="font-size:28px;font-weight:500;letter-spacing:0.10em;color:#EFF3F5">NSK AI</a>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#7FADBE">Products</div>
+      <a href="./Zerra.dc.html" style="color:#EFF3F5;font-size:14px">Zerra</a>
+      <a href="./Leri.dc.html" style="color:#EFF3F5;font-size:14px">Leri</a>
+      <a href="./Data Annotation.dc.html" style="color:#EFF3F5;font-size:14px">Data Annotation</a>
+      <a href="./Rudani.dc.html" style="color:#EFF3F5;font-size:14px">Rudani</a>
+      <a href="./Enterprise AI.dc.html" style="color:#EFF3F5;font-size:14px">Enterprise AI</a>
+      <a href="./Advanced R-D.dc.html" style="color:#EFF3F5;font-size:14px">Advanced R&amp;D</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#7FADBE">Company</div>
+      <a href="./Solutions.dc.html" style="color:#EFF3F5;font-size:14px">Solutions</a>
+      <a href="./Foundation.dc.html" style="color:#EFF3F5;font-size:14px">Foundation</a>
+      <a href="./Community.dc.html" style="color:#EFF3F5;font-size:14px">Community</a>
+      <a href="./Company.dc.html" style="color:#EFF3F5;font-size:14px">Company</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;font-size:14px">
+      <div style="font-family:'Author','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#7FADBE">Offices</div>
+      <div>Lagos &middot; London</div>
+    </div>
+  </div>
+  <div style="margin-top:64px;padding-top:24px;border-top:1px solid #7FADBE;display:flex;justify-content:space-between;font-size:12px;color:#7FADBE">
+    <div>Lagos and London</div>
+    <div>NSK AI &copy; 2026</div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.rootRef = React.createRef();
+  }
+
+  componentDidMount() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    const cards = [].slice.call(root.querySelectorAll('[data-sess]'));
+    cards.forEach(c => {
+      c.addEventListener('pointerenter', () => {
+        cards.forEach(o => { o.style.opacity = o === c ? '1' : '0.42'; });
+      });
+      c.addEventListener('pointerleave', () => {
+        cards.forEach(o => { o.style.opacity = '1'; });
+      });
+    });
+  }
+
+  renderVals() { return { rootRef: this.rootRef }; }
+}
+</script>
+</body>
+</html>
