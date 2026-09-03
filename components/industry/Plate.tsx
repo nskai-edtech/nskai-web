@@ -91,6 +91,7 @@ export default function Plate({
                 <img
                   src={`/plates/${plate.detail.file}`}
                   alt=""
+                  loading="lazy"
                   className={styles.detailImage}
                 />
               </div>

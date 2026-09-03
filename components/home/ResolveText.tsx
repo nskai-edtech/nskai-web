@@ -96,6 +96,10 @@ export default function ResolveText({
 
     const timers: ReturnType<typeof setTimeout>[] = [];
     let observer: IntersectionObserver | undefined;
+    // document.fonts.ready resolves on its own schedule, which can be after
+    // this effect has been torn down. Without the flag, start() would build
+    // an observer nothing is left to disconnect.
+    let cancelled = false;
 
     const run = () => {
       const cs = getComputedStyle(el);
@@ -130,6 +134,7 @@ export default function ResolveText({
     };
 
     const start = () => {
+      if (cancelled) return;
       if (trigger === "mount") {
         run();
         return;
@@ -152,6 +157,7 @@ export default function ResolveText({
     else start();
 
     return () => {
+      cancelled = true;
       timers.forEach(clearTimeout);
       observer?.disconnect();
     };

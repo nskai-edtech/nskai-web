@@ -12,7 +12,9 @@ type Programme = {
   stats: { value: string; label: string }[];
   body: string;
   links: { label: string; href: string; external?: boolean }[];
-  figure: { file: string; caption: string };
+  // src is optional: the design leaves these as drop slots, and a programme
+  // with no photograph yet shows the empty frame rather than a broken image.
+  figure: { src?: string; caption: string };
 };
 
 const PROGRAMMES: Programme[] = [
@@ -30,7 +32,7 @@ const PROGRAMMES: Programme[] = [
     body: "Udara runs as a cohort programme: five days of live teaching, hands-on exercises and then a 48-day hackathon, all delivered remotely so that a student in Kano and a student in Kigali sit the same course. The 2026 edition reached 290 universities, and 23 of them registered more than a hundred learners each.",
     links: [{ label: "See the Udara Project in full →", href: "/foundation/udara" }],
     figure: {
-      file: "udara.jpg",
+      src: "/udara/participants.png",
       caption: "Fig. 1 — An Udara cohort session.",
     },
   },
@@ -57,7 +59,6 @@ const PROGRAMMES: Programme[] = [
       },
     ],
     figure: {
-      file: "rag.jpg",
       caption: "Fig. 2 — The 2025 bootcamp.",
     },
   },
@@ -138,11 +139,14 @@ export default function ProgrammeTabs() {
 
         <figure className={styles.figure}>
           <div className={styles.figureFrame}>
-            <img
-              src={`/foundation/${programme.figure.file}`}
-              alt=""
-              className={styles.figureImage}
-            />
+            {programme.figure.src && (
+              <img
+                src={programme.figure.src}
+                alt=""
+                loading="lazy"
+                className={styles.figureImage}
+              />
+            )}
           </div>
           <figcaption className={styles.figureCaption}>
             {programme.figure.caption}

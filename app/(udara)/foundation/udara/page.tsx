@@ -179,6 +179,7 @@ export default function UdaraPage() {
             <img
               src="/udara/participants.png"
               alt="Udara Project participants"
+              loading="lazy"
               className={styles.imageBottom}
             />
           </div>
@@ -325,6 +326,7 @@ export default function UdaraPage() {
               <img
                 src="/udara/the-build-flyer.png"
                 alt="The Build hackathon flyer"
+                loading="lazy"
                 className={styles.imageTop}
               />
             </div>
@@ -342,6 +344,7 @@ export default function UdaraPage() {
               <img
                 src="/udara/speakers.png"
                 alt="Udara 2026 speakers"
+                loading="lazy"
                 className={styles.imageCover}
               />
             </div>

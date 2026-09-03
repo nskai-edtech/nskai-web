@@ -1,12 +1,13 @@
 # Foundation photographs
 
 The Foundation page shows one photograph per programme. The design leaves these
-as drop slots — "Drop your own photograph here" — so no image was supplied and
-the frames render as flat panels until these files exist.
+as drop slots — "Drop your own photograph here" — so none were supplied with the
+handoff.
 
-| File | Shows |
-| --- | --- |
-| `udara.jpg` | An Udara cohort session |
-| `rag.jpg` | The 2025 RAG and AI Agents bootcamp |
+Udara's slot now reuses `/udara/participants.png`, which is the cohort session
+the caption describes. The RAG bootcamp has no photograph, so its frame renders
+as the empty panel the design specifies rather than a broken image.
 
-Both are 4:3 and cover-cropped.
+To fill it, add the file under `public/` and set `figure.src` for the `rag`
+programme in `components/foundation/ProgrammeTabs.tsx`. Figures are 4:3 and
+cover-cropped.

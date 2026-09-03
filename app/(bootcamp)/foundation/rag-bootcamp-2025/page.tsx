@@ -192,6 +192,7 @@ export default function RagBootcampPage() {
               <img
                 src="/bootcamp/poster.png"
                 alt="Intro to AI Agents: from RAG to deployment, six-week bootcamp"
+                loading="lazy"
                 className={styles.poster}
               />
             </div>

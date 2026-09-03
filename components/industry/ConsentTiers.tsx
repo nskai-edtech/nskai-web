@@ -11,7 +11,10 @@ const TIERS: { id: Tier; name: string; covers: string }[] = [
   { id: 3, name: "External audit", covers: "Values and intervals" },
 ];
 
-/** Eight redactable fields; each belongs to the tier that permits it. */
+/** The redactable fields; each belongs to the tier that permits it.
+    The prototype labels the counter "of 8" but draws seven fields, so the
+    total is taken from the list rather than hard-coded — otherwise granting
+    every tier settles on "7 of 8" and reads as a fault. */
 const FIELDS: { text: string; tier: Tier }[] = [
   { text: "A. O. Adeyemi", tier: 1 },
   { text: "aged 54", tier: 1 },
@@ -63,7 +66,8 @@ export default function ConsentTiers() {
           <Field index={6} />.
         </p>
         <div className={styles.count}>
-          Fields visible <span className={styles.countValue}>{visible}</span> of 8
+          Fields visible <span className={styles.countValue}>{visible}</span> of{" "}
+          {FIELDS.length}
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./TrialTree.module.css";
 
 type Verdict = "carried" | "closed" | "open" | "published";
@@ -74,7 +74,19 @@ export default function TrialTree() {
   const [shownGen, setShownGen] = useState(0);
   const [settledGen, setSettledGen] = useState(0);
 
+  // A trial's reveal and settle are staged on timers. They have to be
+  // cancellable: resetting — or advancing again before the settle lands —
+  // would otherwise let a stale timer push the tree back to an older
+  // generation, leaving the ledger and the finding disagreeing with it.
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const clearTimers = () => {
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
+  };
+  useEffect(() => clearTimers, []);
+
   const advance = () => {
+    clearTimers();
     if (step >= 4) {
       setStep(0);
       setShownGen(0);
@@ -84,8 +96,8 @@ export default function TrialTree() {
     const next = step + 1;
     setStep(next);
     // The generation appears, then settles into its verdicts a beat later.
-    setTimeout(() => setShownGen(next), 40);
-    setTimeout(() => setSettledGen(next), 720);
+    timers.current.push(setTimeout(() => setShownGen(next), 40));
+    timers.current.push(setTimeout(() => setSettledGen(next), 720));
   };
 
   const live = DATA.filter((n) => n.gen <= step);

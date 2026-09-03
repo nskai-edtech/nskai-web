@@ -50,10 +50,11 @@ export default function CompanyPage() {
           {leadership.map((person) => (
             <div key={person.name} className={styles.person}>
               <div className={styles.portrait}>
-                {/* Portraits are not in the repo; see public/portraits/README.md. */}
+                {/* Decorative: the name and role sit beside it in text. */}
                 <img
                   src={`/portraits/${person.file}`}
                   alt=""
+                  loading="lazy"
                   className={styles.portraitImage}
                 />
               </div>

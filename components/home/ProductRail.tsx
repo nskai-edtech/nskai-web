@@ -46,12 +46,11 @@ export default function ProductRail({ items }: { items: RailItem[] }) {
       tiles.forEach((tile, i) => tile.classList.toggle(styles.on, i === active));
     };
 
-    let queued = false;
+    let frame = 0;
     const onScroll = () => {
-      if (queued) return;
-      queued = true;
-      requestAnimationFrame(() => {
-        queued = false;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
         tick();
       });
     };
@@ -62,6 +61,9 @@ export default function ProductRail({ items }: { items: RailItem[] }) {
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      // A frame queued by the last scroll would otherwise run against
+      // detached tiles after the rail unmounts.
+      if (frame) cancelAnimationFrame(frame);
     };
   }, [items]);
 

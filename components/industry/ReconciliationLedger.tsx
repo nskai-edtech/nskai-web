@@ -72,11 +72,19 @@ export default function ReconciliationLedger() {
     <div
       className={styles.wrap}
       onPointerDown={(e) => {
+        // Capture, so the rule keeps following once the pointer leaves the
+        // table — otherwise a quick drag past the edge strands it mid-list.
+        e.currentTarget.setPointerCapture(e.pointerId);
         setDragging(true);
         moveTo(e.clientY);
       }}
       onPointerMove={(e) => {
         if (dragging) moveTo(e.clientY);
+      }}
+      onPointerUp={(e) => {
+        if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+          e.currentTarget.releasePointerCapture(e.pointerId);
+        }
       }}
     >
       <div className={styles.header}>

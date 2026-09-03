@@ -103,7 +103,12 @@ export default function SolutionsPage() {
         <figure className={styles.plate}>
           <div className={styles.plateFrame}>
             {/* See public/plates/README.md for the source of this photograph. */}
-            <img src="/plates/sol-band.jpg" alt="" className={styles.plateImage} />
+            <img
+              src="/plates/sol-band.jpg"
+              alt=""
+              loading="lazy"
+              className={styles.plateImage}
+            />
           </div>
           <figcaption className={styles.plateCaption}>
             <div className={styles.captionText}>

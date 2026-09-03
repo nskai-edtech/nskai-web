@@ -100,9 +100,16 @@ export default function ReachSwarm() {
     return () => io.disconnect();
   }, []);
 
+  // The marks have to return to the origin for a frame before they can be
+  // sent out again, so the replay is staged; the handle lets it be dropped
+  // if the section goes away mid-gap.
+  const replayTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(replayTimer.current), []);
+
   const replay = () => {
+    clearTimeout(replayTimer.current);
     setDispersed(false);
-    setTimeout(() => setDispersed(true), 60);
+    replayTimer.current = setTimeout(() => setDispersed(true), 60);
   };
 
   return (

@@ -94,6 +94,7 @@ export default function CommunityPage() {
                 <img
                   src={`/flyers/f${format.flyer}.jpg`}
                   alt={`${format.title} flyer`}
+                  loading="lazy"
                   className={styles.flyerImage}
                 />
               </div>
