@@ -173,9 +173,32 @@ export default function AnswerStage() {
     };
 
     runRef.current = run;
-    later(() => run(0), 600);
 
-    return clearAll;
+    // The sequence runs about five seconds. Started on mount it would play out
+    // below the fold and be over before the reader arrives, so it waits for the
+    // stage to come into view, as the other timed pieces do.
+    let io: IntersectionObserver | undefined;
+    const grid = gridRef.current;
+    if (grid) {
+      io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            io?.disconnect();
+            later(() => run(0), 600);
+          });
+        },
+        { threshold: 0.25 },
+      );
+      io.observe(grid);
+    } else {
+      later(() => run(0), 600);
+    }
+
+    return () => {
+      io?.disconnect();
+      clearAll();
+    };
   }, [tokens]);
 
   const q = questions[s.qi];

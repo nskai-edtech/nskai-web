@@ -54,6 +54,8 @@ export default function ReachSwarm() {
   const hostRef = useRef<HTMLDivElement>(null);
   const [dots, setDots] = useState<Dot[]>([]);
   const [dispersed, setDispersed] = useState(false);
+  // Set on mount, so the first paint under reduced motion is already static.
+  const [reduced, setReduced] = useState(false);
   const played = useRef(false);
 
   const measure = useCallback(() => {
@@ -81,6 +83,10 @@ export default function ReachSwarm() {
     const host = hostRef.current;
     if (!host) return;
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      // Placing the marks is the point; flying them in is not. Without this the
+      // reduced-motion path still ran the full staggered 2s disperse, because
+      // the transition is inline and keyed only off `dispersed`.
+      setReduced(true);
       setDispersed(true);
       played.current = true;
       return;
@@ -129,9 +135,10 @@ export default function ReachSwarm() {
               transform: dispersed
                 ? "translate(0,0) scale(1)"
                 : `translate(${dot.ox}px, ${dot.oy}px) scale(0.4)`,
-              transition: dispersed
-                ? `transform 900ms cubic-bezier(0.16,0.9,0.24,1) ${dot.delay}ms, opacity 500ms ease ${dot.delay}ms`
-                : "none",
+              transition:
+                dispersed && !reduced
+                  ? `transform 900ms cubic-bezier(0.16,0.9,0.24,1) ${dot.delay}ms, opacity 500ms ease ${dot.delay}ms`
+                  : "none",
             }}
           />
         ))}

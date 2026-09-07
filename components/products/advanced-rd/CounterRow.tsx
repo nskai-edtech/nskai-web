@@ -49,6 +49,9 @@ export default function CounterRow({
               () => {
                 const d = (Math.random() < 0.5 ? -1 : 1) * Math.pow(10, -dp);
                 setText(fmt(target + d));
+                // Each tick replaces the handle, so drop the previous one
+                // rather than leave it to fire against an unmounted row.
+                clearTimeout(holdId);
                 holdId = setTimeout(() => setText(fmt(target)), 420);
               },
               3400 + index * 700,

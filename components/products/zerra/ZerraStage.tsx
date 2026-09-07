@@ -297,9 +297,17 @@ export default function ZerraStage() {
     let t0: number | null = null;
     const loop = (ts: number) => {
       if (t0 === null) t0 = ts;
-      p += (pTarget - p) * 0.12;
-      draw(ts - t0);
-      syncCaptions();
+      // Reduced motion snaps to the scroll position instead of easing to it,
+      // as the other set pieces do.
+      p += (pTarget - p) * (reduced ? 1 : 0.12);
+      // Off-screen, this piece has nothing to show; the loop keeps ticking so
+      // it picks straight back up on scroll. Matches ResolveStage.
+      const vr = wrap.getBoundingClientRect();
+      const near = vr.top < window.innerHeight + 200 && vr.bottom > -200;
+      if (near) {
+        draw(ts - t0);
+        syncCaptions();
+      }
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);

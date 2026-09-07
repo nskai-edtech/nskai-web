@@ -165,7 +165,11 @@ export default function BenchBoard() {
     let raf = 0;
     const loop = () => {
       p += (pTarget - p) * (reduced ? 1 : 0.085);
-      paint();
+      // Off-screen, this piece has nothing to show; the loop keeps ticking so
+      // it picks straight back up on scroll. Matches ResolveStage.
+      const vr = wrap.getBoundingClientRect();
+      const near = vr.top < window.innerHeight + 200 && vr.bottom > -200;
+      if (near) paint();
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);

@@ -51,12 +51,24 @@ export default function FocusRack() {
       });
       setActive(best);
     };
+    // Scroll fires far faster than the screen repaints, and paint() measures
+    // every row, so coalesce onto a frame as the other scroll pieces do.
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        paint();
+      });
+    };
+
     paint();
-    window.addEventListener("scroll", paint, { passive: true });
-    window.addEventListener("resize", paint);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
-      window.removeEventListener("scroll", paint);
-      window.removeEventListener("resize", paint);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
     };
   }, []);
 

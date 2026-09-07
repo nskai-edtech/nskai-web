@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import styles from "./ConsentTiers.module.css";
 
 type Tier = 1 | 2 | 3;
@@ -25,6 +25,30 @@ const FIELDS: { text: string; tier: Tier }[] = [
   { text: "Dr B. Okonkwo", tier: 1 },
 ];
 
+/** A field with its redaction bar over it. Defined at module scope: declared
+    inside the component it would be a new component type on every render, so
+    React would remount these spans instead of updating them and the bar's
+    420ms wipe would never run — the bars would just snap. */
+function Field({
+  index,
+  granted,
+}: {
+  index: number;
+  granted: Record<Tier, boolean>;
+}) {
+  const field = FIELDS[index];
+  return (
+    <span className={styles.field}>
+      <span>{field.text}</span>
+      <span
+        className={styles.bar}
+        style={{ transform: granted[field.tier] ? "scaleX(0)" : "scaleX(1)" }}
+        aria-hidden="true"
+      />
+    </span>
+  );
+}
+
 /** Health and insurance's one motion piece: granting a consent tier lifts the
     bars off the fields that tier covers, and nothing else. */
 export default function ConsentTiers() {
@@ -39,31 +63,16 @@ export default function ConsentTiers() {
 
   const visible = FIELDS.filter((f) => granted[f.tier]).length;
 
-  /** A field with its redaction bar over it. */
-  const Field = ({ index }: { index: number }): ReactNode => {
-    const field = FIELDS[index];
-    return (
-      <span className={styles.field}>
-        <span>{field.text}</span>
-        <span
-          className={styles.bar}
-          style={{ transform: granted[field.tier] ? "scaleX(0)" : "scaleX(1)" }}
-          aria-hidden="true"
-        />
-      </span>
-    );
-  };
-
   return (
     <div className={styles.grid}>
       <div className={styles.note}>
         <div className={styles.label}>Clinical note &middot; extract</div>
         <p className={styles.text}>
-          Patient <Field index={0} />, <Field index={1} />, seen at{" "}
-          <Field index={2} /> on <Field index={3} />. Metformin increased to 1g
-          twice daily following an HbA1c of <Field index={4} />. Renal function
-          stable. Review in <Field index={5} />; letter copied to{" "}
-          <Field index={6} />.
+          Patient <Field index={0} granted={granted} />, <Field index={1} granted={granted} />, seen at{" "}
+          <Field index={2} granted={granted} /> on <Field index={3} granted={granted} />. Metformin increased to 1g
+          twice daily following an HbA1c of <Field index={4} granted={granted} />. Renal function
+          stable. Review in <Field index={5} granted={granted} />; letter copied to{" "}
+          <Field index={6} granted={granted} />.
         </p>
         <div className={styles.count}>
           Fields visible <span className={styles.countValue}>{visible}</span> of{" "}

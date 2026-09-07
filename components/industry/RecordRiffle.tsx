@@ -22,6 +22,9 @@ export default function RecordRiffle() {
   useEffect(() => () => clearTimeout(timer.current), []);
 
   const next = () => {
+    // A second click before the stamp settles would otherwise leave the first
+    // timeout running and advance the deck twice.
+    clearTimeout(timer.current);
     const top = idx % CARDS.length;
     setStamped(top);
     setAccepted((a) => Math.min(CARDS.length, a + 1));

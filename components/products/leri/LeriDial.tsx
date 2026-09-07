@@ -50,6 +50,14 @@ export default function LeriDial() {
     let raf = 0;
     const loop = () => {
       rot += (rotTarget - rot) * (reduced ? 1 : 0.09);
+      // Off-screen, this piece has nothing to show; the loop keeps ticking so
+      // it picks straight back up on scroll. Matches ResolveStage.
+      const vr = wrap.getBoundingClientRect();
+      const near = vr.top < window.innerHeight + 200 && vr.bottom > -200;
+      if (!near) {
+        raf = requestAnimationFrame(loop);
+        return;
+      }
       if (ringRef.current) {
         ringRef.current.style.transform = `rotate(${rot.toFixed(2)}deg)`;
       }

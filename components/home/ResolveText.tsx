@@ -96,6 +96,8 @@ export default function ResolveText({
 
     const timers: ReturnType<typeof setTimeout>[] = [];
     let observer: IntersectionObserver | undefined;
+    /** The overlay of the run in flight, so cleanup can undo it. */
+    let overlay: HTMLCanvasElement | undefined;
     // document.fonts.ready resolves on its own schedule, which can be after
     // this effect has been torn down. Without the flag, start() would build
     // an observer nothing is left to disconnect.
@@ -117,6 +119,7 @@ export default function ResolveText({
         rect.height +
         "px;pointer-events:none;image-rendering:pixelated";
       el.appendChild(cv);
+      overlay = cv;
       el.style.color = "transparent";
       steps.forEach((block, i) => {
         timers.push(
@@ -129,6 +132,7 @@ export default function ResolveText({
         setTimeout(() => {
           el.style.color = "";
           cv.remove();
+          overlay = undefined;
         }, steps.length * stepMs),
       );
     };
@@ -160,6 +164,14 @@ export default function ResolveText({
       cancelled = true;
       timers.forEach(clearTimeout);
       observer?.disconnect();
+      // Torn down mid-resolve, the restoring timer never fires. Without this
+      // the heading would keep the transparent colour the effect set on it and
+      // stay invisible, with a dead canvas still sitting over it.
+      if (overlay) {
+        overlay.remove();
+        overlay = undefined;
+        el.style.color = "";
+      }
     };
   }, [children, trigger, stepMs, fontSize, lineHeight, steps]);
 
