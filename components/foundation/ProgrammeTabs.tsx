@@ -59,6 +59,8 @@ const PROGRAMMES: Programme[] = [
       },
     ],
     figure: {
+      // Square, so the 4:3 cover crop only loses the top and bottom edges.
+      src: "/bootcamp/poster.png",
       caption: "Fig. 2 — The 2025 bootcamp.",
     },
   },

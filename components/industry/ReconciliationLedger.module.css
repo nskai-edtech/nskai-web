@@ -4,6 +4,10 @@
   background: var(--paper);
   touch-action: none;
   cursor: ns-resize;
+  /* Dragging the rule down the ledger would otherwise sweep a text selection
+     across every row it passes. */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .header,

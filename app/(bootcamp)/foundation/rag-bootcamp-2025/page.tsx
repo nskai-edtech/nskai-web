@@ -260,6 +260,14 @@ export default function RagBootcampPage() {
           <div>
             <div className={styles.monoMuted}>Who taught, and who ran it</div>
             <div className={styles.teachCount}>14 speakers &middot; 6 organisers</div>
+            <div className={styles.posterFrame}>
+              <img
+                src="/bootcamp/speakers.jpg"
+                alt="Our speakers — the fourteen practitioners who taught the 2025 RAG and AI Agents Bootcamp"
+                loading="lazy"
+                className={styles.poster}
+              />
+            </div>
           </div>
           <div>
             <p className={styles.statementBody}>

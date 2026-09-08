@@ -41,7 +41,7 @@ export const plates: Plate[] = [
     hero: {
       file: "fin-plate-hero.jpg",
       caption:
-        "Fig. 1 — The floor of the New York Stock Exchange, shot with a camera hidden in the photographer’s sleeve. Library of Congress, no known restrictions.",
+        "Fig. 1 — The floor of the London Stock Exchange, c. 1910–1920. Library of Congress, no known restrictions.",
     },
     problem: [
       "A bank closes the day by hand. Statements arrive in four formats and the core ledger in a fifth, and the differences between them are found by eye.",
@@ -68,7 +68,7 @@ export const plates: Plate[] = [
     detail: {
       file: "fin-det-1.jpg",
       caption:
-        "Fig. 2 — Sweeping the exchange floor after the session. Library of Congress, no known restrictions.",
+        "Fig. 2 — The floor of the New York Stock Exchange, shot with a camera hidden in the photographer’s sleeve. Library of Congress, no known restrictions.",
     },
     worked: [
       { label: "Lines a day", value: "41,800" },
@@ -376,7 +376,7 @@ export const plates: Plate[] = [
     detail: {
       file: "ene-det-1.jpg",
       caption:
-        "Fig. 2 — Mechanic at a steam pump in an electric power house, c. 1921. Public domain.",
+        "Fig. 2 — Turbine and A.C. boards, Georgetown Power Station, 1909. Seattle Municipal Archives, CC BY 2.0.",
     },
     worked: [
       { label: "Model", value: "7B at 4-bit, 3.5 GB" },

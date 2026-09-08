@@ -34,26 +34,28 @@ export default function LeriDial() {
     let rot = 0;
     let rotTarget = 0;
 
-    const onScroll = () => {
-      const r = wrap.getBoundingClientRect();
-      const span = r.height - STAGE_H - HEADER_H;
-      const t = span > 0 ? Math.min(1, Math.max(0, (-r.top + HEADER_H) / span)) : 0;
-      const f = t * 7.999;
-      rotTarget = -45 * f;
-      if (progRef.current) progRef.current.style.width = `${12 + t * 88}%`;
-      setActive(Math.round(f));
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-
     let raf = 0;
     const loop = () => {
+      // The dial is driven entirely from this loop. Reading the scroll position
+      // in a `scroll` listener instead forced a layout and queued a React state
+      // update on every event — far more often than the screen repaints, which
+      // is what made scrolling this page stutter.
+      const r = wrap.getBoundingClientRect();
+      const near = r.top < window.innerHeight + 200 && r.bottom > -200;
+
+      if (near) {
+        const span = r.height - STAGE_H - HEADER_H;
+        const t = span > 0 ? Math.min(1, Math.max(0, (-r.top + HEADER_H) / span)) : 0;
+        const f = t * 7.999;
+        rotTarget = -45 * f;
+        if (progRef.current) progRef.current.style.width = `${12 + t * 88}%`;
+        // React bails on an unchanged value, so this re-renders eight times
+        // across the whole scrub, not once a frame.
+        setActive(Math.round(f));
+      }
+
       rot += (rotTarget - rot) * (reduced ? 1 : 0.09);
-      // Off-screen, this piece has nothing to show; the loop keeps ticking so
-      // it picks straight back up on scroll. Matches ResolveStage.
-      const vr = wrap.getBoundingClientRect();
-      const near = vr.top < window.innerHeight + 200 && vr.bottom > -200;
+
       if (!near) {
         raf = requestAnimationFrame(loop);
         return;
@@ -71,8 +73,6 @@ export default function LeriDial() {
     raf = requestAnimationFrame(loop);
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);
     };
   }, []);
