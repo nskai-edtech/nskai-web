@@ -49,9 +49,12 @@ export default function LeriDial() {
         const f = t * 7.999;
         rotTarget = -45 * f;
         if (progRef.current) progRef.current.style.width = `${12 + t * 88}%`;
+        // f runs to 7.999, so Math.round reaches 8 over the last stretch of the
+        // scrub and faces[8] is undefined — the page threw at the bottom of the
+        // dial. Clamp to the last face and hold it there.
         // React bails on an unchanged value, so this re-renders eight times
         // across the whole scrub, not once a frame.
-        setActive(Math.round(f));
+        setActive(Math.min(faces.length - 1, Math.round(f)));
       }
 
       rot += (rotTarget - rot) * (reduced ? 1 : 0.09);
