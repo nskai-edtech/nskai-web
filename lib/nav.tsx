@@ -233,3 +233,7 @@ export const company: NavItem[] = [
 
 export const DISCORD_URL = "https://discord.gg/SxDTz45GRk";
 export const CONTACT_EMAIL = "contact@nskai.org";
+
+/** The canonical origin. Metadata, the sitemap and robots.txt all resolve
+    against this, so relative URLs in page metadata become absolute. */
+export const SITE_URL = "https://nskai.org";

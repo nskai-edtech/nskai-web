@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { SITE_URL } from "@/lib/nav";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "NSK AI",
     template: "%s — NSK AI",
