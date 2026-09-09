@@ -12,7 +12,7 @@
 }
 
 .wordmark {
-  font-size: 28px;
+  font-size: 29px;
   font-weight: 500;
   letter-spacing: 0.10em;
   color: var(--footer-text);
@@ -27,7 +27,7 @@
 
 .heading {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -36,11 +36,11 @@
 
 .link {
   color: var(--footer-text);
-  font-size: 14px;
+  font-size: 15px;
 }
 .link:hover { color: var(--footer-accent); }
 
-.offices { font-size: 14px; }
+.offices { font-size: 15px; }
 
 .baseline {
   margin-top: 64px;
@@ -48,6 +48,23 @@
   border-top: 1px solid var(--footer-rule);
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--footer-accent);
+}
+
+@media (max-width: 1199px) {
+  .footer { padding: 56px var(--page-x) 32px; }
+  .columns { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .baseline { margin-top: 48px; }
+}
+
+@media (max-width: 767px) {
+  .columns { grid-template-columns: 1fr; gap: 32px; }
+  .wordmark { font-size: 25px; }
+  /* Two short lines read better than one that wraps mid-sentence. */
+  .baseline {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 40px;
+  }
 }

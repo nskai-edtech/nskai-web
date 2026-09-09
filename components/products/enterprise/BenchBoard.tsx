@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./BenchBoard.module.css";
 
-const STAGE_H = 790;
+/** The stage height at the design width; below it the sticky pane is
+    shorter, so the scrub measures the pane rather than trusting this. */
+const STAGE_H_DEFAULT = 790;
 const HEADER_H = 72;
 const COLS = 6;
 const ROWS = 5;
@@ -64,6 +66,7 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
     on your team's board, work there, and walk back off — driven by scroll. */
 export default function BenchBoard() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
   const boardRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState(0);
   const capsRef = useRef<HTMLDivElement>(null);
@@ -154,7 +157,8 @@ export default function BenchBoard() {
 
     const onScroll = () => {
       const r = wrap.getBoundingClientRect();
-      const span = r.height - STAGE_H - HEADER_H;
+      const stageH = stickyRef.current?.offsetHeight || STAGE_H_DEFAULT;
+      const span = r.height - stageH - HEADER_H;
       const t = span > 0 ? clamp01((-r.top + HEADER_H) / span) : 0;
       pTarget = t * 4;
     };
@@ -183,7 +187,7 @@ export default function BenchBoard() {
 
   return (
     <div ref={wrapRef} className={styles.wrap}>
-      <div className={styles.sticky}>
+      <div ref={stickyRef} className={styles.sticky}>
         <div className={styles.row}>
           <div className={styles.copy}>
             <div className={styles.phaseRow}>

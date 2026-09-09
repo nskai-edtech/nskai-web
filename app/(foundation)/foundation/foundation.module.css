@@ -3,7 +3,7 @@
 
 .mono {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -58,7 +58,7 @@
 .heroLead {
   margin: 32px 0 0;
   max-width: 62ch;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.6;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -79,7 +79,7 @@
   flex: 1;
 }
 
-.registrationValue { margin-top: 10px; font-size: 17px; font-weight: 500; }
+.registrationValue { margin-top: 10px; font-size: 18px; font-weight: 500; }
 
 /* --- Programmes ---------------------------------------------------------- */
 
@@ -114,14 +114,14 @@
 
 .principleTitle {
   margin: 0;
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 500;
   letter-spacing: -0.015em;
 }
 
 .principleBody {
   margin: 12px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -130,7 +130,7 @@
 
 .missionLead {
   margin: 0;
-  font-size: 28px;
+  font-size: 29px;
   line-height: 1.4;
   font-weight: 500;
   letter-spacing: -0.015em;
@@ -141,7 +141,7 @@
 
 .missionBody {
   margin: 24px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.65;
   color: var(--ink-muted);
   max-width: 56ch;
@@ -149,7 +149,7 @@
 
 .originText {
   margin: 0;
-  font-size: 20px;
+  font-size: 21px;
   line-height: 1.55;
   color: var(--ink);
   max-width: 56ch;
@@ -159,7 +159,7 @@
 .originLink {
   display: inline-block;
   margin-top: 28px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--ink);
 }
@@ -177,7 +177,7 @@
 
 .teachLead {
   margin: 22px 0 30px;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 52ch;
@@ -201,9 +201,9 @@
   gap: 24px;
 }
 
-.teachLabel { font-size: 16px; color: var(--ink-muted); }
+.teachLabel { font-size: 17px; color: var(--ink-muted); }
 
-.teachValue { font-size: 16px; font-weight: 500; }
+.teachValue { font-size: 17px; font-weight: 500; }
 
 /* --- Buttons and closing ------------------------------------------------- */
 
@@ -217,7 +217,7 @@
   height: 52px;
   padding: 0 26px;
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -251,7 +251,7 @@
 
 .closingLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 50ch;
@@ -266,4 +266,37 @@
 
 @media (prefers-reduced-motion: reduce) {
   .principleRule { transition: none; }
+}
+
+@media (max-width: 1199px) {
+  .hero { padding: 72px var(--page-x) 56px; }
+  .heroTitle { font-size: 56px; }
+  .h2 { font-size: 33px; }
+  .section { padding: 0 var(--page-x) 72px; }
+  .splitGrid { grid-template-columns: 1fr; gap: 32px; }
+  .programmes { padding: 0 var(--page-x) 72px; }
+  .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .teachGrid { grid-template-columns: 1fr; gap: 32px; }
+  .closing { padding: 80px var(--page-x); }
+  .closingTitle { font-size: 40px; }
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 48px var(--page-x) 40px; }
+  .heroTitle { font-size: 36px; }
+  .heroLead { font-size: 17px; }
+  .h2 { font-size: 27px; }
+  .section { padding: 0 var(--page-x) 48px; }
+  .sectionHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .programmes { padding: 0 var(--page-x) 48px; }
+  .principles { grid-template-columns: 1fr; }
+  .teachRow { grid-template-columns: 1fr; gap: 4px; }
+  /* The registration strip is a flex row of equal cells; on a phone it wraps
+     to two per line rather than squeezing four. */
+  .registration { flex-wrap: wrap; }
+  .registrationCell { flex: 1 1 calc(50% - 1px); }
+  .closing { padding: 56px var(--page-x); }
+  .closingTitle { font-size: 29px; }
+  .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .buttonSolid, .buttonOutline { justify-content: center; }
 }

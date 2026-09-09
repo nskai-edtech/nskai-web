@@ -14,7 +14,7 @@
 
 .num {
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
   color: #A2A29E;
@@ -38,10 +38,23 @@
 
 .body {
   margin: 6px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: #C3C3BF;
   transition: color 520ms ease;
 }
 
 .bodyOn { composes: body; color: var(--ink-muted); }
+
+/* The rack sets an index, a title and a 460px body across one row. Below the
+   design width the body drops under the title; on a phone the index goes with
+   it rather than stealing a third of the line length. */
+@media (max-width: 1199px) {
+  .row { grid-template-columns: 64px minmax(0, 1fr); gap: 12px 32px; }
+  .body, .bodyOn { grid-column: 2; }
+}
+
+@media (max-width: 767px) {
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .body, .bodyOn { grid-column: 1; }
+}

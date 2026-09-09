@@ -11,14 +11,14 @@
 
 .h2Small {
   margin: 0;
-  font-size: 32px;
+  font-size: 33px;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .labelAccent {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -53,7 +53,7 @@
 .heroLead {
   margin: 32px 0 0;
   max-width: 62ch;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -76,7 +76,7 @@
   height: 56px;
   padding: 0 32px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -136,14 +136,14 @@
 
 .commitmentTitle {
   margin: 28px 0 0;
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 500;
   letter-spacing: -0.015em;
 }
 
 .commitmentBody {
   margin: 14px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -151,7 +151,7 @@
 .commitmentIndex {
   font-family: var(--sans);
   margin-top: 28px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
   color: #A09896;
@@ -177,7 +177,7 @@
 .linesNote {
   margin: 0;
   max-width: 34ch;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -198,7 +198,7 @@
 
 .lineIndex {
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
   color: #A09896;
@@ -207,14 +207,14 @@
 .lineIcon { color: var(--accent-dark); }
 
 .lineTitle {
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 500;
   letter-spacing: -0.015em;
 }
 
 .lineBody {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.55;
   color: var(--ink-muted);
 }
@@ -222,14 +222,14 @@
 .lineFigure { letter-spacing: -0.01em; }
 
 .lineValue {
-  font-size: 30px;
+  font-size: 31px;
   font-weight: 500;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 
 .lineUnit {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.04em;
   color: var(--ink-muted);
 }
@@ -252,7 +252,7 @@
 .peopleNote {
   margin: 0;
   max-width: 32ch;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -292,14 +292,14 @@
 
 .restStatus {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .restName {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -324,7 +324,7 @@
 
 .closingLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: #FFD9D4;
   max-width: 48ch;
@@ -347,7 +347,7 @@
   height: 56px;
   padding: 0 32px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -368,4 +368,39 @@
 @media (prefers-reduced-motion: reduce) {
   .commitment, .restTile { transition: border-color 320ms ease; }
   .commitment:hover, .restTile:hover { transform: none; }
+}
+
+@media (max-width: 1199px) {
+  .hero { padding: 72px var(--page-x) 56px; }
+  .heroTitle { font-size: 52px; }
+  .h2 { font-size: 33px; }
+  .h2Small { font-size: 27px; }
+  .commitments { grid-template-columns: 1fr; }
+  .linesHead { gap: 32px; }
+  /* Five fixed columns; the body and figure wrap under the label pair. */
+  .lineRow { grid-template-columns: 48px 56px minmax(0, 1fr); gap: 12px 20px; }
+  .lineFigure { grid-column: 3; }
+  .restGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .closing { padding: 80px var(--page-x); }
+  .closingTitle { font-size: 40px; }
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 48px var(--page-x) 40px; }
+  .heroTitle { font-size: 33px; }
+  .heroLead { font-size: 17px; }
+  .heroActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .buttonSolid, .buttonOutline { justify-content: center; }
+  .h2 { font-size: 27px; }
+  .h2Small { font-size: 23px; }
+  .linesHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .peopleHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .lineRow { grid-template-columns: 40px minmax(0, 1fr); gap: 8px 12px; padding: 24px 0; }
+  .lineBody, .lineFigure { grid-column: 2; }
+  .restGrid { grid-template-columns: 1fr; }
+  .restTile { min-height: 0; }
+  .closing { padding: 56px var(--page-x); }
+  .closingTitle { font-size: 29px; }
+  .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .closingSolid, .closingOutline { justify-content: center; }
 }

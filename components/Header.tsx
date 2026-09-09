@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { company, industries, products, type NavItem } from "@/lib/nav";
+import MobileNav from "./MobileNav";
 import styles from "./Header.module.css";
 
 /** One row of a mega-menu panel: coloured icon tile, name, one-line description. */
@@ -64,6 +65,7 @@ export default function Header() {
           Contact
         </Link>
       </div>
+      <MobileNav />
     </header>
   );
 }

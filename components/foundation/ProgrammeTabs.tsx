@@ -32,7 +32,7 @@ const PROGRAMMES: Programme[] = [
     body: "Udara runs as a cohort programme: five days of live teaching, hands-on exercises and then a 48-day hackathon, all delivered remotely so that a student in Kano and a student in Kigali sit the same course. The 2026 edition reached 290 universities, and 23 of them registered more than a hundred learners each.",
     links: [{ label: "See the Udara Project in full →", href: "/foundation/udara" }],
     figure: {
-      src: "/udara/participants.png",
+      src: "/udara/participants.webp",
       caption: "Fig. 1 — An Udara cohort session.",
     },
   },
@@ -60,7 +60,7 @@ const PROGRAMMES: Programme[] = [
     ],
     figure: {
       // Square, so the 4:3 cover crop only loses the top and bottom edges.
-      src: "/bootcamp/poster.png",
+      src: "/bootcamp/poster.webp",
       caption: "Fig. 2 — The 2025 bootcamp.",
     },
   },

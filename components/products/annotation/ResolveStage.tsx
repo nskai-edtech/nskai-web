@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./ResolveStage.module.css";
 
-const STAGE_H = 768;
+/** The stage height at the design width; below it the sticky pane is
+    shorter, so the scrub measures the pane rather than trusting this. */
+const STAGE_H_DEFAULT = 768;
 const HEADER_H = 72;
 
 const captions = [
@@ -40,6 +42,7 @@ const hash = (n: number) => {
     settled ruling. Block size shrinks 32px → 6px across the scrub. */
 export default function ResolveStage() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const capsRef = useRef<HTMLDivElement>(null);
   const [readout, setReadout] = useState("κ 0.00 · block 32 px · contested —");
@@ -57,7 +60,7 @@ export default function ResolveStage() {
     const paint = (time: number) => {
       const dpr = Math.min(2, window.devicePixelRatio || 1);
       const w = cv.clientWidth || 1440;
-      const h = cv.clientHeight || STAGE_H;
+      const h = cv.clientHeight || STAGE_H_DEFAULT;
       if (cv.width !== Math.round(w * dpr)) {
         cv.width = Math.round(w * dpr);
         cv.height = Math.round(h * dpr);
@@ -161,7 +164,8 @@ export default function ResolveStage() {
 
     const onScroll = () => {
       const r = wrap.getBoundingClientRect();
-      const span = r.height - STAGE_H - HEADER_H;
+      const stageH = stickyRef.current?.offsetHeight || STAGE_H_DEFAULT;
+      const span = r.height - stageH - HEADER_H;
       const t = span > 0 ? Math.min(1, Math.max(0, (-r.top + HEADER_H) / span)) : 0;
       pTarget = t * 3;
     };
@@ -192,7 +196,7 @@ export default function ResolveStage() {
 
   return (
     <div ref={wrapRef} className={styles.wrap}>
-      <div className={styles.sticky}>
+      <div ref={stickyRef} className={styles.sticky}>
         <canvas ref={canvasRef} aria-hidden="true" className={styles.canvas} />
 
         <div ref={capsRef} className={styles.captions}>

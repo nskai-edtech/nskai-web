@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { plates, workedNote, type Plate as PlateData } from "@/lib/industries";
 import styles from "./Plate.module.css";
+import { SIZES, srcSet } from "@/lib/images";
 
 /** Every plate carries the same catalogue furniture; only the copy and the one
     motion piece in the middle change. `children` is that motion piece. */
@@ -44,7 +45,10 @@ export default function Plate({
               {/* Archival photography, self-hosted; see public/plates/README.md. */}
               <img
                 src={`/plates/${plate.hero.file}`}
+                srcSet={srcSet(`/plates/${plate.hero.file}`)}
+                sizes={SIZES.plateHero}
                 alt=""
+                fetchPriority="high"
                 className={styles.plateImage}
               />
             </div>
@@ -90,6 +94,8 @@ export default function Plate({
               <div className={styles.detailFrame}>
                 <img
                   src={`/plates/${plate.detail.file}`}
+                  srcSet={srcSet(`/plates/${plate.detail.file}`)}
+                  sizes={SIZES.plateDetail}
                   alt=""
                   loading="lazy"
                   className={styles.detailImage}

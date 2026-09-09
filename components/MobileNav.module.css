@@ -1,0 +1,156 @@
+/* The whole component is small-screen only; the desktop header keeps its
+   hover mega-menus untouched. */
+.toggle {
+  display: none;
+}
+
+.sheet {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bar {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: transform 220ms var(--ease-move), opacity 160ms ease;
+  }
+  .barTop { transform: translateY(3.25px) rotate(45deg); }
+  .barBottom { transform: translateY(-3.25px) rotate(-45deg); }
+
+  /* Closed, the sheet is hidden by `visibility` rather than `display`: it still
+     needs a box for the transition to run against, but a transparent box left
+     `display: block` over the whole page swallowed every tap beneath it.
+     `visibility: hidden` also takes it out of the accessibility tree, and it is
+     transitioned with no duration so it flips at either end of the fade. */
+  .sheet {
+    display: block;
+    position: fixed;
+    inset: 72px 0 0;
+    z-index: 29;
+    background: var(--paper);
+    border-top: 1px solid var(--hairline);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition:
+      opacity 200ms ease,
+      transform 240ms var(--ease-move),
+      visibility 0s linear 240ms;
+  }
+  .sheetOpen {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 200ms ease,
+      transform 240ms var(--ease-move),
+      visibility 0s;
+  }
+
+  .inner {
+    font-family: var(--sans);
+    display: flex;
+    flex-direction: column;
+    padding: 8px var(--page-x) 48px;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .sectionLabel {
+    margin: 0 0 4px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    /* 56px keeps every target comfortably past the 44px touch minimum. */
+    min-height: 56px;
+    padding: 12px 0;
+    color: var(--ink);
+  }
+
+  .tile {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+  }
+
+  .rowBody {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .rowName {
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+  .rowDesc {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ink-muted);
+  }
+
+  .plain {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    height: 52px;
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .cta:hover { color: var(--paper); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet, .bar { transition: none; }
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ReachSwarm from "@/components/udara/ReachSwarm";
 import styles from "./udara.module.css";
+import { SIZES, srcSet } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "The Udara Project",
@@ -176,10 +177,13 @@ export default function UdaraPage() {
         </div>
         <figure className={styles.heroFigure}>
           <div className={styles.frameWide}>
+            {/* Sits in the hero, so it is the largest paint here. */}
             <img
-              src="/udara/participants.png"
+              src="/udara/participants.webp"
+              srcSet={srcSet("/udara/participants.webp")}
+              sizes={SIZES.half}
               alt="Udara Project participants"
-              loading="lazy"
+              fetchPriority="high"
               className={styles.imageBottom}
             />
           </div>
@@ -324,7 +328,9 @@ export default function UdaraPage() {
           <figure className={styles.figure}>
             <div className={styles.frameTall}>
               <img
-                src="/udara/the-build-flyer.png"
+                src="/udara/the-build-flyer.webp"
+                srcSet={srcSet("/udara/the-build-flyer.webp")}
+                sizes={SIZES.half}
                 alt="The Build hackathon flyer"
                 loading="lazy"
                 className={styles.imageTop}
@@ -342,7 +348,9 @@ export default function UdaraPage() {
           <figure className={styles.figure}>
             <div className={styles.frameSquare}>
               <img
-                src="/udara/speakers.png"
+                src="/udara/speakers.webp"
+                srcSet={srcSet("/udara/speakers.webp")}
+                sizes={SIZES.half}
                 alt="Udara 2026 speakers"
                 loading="lazy"
                 className={styles.imageCover}

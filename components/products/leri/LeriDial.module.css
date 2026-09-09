@@ -30,7 +30,7 @@
 }
 
 .step {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.14em;
   color: #C9A57E;
@@ -80,14 +80,14 @@
 
 .capBody {
   margin: 18px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: #C9B3A0;
 }
 
 .capTrace {
   margin-top: 24px;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.04em;
   color: #B08355;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -114,7 +114,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   color: #B08355;
 }
@@ -127,4 +127,37 @@
 
 @media (prefers-reduced-motion: reduce) {
   .caption, .wedge { transition: none; }
+}
+
+/* --- Below the design width ---------------------------------------------- */
+
+/* The stage is a two-column row: copy on the left, a 700px dial column on the
+   right. Narrower than the design width the two stack, and the dial — an SVG
+   with a 620-unit viewBox — scales to whatever width it is handed. The sticky
+   pane shortens with them, and the scrub reads its height rather than a
+   constant, so the eight faces still land across the same scroll. */
+
+@media (max-width: 1199px) {
+  .wrap { height: 3200px; margin-top: 64px; }
+  .sticky { height: 720px; }
+  .row { flex-direction: column; }
+
+  .copy { flex: none; padding: 48px var(--page-x) 0; }
+  .captions { width: 100%; height: 200px; }
+
+  .dialCol {
+    width: 100%;
+    flex: 1;
+    padding: 0 var(--page-x) 24px;
+  }
+  .dial { width: 100%; max-width: 420px; height: auto; }
+}
+
+@media (max-width: 767px) {
+  .wrap { height: 2800px; }
+  .sticky { height: 620px; }
+  .copy { padding-top: 32px; }
+  .captions { height: 210px; }
+  .dial { max-width: 280px; }
+  .track { max-width: 120px; }
 }

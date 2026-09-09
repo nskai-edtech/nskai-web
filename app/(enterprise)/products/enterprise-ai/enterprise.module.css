@@ -11,16 +11,16 @@
 
 .h2Small {
   margin: 0;
-  font-size: 32px;
+  font-size: 33px;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 
-.hint { font-size: 13px; color: var(--ink-muted); }
+.hint { font-size: 14px; color: var(--ink-muted); }
 
 .eyebrowAccent {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -43,14 +43,14 @@
 
 .crumbAccent {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-dark);
 }
 
-.crumbDot { font-size: 12px; color: #C4A96E; }
+.crumbDot { font-size: 13px; color: #C4A96E; }
 
 .crumbMuted { composes: crumbAccent; color: var(--ink-muted); }
 
@@ -74,7 +74,7 @@
 .heroLead {
   margin: 32px 0 0;
   max-width: 56ch;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -98,7 +98,7 @@
 
 .compareLabelMuted {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -106,9 +106,9 @@
 
 .compareLabelAccent { composes: compareLabelMuted; color: var(--accent-dark); }
 
-.compareTextMuted { margin-top: 10px; font-size: 17px; color: var(--ink-muted); }
+.compareTextMuted { margin-top: 10px; font-size: 18px; color: var(--ink-muted); }
 
-.compareText { margin-top: 10px; font-size: 17px; color: var(--ink); }
+.compareText { margin-top: 10px; font-size: 18px; color: var(--ink); }
 
 /* --- Engagement models --------------------------------------------------- */
 
@@ -139,7 +139,7 @@
 
 .modelIndex {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-dark);
@@ -147,14 +147,14 @@
 
 .modelName {
   margin-top: 18px;
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 500;
   letter-spacing: -0.015em;
 }
 
 .modelLead {
   margin: 12px 0 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -172,7 +172,7 @@
   padding-top: 16px;
   margin-top: 16px;
   border-top: 1px solid var(--hairline);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -182,7 +182,7 @@
   border-top: 1px solid var(--hairline);
   display: flex;
   align-items: flex-end;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--ink-faint);
 }
@@ -199,7 +199,7 @@
 }
 
 .staffedTitle {
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 500;
   letter-spacing: -0.015em;
   max-width: 30ch;
@@ -207,7 +207,7 @@
 
 .staffedBody {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: #C4A96E;
   max-width: 46ch;
@@ -237,7 +237,7 @@
 
 .keepBody {
   margin: 14px 0 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-muted);
   transition: color 320ms ease, opacity 320ms ease;
@@ -245,7 +245,7 @@
 
 .keepCaption {
   margin-top: auto;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-faint);
   transition: color 320ms ease, opacity 320ms ease;
 }
@@ -268,7 +268,7 @@
 
 .talentLead {
   margin: 20px 0 0;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -278,7 +278,7 @@
 .standard {
   border-top: 1px solid var(--hairline);
   padding: 14px 0;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .standardFirst { composes: standard; border-top-color: var(--accent-dark); }
@@ -293,7 +293,7 @@
 
 .selectionLabel {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -315,11 +315,11 @@
   padding: 0 16px;
 }
 
-.funnelName { font-size: 15px; }
+.funnelName { font-size: 16px; }
 
-.funnelValue { font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.funnelValue { font-size: 16px; font-weight: 500; font-variant-numeric: tabular-nums; }
 
-.funnelNote { margin-top: 14px; font-size: 12px; color: var(--ink-faint); }
+.funnelNote { margin-top: 14px; font-size: 13px; color: var(--ink-faint); }
 
 .figures {
   margin-top: 32px;
@@ -331,7 +331,7 @@
 }
 
 .figureValue {
-  font-size: 32px;
+  font-size: 33px;
   font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -339,7 +339,7 @@
 
 .figureLabel {
   margin-top: 6px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
   color: var(--ink-muted);
 }
@@ -379,14 +379,14 @@
 
 .restStatus {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .restName {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -410,7 +410,7 @@
 
 .closingLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: #5C4103;
   max-width: 48ch;
@@ -433,7 +433,7 @@
   height: 56px;
   padding: 0 32px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -454,4 +454,45 @@
 @media (prefers-reduced-motion: reduce) {
   .restTile { transition: background 280ms ease, color 280ms ease; }
   .restTile:hover { transform: none; }
+}
+
+@media (max-width: 1199px) {
+  .hero { padding: 72px var(--page-x) 56px; }
+  .heroGrid { grid-template-columns: 1fr; gap: 40px; }
+  .heroTitle { font-size: 56px; }
+  .h2 { font-size: 33px; }
+  .h2Small { font-size: 27px; }
+  .section { padding: 0 var(--page-x) 72px; }
+  .modelGrid { grid-template-columns: 1fr; }
+  .keeps { grid-template-columns: 1fr; }
+  .keepCard { min-height: 0; }
+  .keepTitle { font-size: 31px; }
+  .talent { grid-template-columns: 1fr; gap: 32px; }
+  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .restGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .closing { padding: 80px var(--page-x); }
+  .closingTitle { font-size: 40px; }
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 48px var(--page-x) 40px; }
+  .heroTitle { font-size: 34px; }
+  .heroLead { font-size: 17px; }
+  .h2 { font-size: 27px; }
+  .h2Small { font-size: 23px; }
+  .section { padding: 0 var(--page-x) 48px; }
+  .sectionHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .keepTitle { font-size: 25px; }
+  .figures { grid-template-columns: 1fr; }
+  .figureValue { font-size: 27px; }
+  .restGrid { grid-template-columns: 1fr; }
+  .restTile { min-height: 0; }
+  .closing { padding: 56px var(--page-x); }
+  .closingTitle { font-size: 29px; }
+  .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .closingSolid, .closingOutline { justify-content: center; }
+}
+
+@media (hover: none) {
+  .modelMore { max-height: none; opacity: 1; }
 }

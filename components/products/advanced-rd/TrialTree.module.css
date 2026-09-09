@@ -14,7 +14,7 @@
 
 .eyebrow {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -32,7 +32,7 @@
 .lead {
   margin: 20px 0 0;
   max-width: 54ch;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: rgba(245, 237, 236, 0.62);
 }
@@ -54,7 +54,7 @@
   color: var(--paper);
   border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   transition: background 160ms ease;
 }
@@ -62,7 +62,7 @@
 
 .trialLabel {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(245, 237, 236, 0.45);
@@ -91,12 +91,12 @@
   border-bottom: 1px solid rgba(245, 237, 236, 0.16);
 }
 
-.ledgerName { font-size: 13px; color: rgba(245, 237, 236, 0.55); }
+.ledgerName { font-size: 14px; color: rgba(245, 237, 236, 0.55); }
 
-.ledgerNameCarried { font-size: 13px; color: #F26B5E; }
+.ledgerNameCarried { font-size: 14px; color: #F26B5E; }
 
 .ledgerValue {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
@@ -106,7 +106,7 @@
 .findingLabel {
   font-family: var(--sans);
   margin-top: 28px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -115,7 +115,7 @@
 
 .finding {
   margin: 12px 0 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(245, 237, 236, 0.62);
   transition: color 420ms ease;
@@ -148,7 +148,7 @@
 }
 
 .nodeLabel {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.35;
   transition: color 420ms ease;
 }
@@ -161,11 +161,11 @@
   gap: 8px;
 }
 
-.nodeMetric { font-size: 11px; letter-spacing: 0.02em; }
+.nodeMetric { font-size: 12px; letter-spacing: 0.02em; }
 
 .nodeTag {
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -217,4 +217,16 @@
 
 @media (prefers-reduced-motion: reduce) {
   .node { transition: opacity 200ms ease, border-color 420ms ease, background 420ms ease; }
+}
+
+@media (max-width: 1199px) {
+  .body { grid-template-columns: 1fr; gap: 32px; }
+  .canvas { height: 440px; }
+}
+
+@media (max-width: 767px) {
+  .canvas { height: 360px; }
+  .head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .ledgerRow,
+  .ledgerRowCarried { grid-template-columns: 1fr auto; }
 }

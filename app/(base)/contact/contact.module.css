@@ -14,7 +14,7 @@
 .heroLead {
   margin: 28px 0 0;
   max-width: 56ch;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -39,7 +39,7 @@
   background: var(--surface);
   border: 1px solid var(--hairline);
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   color: var(--ink);
   transition: border-color 160ms ease;
 }
@@ -75,7 +75,7 @@
   color: var(--paper);
   border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   cursor: pointer;
   transition: background 160ms ease;
@@ -83,7 +83,7 @@
 .submit:hover:not(:disabled) { background: var(--accent); }
 .submit:disabled { cursor: default; opacity: 0.65; }
 
-.status { font-size: 14px; color: var(--status); }
+.status { font-size: 15px; color: var(--status); }
 .statusError { color: var(--accent); }
 
 /* Aside */
@@ -97,7 +97,7 @@
 
 .asideText {
   margin: 16px 0 0;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -106,7 +106,7 @@
 .asideLink {
   display: inline-block;
   margin-top: 20px;
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--accent);
@@ -114,3 +114,20 @@
   padding-bottom: 2px;
 }
 .asideLink:hover { color: var(--accent-dark); border-bottom-color: var(--accent-dark); }
+
+@media (max-width: 1199px) {
+  .hero { padding: 72px var(--page-x) 24px; }
+  .heroTitle { font-size: 52px; }
+  .body { padding: 40px var(--page-x) 80px; grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 48px var(--page-x) 20px; }
+  .heroTitle { font-size: 34px; }
+  .heroLead { font-size: 17px; }
+  .body { padding: 32px var(--page-x) 56px; gap: 40px; }
+  /* 16px keeps iOS Safari from zooming the page on focus. */
+  .input, .textarea { font-size: 17px; }
+  .submitRow { flex-direction: column; align-items: stretch; gap: 12px; }
+  .submit { justify-content: center; min-height: 48px; }
+}

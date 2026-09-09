@@ -31,7 +31,7 @@
 }
 
 .title {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 500;
   letter-spacing: -0.015em;
   max-width: 16ch;
@@ -68,7 +68,7 @@
 
 .lead {
   margin: 16px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.55;
   color: var(--ink-muted);
 }
@@ -98,13 +98,13 @@
   gap: 6px;
 }
 
-.detailStrong { font-size: 12px; letter-spacing: 0.01em; color: var(--ink); }
+.detailStrong { font-size: 13px; letter-spacing: 0.01em; color: var(--ink); }
 
-.detailMuted { font-size: 12px; letter-spacing: 0.01em; color: var(--ink-muted); }
+.detailMuted { font-size: 13px; letter-spacing: 0.01em; color: var(--ink-muted); }
 
 .index {
   margin-top: 16px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   color: var(--ink-faint);
@@ -114,4 +114,31 @@
 @media (prefers-reduced-motion: reduce) {
   .card, .dot, .rule, .body { transition: none; }
   .card:hover { transform: none; }
+}
+
+@media (max-width: 1199px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { min-height: 0; }
+}
+
+/* No hover on touch, so the detail that the desktop card reveals would be
+   unreachable. Show it outright and drop the transition that would otherwise
+   animate from a collapsed state on first paint. */
+@media (hover: none) {
+  .body {
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .rule { width: 40px; }
+  .dot {
+    background: var(--svc-accent);
+    border-color: var(--svc-accent);
+    transform: scale(1);
+  }
 }

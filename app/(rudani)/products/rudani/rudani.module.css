@@ -11,7 +11,7 @@
 
 .h2Small {
   margin: 0;
-  font-size: 32px;
+  font-size: 33px;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
@@ -22,7 +22,7 @@
 
 .breadcrumb {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -41,7 +41,7 @@
 .heroLead {
   margin: 32px 0 0;
   max-width: 60ch;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: #676763;
   text-wrap: pretty;
@@ -64,7 +64,7 @@
   height: 56px;
   padding: 0 32px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -100,7 +100,7 @@
 
 .stageEyebrow {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -118,7 +118,7 @@
 .stageNote {
   margin: 0;
   max-width: 36ch;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(242, 242, 240, 0.55);
 }
@@ -131,7 +131,7 @@
 
 .rulesLabel {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -158,14 +158,14 @@
 
 .deployTitle {
   margin: 0;
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 500;
   letter-spacing: -0.015em;
 }
 
 .deployBody {
   margin: 14px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: #676763;
 }
@@ -180,7 +180,7 @@
 
 .productionLabel {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -202,9 +202,9 @@
   padding: 16px 0;
 }
 
-.productionName { font-size: 15px; color: #676763; }
+.productionName { font-size: 16px; color: #676763; }
 
-.productionValue { font-size: 15px; color: var(--ink); }
+.productionValue { font-size: 16px; color: var(--ink); }
 
 /* --- The rest of the system ---------------------------------------------- */
 
@@ -242,14 +242,14 @@
 
 .restStatus {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .restName {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -275,7 +275,7 @@
 
 .closingLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: rgba(242, 242, 240, 0.72);
   max-width: 48ch;
@@ -298,7 +298,7 @@
   height: 56px;
   padding: 0 32px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -319,4 +319,38 @@
 @media (prefers-reduced-motion: reduce) {
   .restTile { transition: background 280ms ease, color 280ms ease; }
   .restTile:hover { transform: none; }
+}
+
+@media (max-width: 1199px) {
+  .hero { padding: 72px var(--page-x) 56px; }
+  .heroTitle { font-size: 52px; }
+  .h2 { font-size: 33px; }
+  .h2Small { font-size: 27px; }
+  .stageTitle { font-size: 34px; }
+  .deployGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .productionGrid { grid-template-columns: 1fr; gap: 32px; }
+  .restGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .closing { padding: 80px var(--page-x); }
+  .closingTitle { font-size: 40px; }
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 48px var(--page-x) 40px; }
+  .heroTitle { font-size: 33px; }
+  .heroLead { font-size: 17px; }
+  .heroActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .buttonSolid, .buttonOutline { justify-content: center; }
+  .h2 { font-size: 27px; }
+  .h2Small { font-size: 23px; }
+  .stageHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .stageTitle { font-size: 27px; }
+  .deployGrid { grid-template-columns: 1fr; }
+  .productionRow { grid-template-columns: 1fr; gap: 4px; }
+  .rulesHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .restGrid { grid-template-columns: 1fr; }
+  .restTile { min-height: 0; }
+  .closing { padding: 56px var(--page-x); }
+  .closingTitle { font-size: 29px; }
+  .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .closingSolid, .closingOutline { justify-content: center; }
 }

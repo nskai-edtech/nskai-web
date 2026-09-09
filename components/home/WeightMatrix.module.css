@@ -1,6 +1,6 @@
 .equation {
   height: 26px;
-  font-size: 17px;
+  font-size: 18px;
   letter-spacing: 0.03em;
   color: var(--ink);
 }
@@ -55,7 +55,25 @@
 }
 
 .noteText {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   color: #8E827E;
+}
+
+/* Sixteen 26px cells and their gaps need 476px, wider than a phone's canvas.
+   The matrix keeps all sixteen columns — dropping some would misrepresent the
+   weights it is drawing — and shrinks the cell instead. */
+@media (max-width: 767px) {
+  .grid { grid-template-columns: repeat(16, 17px); gap: 3px; }
+  .cell { width: 17px; height: 17px; }
+  .equation { font-size: 16px; }
+}
+
+/* A 320px phone leaves 280px of canvas; the sixteen columns shrink again
+   rather than the matrix losing any of them. */
+@media (max-width: 479px) {
+  .grid { grid-template-columns: repeat(16, 12px); gap: 2px; }
+  .cell { width: 12px; height: 12px; }
+  .frame { gap: 8px; }
+  .equation { font-size: 14px; }
 }

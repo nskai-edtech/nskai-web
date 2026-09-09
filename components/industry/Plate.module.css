@@ -3,7 +3,7 @@
 
 .label {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -53,7 +53,7 @@
 .lead {
   margin: 36px 0 0;
   max-width: 46ch;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.62;
   color: var(--ink-muted);
 }
@@ -75,7 +75,7 @@
   white-space: nowrap;
   height: 54px;
   padding: 0 30px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -115,7 +115,7 @@
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
   color: var(--ink-muted);
   text-align: right;
@@ -138,7 +138,7 @@
 
 .problemText {
   margin: 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.68;
   color: var(--ink);
 }
@@ -156,7 +156,7 @@
   gap: 48px;
 }
 
-.appliesNote { font-size: 11.5px; color: var(--ink-faint); }
+.appliesNote { font-size: 12.5px; color: var(--ink-faint); }
 
 .appliesGrid {
   margin-top: 36px;
@@ -187,21 +187,21 @@
 }
 
 .applyIndex {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.14em;
   color: var(--ink-faint);
 }
 
 .applyTitle {
   margin-top: 10px;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.25;
   letter-spacing: -0.01em;
 }
 
 .applyBody {
   margin: 10px 0 0;
-  font-size: 14.5px;
+  font-size: 15.5px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -221,7 +221,7 @@
 
 .detailCaption {
   margin-top: 12px;
-  font-size: 11.5px;
+  font-size: 12.5px;
   line-height: 1.5;
   color: var(--ink-muted);
 }
@@ -250,7 +250,7 @@
   border-bottom: 1px solid var(--hairline);
 }
 
-.workedLabel { font-size: 17px; color: var(--ink-muted); }
+.workedLabel { font-size: 18px; color: var(--ink-muted); }
 
 .workedValue {
   font-size: 34px;
@@ -260,7 +260,7 @@
 
 .workedNote {
   padding-top: 16px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-faint);
 }
 
@@ -295,7 +295,7 @@
 }
 
 .complianceIndex {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--ink-faint);
   padding-top: 4px;
@@ -303,7 +303,7 @@
 
 .complianceText {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.62;
   color: var(--ink);
 }
@@ -325,14 +325,14 @@
 
 .deploymentWhen {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
 
-.deploymentWhat { font-size: 16px; line-height: 1.55; }
+.deploymentWhat { font-size: 17px; line-height: 1.55; }
 
 /* --- Deployed here ------------------------------------------------------- */
 
@@ -358,9 +358,9 @@
 }
 .deployedRow:hover { padding-left: 12px; color: var(--ink); }
 
-.deployedName { font-size: 22px; letter-spacing: -0.015em; }
+.deployedName { font-size: 23px; letter-spacing: -0.015em; }
 
-.deployedNote { font-size: 15px; color: var(--ink-muted); }
+.deployedNote { font-size: 16px; color: var(--ink-muted); }
 
 .deployedArrow { justify-self: end; color: var(--ink-faint); }
 
@@ -396,14 +396,14 @@
 
 .plateNumeral {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .plateName {
-  font-size: 20px;
+  font-size: 21px;
   letter-spacing: -0.01em;
   color: var(--ink);
 }
@@ -427,7 +427,7 @@
 
 .closingLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: rgba(239, 239, 241, 0.7);
   max-width: 48ch;
@@ -449,7 +449,7 @@
   white-space: nowrap;
   height: 54px;
   padding: 0 30px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -470,4 +470,105 @@
 @media (prefers-reduced-motion: reduce) {
   .deployedRow, .plateLink { transition: none; }
   .deployedRow:hover { padding-left: 0; }
+}
+
+/* --- Below the design width ---------------------------------------------- */
+
+/* The plate is built from two-column grids with a fixed-width right rail. On a
+   narrower canvas the rail is what breaks first, so each grid collapses to a
+   single column and the display type steps down with it. */
+
+@media (max-width: 1199px) {
+  .head { padding: 64px var(--page-x) 0; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 48px 0 0;
+  }
+  .title { font-size: 64px; max-width: 18ch; }
+  .lead { margin-top: 28px; font-size: 19px; }
+
+  .plateImage { height: 420px; }
+  .detailImage { height: 340px; }
+
+  .problem { padding: 80px var(--page-x) 72px; }
+  .problemGrid { grid-template-columns: 1fr; gap: 32px; }
+
+  .applies { padding: 0 var(--page-x) 80px; }
+  .appliesGrid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .appliesColumns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .worked { padding: 0 var(--page-x) 88px; }
+  .workedGrid { grid-template-columns: 1fr; gap: 32px; }
+
+  .notesGrid { grid-template-columns: 1fr; gap: 48px; }
+
+  .deployed { padding: 80px var(--page-x); }
+  .deployedGrid { grid-template-columns: 1fr; gap: 32px; }
+
+  .otherPlates { padding: 0 var(--page-x) 88px; }
+  .plateGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .closing { padding: 80px var(--page-x); }
+}
+
+@media (max-width: 767px) {
+  .head { padding: 40px var(--page-x) 0; }
+  .stamp { flex-wrap: wrap; gap: 8px 20px; }
+
+  .hero { gap: 36px; padding: 32px 0 0; }
+  .title { font-size: 40px; max-width: none; letter-spacing: -0.02em; }
+  .lead { margin-top: 20px; font-size: 17px; max-width: none; }
+
+  /* Two full-width buttons stack rather than shrinking to unreadable labels. */
+  .actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .buttonSolid,
+  .buttonOutline { justify-content: center; }
+
+  .plateImage { height: 260px; }
+  .detailImage { height: 220px; }
+  .plateCaption { flex-direction: column; gap: 6px; text-align: left; }
+  .captionText { max-width: none; }
+
+  .problem { padding: 56px var(--page-x) 48px; }
+  .applies { padding: 0 var(--page-x) 56px; }
+  .appliesHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .appliesColumns { grid-template-columns: 1fr; }
+  .appliesWide { margin-top: 28px; }
+
+  .worked { padding: 0 var(--page-x) 56px; }
+  .workedRow { grid-template-columns: 1fr; gap: 4px; }
+  .workedLabel { font-size: 16px; }
+
+  .complianceRow { grid-template-columns: 22px 1fr; }
+  .deploymentRow { grid-template-columns: 1fr; gap: 4px; }
+
+  .deployed { padding: 56px var(--page-x); }
+  /* Keep the arrow beside the name; only the note drops below. */
+  .deployedRow { grid-template-columns: 1fr 24px; gap: 4px 12px; }
+  .deployedName { font-size: 20px; }
+  .deployedNote { grid-column: 1 / -1; }
+
+  .otherPlates { padding: 0 var(--page-x) 56px; }
+  /* minmax(0, …) rather than 1fr: a long plate name like
+     "Telecommunications" sets a min-content width that would otherwise push
+     the track wider than its share of the row. */
+  .plateGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plateLink { min-height: 120px; }
+  .plateName { overflow-wrap: anywhere; }
+
+  .closing { padding: 56px var(--page-x); }
+  .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .closingSolid,
+  .closingOutline { justify-content: center; }
+}
+
+/* A laptop narrower than the 1440px design still has room for the two-column
+   hero, but not for a 520px rail beside a 96px gutter and an 88px title. The
+   rail and the gap give way first; the columns only collapse below 1200. */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .hero { grid-template-columns: minmax(0, 1fr) 420px; gap: 56px; }
+  .title { font-size: 72px; }
+  .plateImage { height: 480px; }
 }

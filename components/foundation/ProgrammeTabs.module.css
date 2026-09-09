@@ -21,7 +21,7 @@
 
 .tabYear {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -33,7 +33,7 @@
 
 .tabName {
   margin-top: 10px;
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 500;
   letter-spacing: -0.015em;
   color: var(--ink-faint);
@@ -51,7 +51,7 @@
 
 .lead {
   margin: 0;
-  font-size: 22px;
+  font-size: 23px;
   line-height: 1.5;
   color: var(--ink);
   max-width: 44ch;
@@ -94,7 +94,7 @@
 .statLabel {
   margin-top: 10px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -103,7 +103,7 @@
 
 .body {
   margin: 32px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.65;
   color: var(--ink-muted);
   max-width: 56ch;
@@ -117,7 +117,7 @@
   flex-wrap: wrap;
 }
 
-.link { font-size: 16px; font-weight: 500; color: var(--ink); }
+.link { font-size: 17px; font-weight: 500; color: var(--ink); }
 
 .figure { margin: 0; }
 
@@ -141,7 +141,7 @@
 .figureCaption {
   margin-top: 14px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;

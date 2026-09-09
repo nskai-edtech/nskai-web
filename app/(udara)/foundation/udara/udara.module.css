@@ -3,7 +3,7 @@
 
 .mono {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -66,7 +66,7 @@
 .heroLead {
   margin: 30px 0 0;
   max-width: 54ch;
-  font-size: 20px;
+  font-size: 21px;
   line-height: 1.55;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -138,7 +138,7 @@
 
 .headlineNote {
   margin: 22px 0 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: #6B6252;
   max-width: 86ch;
@@ -157,7 +157,7 @@
 
 .reachLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 58ch;
@@ -174,9 +174,9 @@
 
 .note { background: var(--paper); padding: 18px 20px; }
 
-.noteTitle { margin-top: 8px; font-size: 17px; font-weight: 500; }
+.noteTitle { margin-top: 8px; font-size: 18px; font-weight: 500; }
 
-.noteBody { margin-top: 4px; font-size: 15px; color: var(--ink-muted); }
+.noteBody { margin-top: 4px; font-size: 16px; color: var(--ink-muted); }
 
 /* --- Five days ----------------------------------------------------------- */
 
@@ -193,14 +193,14 @@
 
 .dayTitle {
   margin-top: 14px;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 500;
   line-height: 1.25;
 }
 
 .daysNote {
   margin: 24px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 74ch;
@@ -230,7 +230,7 @@
 
 .cohortBody {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.45;
   color: var(--ink);
 }
@@ -242,7 +242,7 @@
 .languages {
   margin-top: 14px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   color: #6B6252;
   line-height: 1.7;
@@ -262,7 +262,7 @@
 
 .buildLead {
   margin: 18px 0 0;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 50ch;
@@ -287,19 +287,19 @@
   gap: 20px;
 }
 
-.tableLabel { font-size: 16px; color: var(--ink-muted); }
+.tableLabel { font-size: 17px; color: var(--ink-muted); }
 
 .tableValue {
   font-family: var(--mono);
-  font-size: 20px;
+  font-size: 21px;
   font-variant-numeric: tabular-nums;
 }
 
 .speaker { background: var(--paper); padding: 16px 20px; }
 
-.speakerName { font-size: 17px; font-weight: 500; }
+.speakerName { font-size: 18px; font-weight: 500; }
 
-.speakerRole { margin-top: 3px; font-size: 15px; color: #6B6252; }
+.speakerRole { margin-top: 3px; font-size: 16px; color: #6B6252; }
 
 /* --- Diaries ------------------------------------------------------------- */
 
@@ -324,7 +324,7 @@
 
 .quote {
   margin: 0;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.55;
   color: var(--ink);
   text-wrap: pretty;
@@ -332,13 +332,13 @@
 
 .quoteLead {
   composes: quote;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
 .diaryWho {
   margin-top: 14px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
   color: #6B6252;
 }
@@ -369,7 +369,7 @@
 
 .supportEyebrow {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -378,7 +378,7 @@
 
 .supportLead {
   margin: 28px 0 0;
-  font-size: 20px;
+  font-size: 21px;
   line-height: 1.55;
   max-width: 70ch;
   color: #E8DFC6;
@@ -398,7 +398,7 @@
 
 .supportWhen {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -407,7 +407,7 @@
 
 .supportBody {
   margin: 16px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: #E8DFC6;
 }
@@ -433,7 +433,7 @@
   height: 52px;
   padding: 0 26px;
   border-radius: 3px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -476,7 +476,7 @@
 
 .closingLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: #4A3A02;
   max-width: 52ch;
@@ -499,7 +499,7 @@
   height: 52px;
   padding: 0 26px;
   border-radius: 3px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -508,3 +508,63 @@
 
 .closingOutline { border: 1px solid #14100A; color: #14100A; }
 .closingOutline:hover { color: #14100A; }
+
+@media (max-width: 1199px) {
+  .hero {
+    padding: 72px var(--page-x) 48px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .heroTitle { font-size: 52px; }
+  .h2 { font-size: 33px; }
+  .h2Small { font-size: 29px; }
+  .section { padding: 0 var(--page-x) 72px; }
+
+  .headlineGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .days { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reachGrid { grid-template-columns: 1fr; gap: 32px; }
+  .buildGrid,
+  .speakerGrid { grid-template-columns: 1fr; gap: 32px; }
+  .cohort { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* .diaries is a CSS multi-column, not a grid. */
+  .diaries { columns: 2; }
+  .supportGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .supportTitle { font-size: 34px; }
+  .cohortValue { font-size: 33px; }
+  .closing { padding: 80px var(--page-x); }
+  .closingTitle { font-size: 40px; }
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 48px var(--page-x) 36px; gap: 32px; }
+  .heroTitle { font-size: 34px; }
+  .heroLead { font-size: 17px; }
+  .heroActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .buttonSolid,
+  .buttonOutline,
+  .buttonGold,
+  .buttonGhost { justify-content: center; }
+  .h2 { font-size: 27px; }
+  .h2Small { font-size: 23px; }
+  .section { padding: 0 var(--page-x) 48px; }
+  .ruledHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  .headline { padding: 0 var(--page-x) 56px; }
+  .headlineGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .headlineCell { padding: 20px 16px; }
+  .headlineValue { font-size: 29px; }
+  .days { grid-template-columns: 1fr; }
+  .cohort { grid-template-columns: 1fr; }
+  .cohortValue { font-size: 29px; }
+  .diaries { columns: 1; }
+  .tableRow { grid-template-columns: 1fr; gap: 4px; }
+  .supportGrid { grid-template-columns: 1fr; }
+  .supportTitle { font-size: 27px; }
+  .supportHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .supportActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .notes { grid-template-columns: 1fr; }
+  .closing { padding: 56px var(--page-x); }
+  .closingTitle { font-size: 29px; }
+  .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .closingSolid, .closingOutline { justify-content: center; }
+}

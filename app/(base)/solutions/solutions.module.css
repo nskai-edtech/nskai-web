@@ -25,7 +25,7 @@
 .heroLead {
   margin: 32px 0 0;
   max-width: 62ch;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -57,7 +57,7 @@
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
   color: var(--ink-muted);
 }
@@ -88,14 +88,14 @@
 
 .cardTitle {
   margin: 0;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
   letter-spacing: -0.015em;
 }
 
 .cardBody {
   margin: 16px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
   transition: color 320ms ease, opacity 320ms ease;
@@ -104,7 +104,7 @@
 .cardProducts {
   font-family: var(--sans);
   margin-top: auto;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -135,7 +135,7 @@
 }
 
 .stepIndex {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   color: var(--accent);
@@ -144,14 +144,14 @@
 
 .stepTitle {
   margin: 14px 0 0;
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .stepBody {
   margin: 12px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -165,7 +165,7 @@
 
 .servicesLead {
   margin: 16px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 56ch;
@@ -174,7 +174,7 @@
 .servicesLabel {
   font-family: var(--sans);
   margin-top: 56px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -199,7 +199,7 @@
 
 .closingLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: #4D3B00;
   max-width: 48ch;
@@ -222,7 +222,7 @@
   height: 56px;
   padding: 0 32px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -239,3 +239,37 @@
   transition: background 160ms ease, color 160ms ease;
 }
 .closingOutline:hover { background: var(--ink); color: #FFD60A; }
+
+@media (max-width: 1199px) {
+  .hero { padding: 72px var(--page-x) 56px; }
+  .heroTitle { font-size: 64px; }
+  .plateSection { padding: 0 var(--page-x) 72px; }
+  .plate { margin-bottom: 72px; }
+  .plateImage { height: 400px; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .engagement { padding: 0 var(--page-x) 88px; }
+  .steps { grid-template-columns: repeat(2, 1fr); gap: 32px 8px; }
+  .services { padding: 88px var(--page-x); }
+  .closing { padding: 80px var(--page-x); }
+  .closingTitle { font-size: 40px; }
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 48px var(--page-x) 40px; }
+  .heroTitle { font-size: 38px; }
+  .heroLead { font-size: 17px; }
+  .plateSection { padding: 0 var(--page-x) 48px; }
+  .plate { margin-bottom: 48px; }
+  .plateImage { height: 240px; }
+  .plateCaption { flex-direction: column; gap: 6px; }
+  .captionText { max-width: none; }
+  .captionStamp { text-align: left; white-space: normal; }
+  .cards { grid-template-columns: 1fr; }
+  .card { padding: 24px; min-height: 0; }
+  .steps { grid-template-columns: 1fr; gap: 28px; }
+  .services { padding: 56px var(--page-x); }
+  .closing { padding: 56px var(--page-x); }
+  .closingTitle { font-size: 31px; }
+  .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .closingSolid, .closingOutline { justify-content: center; }
+}

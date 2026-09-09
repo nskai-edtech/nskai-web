@@ -24,9 +24,9 @@ so they can be downscaled if page weight matters more than headroom.
 | `pub-plate-hero.jpg` | Office of War Information research workers 8d28681v.jpg |
 | `pub-det-1.jpg` | Mannelijke kantoorbedienden achter schrijfmachines, Bestanddeelnr 189-0019.jpg |
 | `ret-plate-hero.jpg` | Interior of Katz drug store. Kansas City, Mo - NARA - 283620.jpg |
-| `ret-det-1.png` | Joseph Street, Lagos, with the Royal Cinema.png |
+| `ret-det-1.webp` | Joseph Street, Lagos, with the Royal Cinema.png |
 | `hea-plate-hero.jpg` | Ward in the Elliot Community Hospital (2435790785).jpg |
-| `hea-det-1.png` | Mothers wait in line at Child Clinic Centre in Lagos, Nigeria.png |
+| `hea-det-1.webp` | Mothers wait in line at Child Clinic Centre in Lagos, Nigeria.png |
 | `ene-plate-hero.jpg` | Lewis Hine Power house mechanic working on steam pump.jpg |
 | `ene-det-1.jpg` | Georgetown Power Station workers, 1909.jpg — **CC BY 2.0**, Seattle Municipal Archives (attributed in the caption) |
 
@@ -51,3 +51,11 @@ Two notes on the 2026-09-08 pass:
 of it is openly licensed, since that era's press images are still held by
 Reuters, AP and Getty. These archival plates are the closest available, and they
 match the rest of the site's photography.
+
+## Encoding
+
+Fetched at 1600px wide, then re-encoded on 2026-09-09: the JPEGs in place at
+quality 80 (mozjpeg, progressive), and the two files that arrived as PNG —
+`ret-det-1` at 2.1MB and `hea-det-1` at 1.0MB — as WebP at quality 82, which is
+123KB and 111KB. The source names in the table above are the original Wikimedia
+filenames and still end `.png`.

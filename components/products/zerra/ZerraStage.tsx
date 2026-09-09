@@ -5,7 +5,9 @@ import { seeded, shade } from "./scale";
 import styles from "./ZerraStage.module.css";
 
 const N = 300;
-const STAGE_H = 768;
+/** The stage height at the design width; below it the sticky pane is
+    shorter, so the scrub measures the pane rather than trusting this. */
+const STAGE_H_DEFAULT = 768;
 const HEADER_H = 72;
 
 type Point = { x: number; y: number; v: number; cell?: number };
@@ -38,6 +40,7 @@ export const captions = [
     between layouts as you scroll the tall wrapper past the sticky canvas. */
 export default function ZerraStage() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const capsRef = useRef<HTMLDivElement>(null);
   const dotsRef = useRef<HTMLDivElement>(null);
@@ -285,7 +288,8 @@ export default function ZerraStage() {
 
     const onScroll = () => {
       const r = wrap.getBoundingClientRect();
-      const span = r.height - STAGE_H - HEADER_H;
+      const stageH = stickyRef.current?.offsetHeight || STAGE_H_DEFAULT;
+      const span = r.height - stageH - HEADER_H;
       const t = span > 0 ? (-r.top + HEADER_H) / span : 0;
       pTarget = Math.min(3, Math.max(0, t * 3.15 - 0.07));
     };
@@ -321,7 +325,7 @@ export default function ZerraStage() {
 
   return (
     <div ref={wrapRef} className={styles.wrap}>
-      <div className={styles.sticky}>
+      <div ref={stickyRef} className={styles.sticky}>
         <canvas ref={canvasRef} aria-hidden="true" className={styles.canvas} />
 
         <div ref={capsRef} className={styles.captions}>

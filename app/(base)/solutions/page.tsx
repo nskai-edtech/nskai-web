@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import ServiceGrid from "@/components/ServiceGrid";
 import { plates } from "@/lib/industries";
 import styles from "./solutions.module.css";
+import { SIZES, srcSet } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Solutions",
@@ -103,10 +104,13 @@ export default function SolutionsPage() {
         <figure className={styles.plate}>
           <div className={styles.plateFrame}>
             {/* See public/plates/README.md for the source of this photograph. */}
+            {/* The band is this page's largest paint; it loads eagerly. */}
             <img
               src="/plates/sol-band.jpg"
+              srcSet={srcSet("/plates/sol-band.jpg")}
+              sizes={SIZES.full}
               alt=""
-              loading="lazy"
+              fetchPriority="high"
               className={styles.plateImage}
             />
           </div>

@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { faces, inkOn } from "./faces";
 import styles from "./LeriDial.module.css";
 
-const STAGE_H = 780;
+/** The stage height at the design width; below it the sticky pane is
+    shorter, so the scrub measures the pane rather than trusting this. */
+const STAGE_H_DEFAULT = 780;
 const HEADER_H = 72;
 const CX = 310;
 const CY = 310;
@@ -21,6 +23,7 @@ function vertex(k: number) {
     the wedge and the readout all follow the same index. */
 export default function LeriDial() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<SVGGElement>(null);
   const needleRef = useRef<SVGGElement>(null);
   const progRef = useRef<HTMLDivElement>(null);
@@ -44,7 +47,8 @@ export default function LeriDial() {
       const near = r.top < window.innerHeight + 200 && r.bottom > -200;
 
       if (near) {
-        const span = r.height - STAGE_H - HEADER_H;
+        const stageH = stickyRef.current?.offsetHeight || STAGE_H_DEFAULT;
+        const span = r.height - stageH - HEADER_H;
         const t = span > 0 ? Math.min(1, Math.max(0, (-r.top + HEADER_H) / span)) : 0;
         const f = t * 7.999;
         rotTarget = -45 * f;
@@ -84,7 +88,7 @@ export default function LeriDial() {
 
   return (
     <div ref={wrapRef} className={styles.wrap}>
-      <div className={styles.sticky}>
+      <div ref={stickyRef} className={styles.sticky}>
         <div className={styles.row}>
           <div className={styles.copy}>
             <div className={styles.stepRow}>

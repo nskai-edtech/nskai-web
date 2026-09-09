@@ -13,7 +13,7 @@
 
 .wordmark {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 21px;
   letter-spacing: 0.10em;
   color: var(--ink);
 }
@@ -24,7 +24,7 @@
   align-items: center;
   gap: 32px;
   margin-left: 56px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   height: 100%;
 }
@@ -96,7 +96,7 @@
 .rowBody { flex: 1; }
 
 .rowName {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   transition: color 200ms ease;
 }
@@ -104,7 +104,7 @@
 
 .rowDesc {
   margin: 4px 0 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--ink-muted);
 }
@@ -127,7 +127,7 @@
   background: var(--accent);
   color: var(--paper);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   transition: background 160ms ease;
 }
@@ -137,4 +137,10 @@
   .row, .tile { transition: none; }
   .row:hover { transform: none; }
   .row:hover .tile { transform: none; }
+}
+
+/* Below the design width the hover mega-menus are unreachable on touch, so the
+   desktop nav and its call to action stand down and MobileNav takes over. */
+@media (max-width: 1199px) {
+  .nav, .actions { display: none; }
 }

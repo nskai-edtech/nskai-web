@@ -12,9 +12,11 @@ export const metadata: Metadata = {
     "Applied AI from Lagos and London: products, enterprise engineering and the Bambara AI Foundation.",
 };
 
-// The designs are a fixed 1440px desktop layout with no breakpoints.
+// The design is drawn at 1440px, but the page now adapts below that rather
+// than asking a phone to render a 1440px canvas and scale it down.
 export const viewport: Viewport = {
-  width: 1440,
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

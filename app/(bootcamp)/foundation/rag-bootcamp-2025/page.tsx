@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DISCORD_URL } from "@/lib/nav";
 import styles from "./bootcamp.module.css";
+import { SIZES, srcSet } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "RAG and AI Agents Bootcamp 2025",
@@ -190,7 +191,9 @@ export default function RagBootcampPage() {
             <div className={styles.monoMuted}>Run with</div>
             <div className={styles.posterFrame}>
               <img
-                src="/bootcamp/poster.png"
+                src="/bootcamp/poster.webp"
+                srcSet={srcSet("/bootcamp/poster.webp")}
+                sizes={SIZES.half}
                 alt="Intro to AI Agents: from RAG to deployment, six-week bootcamp"
                 loading="lazy"
                 className={styles.poster}
@@ -263,6 +266,8 @@ export default function RagBootcampPage() {
             <div className={styles.posterFrame}>
               <img
                 src="/bootcamp/speakers.jpg"
+                srcSet={srcSet("/bootcamp/speakers.jpg")}
+                sizes={SIZES.full}
                 alt="Our speakers — the fourteen practitioners who taught the 2025 RAG and AI Agents Bootcamp"
                 loading="lazy"
                 className={styles.poster}

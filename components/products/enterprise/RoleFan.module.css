@@ -44,14 +44,14 @@
 }
 
 .name {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .note {
   padding: 0 18px 18px 34px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--ink-muted);
 }
@@ -63,4 +63,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .card, .cardDark { transition: height 380ms ease; }
+}
+
+/* The cards are a fanned stack of fixed 340px sheets, rotated a couple of
+   degrees each. The inset leaves room for that rotation once the card is as
+   wide as the column. */
+@media (max-width: 767px) {
+  .fan { height: 340px; }
+  .card, .cardDark { width: calc(100% - 24px); }
 }

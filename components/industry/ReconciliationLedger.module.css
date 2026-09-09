@@ -22,7 +22,7 @@
 .header {
   padding: 16px 28px;
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -50,15 +50,15 @@
   background: rgba(16, 16, 20, 0.045);
 }
 
-.date { font-size: 12px; letter-spacing: 0.08em; }
+.date { font-size: 13px; letter-spacing: 0.08em; }
 
-.reference { font-size: 13px; font-variant-numeric: tabular-nums; }
+.reference { font-size: 14px; font-variant-numeric: tabular-nums; }
 
-.amount { font-size: 15px; font-variant-numeric: tabular-nums; }
+.amount { font-size: 16px; font-variant-numeric: tabular-nums; }
 
 .state {
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -84,7 +84,7 @@
   background: var(--ink);
   color: var(--paper);
   font-family: var(--sans);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -94,7 +94,7 @@
   display: flex;
   gap: 48px;
   padding: 16px 28px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-muted);
 }
 
@@ -102,4 +102,17 @@
 
 @media (prefers-reduced-motion: reduce) {
   .row, .rowPaired, .rowException { transition: none; }
+}
+
+/* The ledger is a five-column table; below the design width it scrolls inside
+   its own frame rather than compressing the columns into illegibility. The
+   drag that scrubs the rule is vertical, so a horizontal scroll here does not
+   fight it. */
+@media (max-width: 1199px) {
+  .wrap { overflow-x: auto; }
+  .header, .row { min-width: 720px; }
+}
+
+@media (max-width: 767px) {
+  .header, .row { gap: 16px; padding-left: 20px; padding-right: 20px; }
 }

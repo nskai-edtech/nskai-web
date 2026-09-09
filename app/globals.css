@@ -36,8 +36,24 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* No responsive breakpoints were designed; 1440px is the design width. */
-body { min-width: 1440px; }
+/* 1440px is the design width: every rule outside a max-width query is the
+   desktop design, untouched. Below it the layout adapts rather than scrolling
+   sideways, and --page-x is the single gutter lever the whole site reads.
+   The first step matters most in practice — a 1280 or 1366px laptop is the
+   commonest screen there is, and it is narrower than the design. */
+@media (max-width: 1439px) { :root { --page-x: 64px; } }
+@media (max-width: 1199px) { :root { --page-x: 48px; } }
+@media (max-width: 767px)  { :root { --page-x: 20px; } }
+
+/* Anything that still measures wider than a narrow viewport is clipped rather
+   than allowed to pan the page sideways. `clip` and not `hidden`: hidden makes
+   the root a scroll container, which would break every `position: sticky`
+   stage on the site, whereas clip pairs with the visible vertical axis. */
+@media (max-width: 1439px) {
+  html { overflow-x: clip; }
+  body { overflow-x: clip; }
+  img, svg, canvas, video { max-width: 100%; }
+}
 
 a { color: var(--ink); text-decoration: none; }
 a:hover { color: var(--accent); }
@@ -45,7 +61,7 @@ a:hover { color: var(--accent); }
 
 .eyebrow {
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;

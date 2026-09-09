@@ -7,7 +7,7 @@
 
 .head {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #7C8B82;
@@ -26,7 +26,7 @@
 .rowLabel {
   display: flex;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-muted);
   padding-right: 12px;
 }
@@ -36,7 +36,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 16px;
   font-variant-numeric: tabular-nums;
   outline: 1px solid transparent;
   outline-offset: -1px;
@@ -45,7 +45,7 @@
 
 .readout {
   margin-top: 20px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-muted);
   min-height: 52px;
@@ -55,3 +55,14 @@
 .count { color: var(--ink); }
 
 .pair { color: var(--accent); }
+
+/* A 132px label column beside six equal cells needs more room than a phone
+   has. The matrix keeps all six classes — dropping one would change what it
+   claims — and the label column gives up the width instead. */
+@media (max-width: 767px) {
+  .head,
+  .rowContents { grid-template-columns: 62px repeat(6, minmax(0, 1fr)); }
+  .headCell { font-size: 10px; letter-spacing: 0.02em; }
+  .rowLabel { font-size: 12px; }
+  .count { font-size: 13px; }
+}

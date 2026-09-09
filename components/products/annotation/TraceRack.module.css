@@ -7,7 +7,7 @@
 
 .eyebrow {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -24,7 +24,7 @@
 
 .lead {
   margin: 20px 0 0;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: #A9C4BA;
 }
@@ -56,7 +56,7 @@
 
 .sector {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #89A79C;
@@ -67,7 +67,7 @@
 
 .summary {
   margin-top: 6px;
-  font-size: 16px;
+  font-size: 17px;
   color: #EEF2EE;
 }
 
@@ -91,7 +91,7 @@
 .panelHead {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   color: #89A79C;
 }
@@ -100,7 +100,7 @@
   margin-top: 24px;
   padding: 22px;
   background: rgba(246, 241, 239, 0.06);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: #EEF2EE;
 }
@@ -119,16 +119,16 @@
 
 .passWho {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   color: #89A79C;
 }
 
-.passLabel { margin-top: 12px; font-size: 18px; color: #EEF2EE; }
+.passLabel { margin-top: 12px; font-size: 19px; color: #EEF2EE; }
 
 .passReason {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: #A9C4BA;
 }
@@ -144,7 +144,7 @@
 
 .splitText {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #8FCBBB;
@@ -166,13 +166,13 @@
 
 .rulingWho {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .rulingVerdict {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -180,7 +180,7 @@
 
 .rulingBody {
   margin: 16px 0 0;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -188,10 +188,22 @@
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid rgba(238, 242, 238, 0.3);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .panel { transition: opacity 320ms ease; }
+}
+
+@media (max-width: 1199px) {
+  .grid { grid-template-columns: 1fr; gap: 32px; }
+  .panelWrap { min-height: 0; }
+  .passes { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+  .panelHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .rulingHead { flex-wrap: wrap; gap: 4px 10px; }
+  .splitRow { flex-direction: column; align-items: flex-start; gap: 6px; }
 }

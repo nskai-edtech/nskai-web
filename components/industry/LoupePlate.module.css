@@ -35,3 +35,13 @@
 @media (prefers-reduced-motion: reduce) {
   .layer, .ring { transition: none; }
 }
+
+@media (max-width: 1199px) {
+  .stage, .image { height: 420px; }
+}
+
+@media (max-width: 767px) {
+  .stage, .image { height: 300px; }
+  /* The loupe has to stay smaller than the plate it reads. */
+  .ring { width: 180px; height: 180px; margin: -90px 0 0 -90px; }
+}

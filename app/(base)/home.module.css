@@ -32,7 +32,7 @@
 .heroLead {
   margin: 32px 0 0;
   max-width: 62ch;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -55,7 +55,7 @@
   height: 56px;
   padding: 0 32px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -82,7 +82,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 var(--page-x) 12px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -106,14 +106,14 @@
 }
 
 .bandNoteText {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 72ch;
 }
 
 .bandFormula {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--ink-muted);
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -132,7 +132,7 @@
 
 .promiseLabel {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -141,7 +141,7 @@
 
 .promiseBody {
   margin: 12px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.5;
   color: var(--ink);
 }
@@ -152,7 +152,7 @@
 
 .sectionLead {
   margin: 16px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 58ch;
@@ -203,14 +203,14 @@
 }
 
 .tileIndex {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   font-variant-numeric: tabular-nums;
 }
 
 .tileTitle {
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.015em;
@@ -231,7 +231,7 @@
 
 .tileCaption {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -270,7 +270,7 @@
   padding: 0 16px;
   border: 1px solid var(--hairline);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   transition: border-color 160ms ease, background 160ms ease;
 }
@@ -283,7 +283,7 @@
 .productLead {
   margin: 16px 0 0;
   max-width: 74ch;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -327,7 +327,7 @@
 }
 
 .plateFormula {
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   color: #8E827E;
 }
@@ -356,7 +356,7 @@
   font-family: var(--sans);
   border: 1px solid var(--hairline);
   padding: 8px 12px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -372,7 +372,7 @@
 
 .servicesLead {
   margin: 16px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
   max-width: 56ch;
@@ -381,7 +381,7 @@
 .servicesLabel {
   font-family: var(--sans);
   margin-top: 56px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -425,7 +425,7 @@
 .deployEyebrow {
   font-family: var(--sans);
   margin-top: auto;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -435,14 +435,14 @@
 
 .deployTitle {
   margin: 10px 0 0;
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .deployBody {
   margin: 14px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
   transition: color 320ms ease, opacity 320ms ease;
@@ -467,7 +467,7 @@
 
 .researchLead {
   margin: 24px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -475,7 +475,7 @@
 .researchLink {
   display: inline-block;
   margin-top: 32px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink);
 }
@@ -499,7 +499,7 @@
 
 .closingLead {
   margin: 20px 0 0;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: #4D3B00;
   max-width: 48ch;
@@ -522,7 +522,7 @@
   height: 56px;
   padding: 0 32px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -543,4 +543,58 @@
 @media (prefers-reduced-motion: reduce) {
   .tile, .chips { transition: none; }
   .tile:hover { transform: none; }
+}
+
+/* --- Below the design width ---------------------------------------------- */
+
+@media (max-width: 1199px) {
+  .hero { padding: 72px var(--page-x) 56px; }
+  .heroTitleWrap { max-width: none; }
+  .heroTitle { font-size: 56px; }
+  .h2 { font-size: 33px; }
+
+  .band { height: 160px; }
+  .bandNote { gap: 32px; }
+
+  .promises { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .capabilities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* 1240px is 1440 − 2 × --page-x, so the figure keeps that relationship
+     rather than a fixed pixel width once the gutter starts moving. */
+  .figure { width: 100%; height: 280px; }
+
+  .deployGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deployCard { min-height: 0; }
+  .research { grid-template-columns: 1fr; gap: 32px; }
+  .closing { padding: 80px var(--page-x); }
+  .closingTitle { font-size: 40px; }
+}
+
+@media (max-width: 767px) {
+  .hero { padding: 48px var(--page-x) 40px; }
+  .heroTitle { font-size: 36px; }
+  .heroLead { font-size: 17px; max-width: none; }
+  .heroActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .buttonSolid, .buttonOutline, .buttonGhost { justify-content: center; }
+  .h2 { font-size: 27px; }
+  .sectionHead { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  .band { height: 120px; }
+  .bandNote { grid-template-columns: 1fr; gap: 12px; }
+
+  .promises { grid-template-columns: 1fr; }
+  .capabilities { grid-template-columns: 1fr; }
+
+  .figure { height: 200px; }
+  .productTitle { font-size: 27px; }
+  /* No hover on a phone, so the chips that the desktop card reveals would
+     never be seen. */
+  .chips { max-height: none; opacity: 1; transform: none; transition: none; }
+
+  .deployGrid { grid-template-columns: 1fr; }
+  .deployIcon { height: 88px; }
+  .closing { padding: 56px var(--page-x); }
+  .closingTitle { font-size: 29px; }
+  .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .closingSolid, .closingOutline { justify-content: center; }
 }

@@ -15,7 +15,7 @@
 
 .capEyebrow {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -33,7 +33,7 @@
 
 .capBody {
   margin: 18px 0 0;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: #A9C4BA;
 }
@@ -45,7 +45,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   color: #8FCBBB;
   font-variant-numeric: tabular-nums;
@@ -62,3 +62,16 @@
 }
 
 .dot { width: 28px; height: 2px; }
+
+@media (max-width: 1199px) {
+  .sticky, .canvas { height: 680px; }
+  .captions,
+  .caption { width: min(452px, calc(100% - 2 * var(--page-x))); }
+}
+
+@media (max-width: 767px) {
+  .sticky, .canvas { height: 560px; }
+  .captions,
+  .caption { width: calc(100% - 2 * var(--page-x)); }
+  .capTitle { font-size: 25px; }
+}

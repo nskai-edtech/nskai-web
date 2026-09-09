@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./company.module.css";
+import { SIZES, srcSet } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Company",
@@ -53,6 +54,8 @@ export default function CompanyPage() {
                 {/* Decorative: the name and role sit beside it in text. */}
                 <img
                   src={`/portraits/${person.file}`}
+                  srcSet={srcSet(`/portraits/${person.file}`)}
+                  sizes={SIZES.portrait}
                   alt=""
                   loading="lazy"
                   className={styles.portraitImage}

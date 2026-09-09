@@ -29,7 +29,7 @@
 }
 
 .phase {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.14em;
   color: #E8A317;
@@ -68,14 +68,14 @@
 
 .capBody {
   margin: 18px 0 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: #CBBFA9;
 }
 
 .capTrace {
   margin-top: 24px;
-  font-size: 12px;
+  font-size: 13px;
   color: #C4A96E;
 }
 
@@ -108,7 +108,7 @@
   align-items: flex-end;
   padding: 6px;
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
 }
@@ -118,7 +118,7 @@
   position: absolute;
   top: 28px;
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   color: #8C806C;
 }
@@ -133,7 +133,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   color: #C4A96E;
 }
@@ -142,4 +142,57 @@
   width: 14px;
   height: 1px;
   background: #C4A96E;
+}
+
+/* --- Below the design width ---------------------------------------------- */
+
+/* Copy and a 740px board sit side by side at the design width; below it they
+   stack. The board is absolutely positioned inside its column, so the column
+   keeps a height of its own once it is no longer sharing a row. */
+
+@media (max-width: 1199px) {
+  .wrap { height: 3200px; }
+  .sticky { height: 760px; }
+  .row { flex-direction: column; }
+
+  .copy { flex: none; padding: 48px var(--page-x) 0; }
+  .captions { width: 100%; height: 190px; }
+
+  .boardCol {
+    width: 100%;
+    flex: 1;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrap { height: 2800px; }
+  .sticky { height: 660px; }
+  .copy { padding-top: 28px; }
+  .captions { height: 200px; }
+  .boardCol { min-height: 260px; }
+  .phaseRow { flex-wrap: wrap; gap: 8px 12px; }
+}
+
+/* The board is laid out in JavaScript pixel coordinates — six 78px cells on an
+   8px gap, offset 200px — so it is 708px wide whatever the viewport. Scaling
+   the whole board keeps the composition the scrub animates; reflowing it into
+   fewer columns would mean the seats no longer describe the same team. */
+@media (max-width: 767px) {
+  .board { transform: scale(0.62); transform-origin: top left; }
+  .boardCol { min-height: 320px; }
+}
+
+@media (max-width: 479px) {
+  .board { transform: scale(0.44); }
+  .boardCol { min-height: 240px; }
+}
+
+/* Copy at 740px beside a 740px board needs 1480px; a 1280 laptop has less than
+   that once the gutter is taken. The copy column yields and the board scales
+   rather than either being cropped. */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .copy { width: auto; flex: 1; min-width: 0; }
+  .boardCol { flex: none; }
+  .board { transform: scale(0.86); transform-origin: top left; }
 }

@@ -250,7 +250,7 @@ export const plates: Plate[] = [
       },
     ],
     detail: {
-      file: "ret-det-1.png",
+      file: "ret-det-1.webp",
       caption: "Fig. 2 — Joseph Street, Lagos: shopfronts and the Royal Cinema. Public domain.",
     },
     worked: [
@@ -311,7 +311,7 @@ export const plates: Plate[] = [
       },
     ],
     detail: {
-      file: "hea-det-1.png",
+      file: "hea-det-1.webp",
       caption: "Fig. 2 — Mothers waiting at a child clinic centre in Lagos. Public domain.",
     },
     worked: [

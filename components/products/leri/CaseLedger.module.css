@@ -18,24 +18,24 @@
 }
 
 .index {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-faint);
   font-variant-numeric: tabular-nums;
 }
 
 .name {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .event {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--ink-muted);
 }
 
 .detail {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-faint);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
@@ -49,4 +49,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .row, .token { transition: background 260ms ease, color 260ms ease; }
+}
+
+/* Five columns of case detail; below the design width the ledger scrolls
+   inside its own frame rather than crushing the name and event columns. */
+@media (max-width: 1199px) {
+  .ledger { overflow-x: auto; }
+  .row { min-width: 680px; }
 }
