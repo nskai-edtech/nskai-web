@@ -15,6 +15,10 @@ const leadership = [
   { name: "sumeya hussein", role: "Chief Operating Officer", file: "lead-2.jpg" },
   { name: "fidel isaboke", role: "Chief Technology Officer", file: "lead-3.jpg" },
   { name: "mainya munyambu", role: "Chief Business Officer", file: "lead-4.jpg" },
+  { name: "maryann okereke", role: "Country Director, Nigeria", file: "lead-5.jpg" },
+  { name: "vanessa akamande", role: "Country Director, Kenya", file: "lead-6.jpg" },
+  { name: "fetlework workineh", role: "Country Director, Ethiopia", file: "lead-7.jpg" },
+  { name: "mutmahinah jimoh-ademola", role: "Head of Developer Relations", file: "lead-8.jpg" },
 ];
 
 export default function CompanyPage() {
