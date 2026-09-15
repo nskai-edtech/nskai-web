@@ -17,7 +17,7 @@ no `-480`/`-768` siblings and no entry in the `INTRINSIC` map in `lib/images.ts`
 | `lead-4.jpg` | Mainya Munyambu, Chief Business Officer | present |
 | `lead-5.jpg` | Maryann Okereke, Country Director, Nigeria | present |
 | `lead-6.jpg` | Vanessa Akamande, Country Director, Kenya | present |
-| `lead-7.jpg` | Fetlework Workineh, Country Director, Ethiopia | present |
+| `lead-7.jpg` | Dr. Fetlework Workineh Asress, Country Director, Ethiopia | present |
 | `lead-8.jpg` | Mutmahinah Jimoh-Ademola, Head of Developer Relations | present |
 
 Portraits are 4:5 and cover-cropped.
