@@ -17,7 +17,7 @@ const leadership = [
   { name: "mainya munyambu", role: "Chief Business Officer", file: "lead-4.jpg" },
   { name: "maryann okereke", role: "Country Director, Nigeria", file: "lead-5.jpg" },
   { name: "vanessa akamande", role: "Country Director, Kenya", file: "lead-6.jpg" },
-  { name: "Dr. Fetlework Workineh Asress", role: "Country Director, Ethiopia", file: "lead-7.jpg" },
+  { name: "Fetlework Workineh Asress", role: "Country Director, Ethiopia", file: "lead-7.jpg" },
   { name: "mutmahinah jimoh-ademola", role: "Head of Developer Relations", file: "lead-8.jpg" },
 ];
 
