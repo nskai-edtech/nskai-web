@@ -2,14 +2,30 @@ import type { Metadata, Viewport } from "next";
 import { SITE_URL } from "@/lib/nav";
 import "./globals.css";
 
+const DESCRIPTION =
+  "Applied AI from Lagos and London: products, enterprise engineering and the Bambara AI Foundation.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "NSK AI",
+    default: "NSK AI — applied AI for enterprise",
     template: "%s — NSK AI",
   },
-  description:
-    "Applied AI from Lagos and London: products, enterprise engineering and the Bambara AI Foundation.",
+  description: DESCRIPTION,
+  // "./" resolves to the page's own path, so every route declares itself the
+  // canonical one. Without this a search engine picks its own favourite among
+  // the apex, the www host and any query-string variant it has crawled.
+  alternates: { canonical: "./" },
+  // No title or description here on purpose: set them and every page inherits
+  // the site blurb, so a shared product link previews as the home page. Left
+  // out, each page's own title and description are used.
+  openGraph: {
+    type: "website",
+    siteName: "NSK AI",
+    locale: "en_GB",
+    url: "./",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 // The design is drawn at 1440px, but the page now adapts below that rather

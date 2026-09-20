@@ -12,10 +12,35 @@ import {
   productBlocks,
   promises,
 } from "@/lib/home-content";
-import { products } from "@/lib/nav";
+import { CONTACT_EMAIL, DISCORD_URL, products, SITE_URL } from "@/lib/nav";
 import styles from "./home.module.css";
 
 const HERO_TITLE = "AI systems your enterprise can actually run.";
+
+/* Told to a search engine in its own words rather than left to be inferred
+   from the copy. This is what ties the name, the two offices and the
+   accounts elsewhere to one organisation, so a result carries this
+   description instead of one scraped years ago. */
+const ORGANISATION = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "NSK AI",
+  alternateName: "NSK.AI",
+  url: SITE_URL,
+  description:
+    "NSK AI designs, deploys and operates AI systems inside enterprises, alongside their own engineers, from Lagos and London.",
+  email: CONTACT_EMAIL,
+  areaServed: ["NG", "GB"],
+  location: [
+    { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" } },
+    { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "London", addressCountry: "GB" } },
+  ],
+  sameAs: [
+    "https://ng.linkedin.com/company/ai-nsk",
+    "https://medium.com/@NSK.AI",
+    DISCORD_URL,
+  ],
+};
 
 /** The rail reuses each product's nav icon, at its own accent colour. */
 const railItems = productBlocks.map((block) => ({
@@ -27,6 +52,10 @@ const railItems = productBlocks.map((block) => ({
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANISATION) }}
+      />
       <ProductRail items={railItems} />
 
       <section id="top" className={styles.hero}>

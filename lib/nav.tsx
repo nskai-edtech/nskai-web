@@ -235,5 +235,9 @@ export const DISCORD_URL = "https://discord.gg/SxDTz45GRk";
 export const CONTACT_EMAIL = "contact@nskai.org";
 
 /** The canonical origin. Metadata, the sitemap and robots.txt all resolve
-    against this, so relative URLs in page metadata become absolute. */
-export const SITE_URL = "https://nskai.org";
+    against this, so relative URLs in page metadata become absolute.
+
+    It carries the `www.` because that is what the site actually serves:
+    the apex 301s to `www`, so an apex URL in the sitemap hands a search
+    engine a redirect for every page on the site instead of the page. */
+export const SITE_URL = "https://www.nskai.org";
