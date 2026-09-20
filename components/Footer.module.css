@@ -60,6 +60,11 @@
 
 @media (max-width: 767px) {
   .columns { grid-template-columns: 1fr; gap: 32px; }
+  /* A 15px line is too small a target for a thumb; the padding makes each
+     link about 40px tall while the column gap shrinks to keep the rhythm. */
+  .column { gap: 0; }
+  .heading { margin-bottom: 8px; }
+  .link { padding: 10px 0; }
   .wordmark { font-size: 25px; }
   /* Two short lines read better than one that wraps mid-sentence. */
   .baseline {

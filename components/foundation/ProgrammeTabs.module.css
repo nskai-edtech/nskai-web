@@ -152,3 +152,19 @@
   .stat { animation: none; }
   .tab, .tabOn, .tabYear, .tabName { transition: none; }
 }
+
+@media (max-width: 1199px) {
+  .panel { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 767px) {
+  .links { flex-direction: column; align-items: flex-start; gap: 0; margin-top: 18px; }
+  .link { padding: 10px 0; }
+  .tabs { gap: 20px; margin-bottom: 32px; }
+  .tabName { font-size: 21px; }
+  .lead { font-size: 19px; }
+  .statsThree { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat { padding: 20px 16px; }
+  .statValue { font-size: 30px; }
+  .statLabel { font-size: 11px; letter-spacing: 0.1em; overflow-wrap: anywhere; }
+}

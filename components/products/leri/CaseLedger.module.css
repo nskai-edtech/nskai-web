@@ -57,3 +57,20 @@
   .ledger { overflow-x: auto; }
   .row { min-width: 680px; }
 }
+
+/* On a phone a sideways-scrolling table reads as cut off, so each case
+   stacks: index, name and token on one line, event and detail beneath. */
+@media (max-width: 767px) {
+  .ledger { overflow-x: visible; }
+  .row {
+    min-width: 0;
+    grid-template-columns: 28px minmax(0, 1fr) 12px;
+    gap: 6px 12px;
+    padding: 18px 0;
+  }
+  .index { grid-row: 1; grid-column: 1; }
+  .name { grid-row: 1; grid-column: 2; font-size: 19px; }
+  .token { grid-row: 1; grid-column: 3; }
+  .event, .detail { grid-column: 2 / -1; }
+  .detail { overflow-wrap: anywhere; }
+}

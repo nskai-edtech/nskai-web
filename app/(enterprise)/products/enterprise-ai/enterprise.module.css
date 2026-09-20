@@ -464,6 +464,11 @@
   .h2Small { font-size: 27px; }
   .section { padding: 0 var(--page-x) 72px; }
   .modelGrid { grid-template-columns: 1fr; }
+  /* The desktop grid pads each model by its column; in one column those
+     per-position paddings left models two and three indented. */
+  .model, .model:nth-child(n) { padding: 28px 0; border-right: none; border-top: 1px solid var(--hairline); }
+  .modelNote { padding: 28px 0; }
+  .staffed { flex-direction: column; align-items: flex-start; gap: 20px; }
   .keeps { grid-template-columns: 1fr; }
   .keepCard { min-height: 0; }
   .keepTitle { font-size: 31px; }
@@ -483,6 +488,11 @@
   .section { padding: 0 var(--page-x) 48px; }
   .sectionHead { flex-direction: column; align-items: flex-start; gap: 8px; }
   .keepTitle { font-size: 25px; }
+  .staffed { padding: 28px 24px; }
+  .staffedTitle { font-size: 23px; }
+  /* Bars keep their proportion until the label no longer fits inside. */
+  .funnelBar { min-width: max-content; gap: 16px; }
+  .funnelName, .funnelValue { font-size: 15px; }
   .figures { grid-template-columns: 1fr; }
   .figureValue { font-size: 27px; }
   .restGrid { grid-template-columns: 1fr; }

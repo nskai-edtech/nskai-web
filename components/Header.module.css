@@ -143,4 +143,7 @@
    desktop nav and its call to action stand down and MobileNav takes over. */
 @media (max-width: 1199px) {
   .nav, .actions { display: none; }
+  /* With the nav gone the wordmark is the only link in the bar; stretching it
+     makes the whole 72px height its tap target instead of the 23px line. */
+  .wordmark { align-self: stretch; display: flex; align-items: center; }
 }

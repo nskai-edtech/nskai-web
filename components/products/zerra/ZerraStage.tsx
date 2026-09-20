@@ -54,15 +54,21 @@ export default function ZerraStage() {
 
     let sets: Point[][] | null = null;
     let nodes: { x: number; y: number; layer: number }[] = [];
-    let dims = { w: 0, h: 0, pad: 120, W: 0, H: 0 };
+    let dims = { w: 0, h: 0, px: 120, py: 120, W: 0, H: 0 };
     let p = 0;
     let pTarget = 0;
 
     const buildSets = (w: number, h: number) => {
       const rnd = seeded(7);
-      const pad = 120;
-      const W = w - pad * 2;
-      const H = h - pad * 2;
+      // At the design width the figure fills the pane inside a 120px margin.
+      // On a phone the captions take the top of the pane, so the figure is
+      // drawn in the band beneath them, gutter to gutter.
+      const narrow = w < 768;
+      const px = narrow ? 24 : 120;
+      const py = narrow ? 330 : 120;
+      const pb = narrow ? 90 : 120;
+      const W = w - px * 2;
+      const H = h - py - pb;
       const A: Point[] = [];
       const B: Point[] = [];
       const C: Point[] = [];
@@ -74,11 +80,11 @@ export default function ZerraStage() {
         const cy = Math.floor(i / cols);
 
         // A: lattice, weighted by the logistic curve running through it.
-        const ax = pad + (cx / (cols - 1)) * W;
-        const ay = pad + (cy / (rows - 1)) * H;
+        const ax = px + (cx / (cols - 1)) * W;
+        const ay = py + (cy / (rows - 1)) * H;
         const theta = (cx / (cols - 1)) * 6 - 3;
         const sig = 1 / (1 + Math.exp(-theta * 1.6));
-        const curveY = pad + (1 - sig) * H;
+        const curveY = py + (1 - sig) * H;
         A.push({ x: ax, y: ay, v: Math.max(0, 1 - Math.abs(ay - curveY) / (H * 0.22)) });
 
         // B: the estimate trajectory, a tightening band around the same curve.
@@ -86,16 +92,16 @@ export default function ZerraStage() {
         const band = (1 - t) * H * 0.42 + 8;
         const bs = 1 / (1 + Math.exp(-(t * 6 - 3) * 1.3));
         B.push({
-          x: pad + t * W,
-          y: pad + (1 - bs) * H + (rnd() - 0.5) * 2 * band,
+          x: px + t * W,
+          y: py + (1 - bs) * H + (rnd() - 0.5) * 2 * band,
           v: 0.25 + 0.75 * t,
         });
 
         // C: skill graph, points clustered on 14 nodes.
         const ni = i % 14;
         const layer = Math.floor(ni / 3);
-        const nx = pad + 40 + (layer / 4) * (W - 80);
-        const ny = pad + ((ni % 3) + 0.5 + (layer % 2) * 0.22) * (H / 3.4);
+        const nx = px + 40 + (layer / 4) * (W - 80);
+        const ny = py + ((ni % 3) + 0.5 + (layer % 2) * 0.22) * (H / 3.4);
         const ang = rnd() * Math.PI * 2;
         const rad = 6 + rnd() * 26;
         C.push({
@@ -107,9 +113,9 @@ export default function ZerraStage() {
         // D: mastery matrix, held clear of the caption column on the left.
         const mc = 20;
         const mr = Math.ceil(N / mc);
-        const mLeft = pad + 500;
-        const mRight = w - pad;
-        const mTop = pad + 40;
+        const mLeft = narrow ? px : px + 500;
+        const mRight = w - px;
+        const mTop = py + (narrow ? 0 : 40);
         const mBot = h - 130;
         const cell = Math.min((mRight - mLeft) / mc, (mBot - mTop) / mr);
         const ox = mLeft + (mRight - mLeft - cell * mc) / 2;
@@ -126,13 +132,13 @@ export default function ZerraStage() {
       for (let ni = 0; ni < 14; ni++) {
         const layer = Math.floor(ni / 3);
         nodes.push({
-          x: pad + 40 + (layer / 4) * (W - 80),
-          y: pad + ((ni % 3) + 0.5 + (layer % 2) * 0.22) * (H / 3.4),
+          x: px + 40 + (layer / 4) * (W - 80),
+          y: py + ((ni % 3) + 0.5 + (layer % 2) * 0.22) * (H / 3.4),
           layer,
         });
       }
       sets = [A, B, C, D];
-      dims = { w, h, pad, W, H };
+      dims = { w, h, px, py, W, H };
     };
 
     const ease = (t: number) =>
@@ -160,7 +166,7 @@ export default function ZerraStage() {
       const f = ease(pc - i0);
       const S0 = sets[i0];
       const S1 = sets[i1];
-      const { pad, W, H } = dims;
+      const { px, py, W, H } = dims;
 
       // Stage 1: the logistic curve itself.
       const curveA =
@@ -175,9 +181,9 @@ export default function ZerraStage() {
         for (let s = 0; s <= 120; s++) {
           const t = s / 120;
           const y =
-            pad +
+            py +
             (1 - 1 / (1 + Math.exp(-((t * 6 - 3) * (pc < 1 ? 1.6 : 1.3))))) * H;
-          const x = pad + t * W;
+          const x = px + t * W;
           if (s === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
@@ -253,10 +259,10 @@ export default function ZerraStage() {
             const t = s / 100;
             const band = (1 - t) * H * 0.42 + 8;
             const y =
-              pad +
+              py +
               (1 - 1 / (1 + Math.exp(-(t * 6 - 3) * 1.3))) * H +
               sgn * band;
-            const x = pad + t * W;
+            const x = px + t * W;
             if (s === 0) ctx.moveTo(x, y);
             else ctx.lineTo(x, y);
           }

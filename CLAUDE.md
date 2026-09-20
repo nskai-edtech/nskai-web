@@ -10,15 +10,37 @@ npm run build      # never run against a live dev server: it overwrites .next
 npx tsc --noEmit   # or: npm run typecheck
 ```
 
-## The design is fixed-width
+## The design is drawn at 1440px and adapts below it
 
-`globals.css` sets `body { min-width: 1440px }` and says so: **1440px is the
-design width and no responsive breakpoints were designed.** Almost no stylesheet
-has a media query beyond `prefers-reduced-motion`.
+**1440px is the design width**: every rule outside a `max-width` query is the
+design as drawn, and changing one changes the desktop. Below 1440 the layout
+adapts rather than panning sideways, at three breakpoints — 1439, 1199 and
+767px — with `--page-x` as the single gutter lever the whole site reads,
+stepping 100/64/48/20px. Laptop-band rules are scoped
+`(min-width: 1200px) and (max-width: 1439px)` where they would otherwise
+cascade down and override the tablet layout. Navigation collapses to
+`MobileNav` below 1200.
 
-So a hard-coded pixel width is usually correct, not a bug. `.figure` is
-`1240px` because that is exactly `1440 − 2 × --page-x`. Do not "fix" these into
-percentages without being asked — the one genuinely fluid canvas is `.band`.
+Overflow is clipped with `overflow-x: clip`, never `hidden`: `hidden` would
+make the root a scroll container and break every `position: sticky` stage on
+the site.
+
+Inside the desktop rules a hard-coded pixel width is usually correct, not a
+bug. `.figure` is `1240px` because that is exactly `1440 − 2 × --page-x`. Do
+not "fix" these into percentages without being asked — the one genuinely fluid
+canvas is `.band`.
+
+Photography ships 480/768/1024/1440px siblings behind a `srcset`, so a phone
+does not download a 1920px plate to paint it 350px wide.
+
+Check responsive work headlessly (Playwright is not a dependency; the cached
+browser under `~/.cache/ms-playwright` and the npx copy of `playwright` are
+what previous passes used) at 390, 768 and 1440: no page may scroll sideways,
+no text may be clipped that a collapsed panel does not clip by design, and no
+link or button may be under about 40px tall on a phone. Three overflow reports
+are expected and correct — the contact honeypot parked at `-9999px`, the Leri
+hero orbit bleeding under `.hero { overflow: hidden }`, and the `CaseStrip`
+marquee.
 
 ## Motion conventions
 

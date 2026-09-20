@@ -433,6 +433,12 @@
   .heroTitle { font-size: 33px; }
   .heroLead { font-size: 17px; }
   .h2, .h2Narrow { font-size: 27px; }
+  /* The journey curve scales to about a quarter of its drawn size, which
+     leaves its 13px labels at 4px. The steps are named in the stage below. */
+  .curve { margin-top: 32px; }
+  .curveLabels { display: none; }
+  .stageIntro { margin-top: 40px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .stageIntroText { font-size: 20px; }
   .stepGrid { grid-template-columns: 1fr; }
   .barsHead { flex-direction: column; align-items: flex-start; gap: 8px; }
   .restGrid { grid-template-columns: 1fr; }

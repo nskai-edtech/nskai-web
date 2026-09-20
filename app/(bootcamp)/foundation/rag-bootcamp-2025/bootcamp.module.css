@@ -394,6 +394,10 @@
 }
 
 @media (max-width: 767px) {
+  /* Side by side these links sit 24px apart, which is one thumb across two
+     targets. Stacked and padded, each is its own 40px row. */
+  .links { flex-direction: column; align-items: flex-start; gap: 0; margin-top: 18px; }
+  .link { padding: 10px 0; }
   .hero { padding: 48px var(--page-x) 40px; }
   .heroTitle { font-size: 34px; }
   .heroLead { font-size: 17px; }

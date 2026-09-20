@@ -549,14 +549,16 @@
   .deployedRow { grid-template-columns: 1fr 24px; gap: 4px 12px; }
   .deployedName { font-size: 20px; }
   .deployedNote { grid-column: 1 / -1; }
+  /* The arrow follows the note in source order, so place it explicitly. */
+  .deployedArrow { grid-row: 1; grid-column: 2; }
 
   .otherPlates { padding: 0 var(--page-x) 56px; }
-  /* minmax(0, …) rather than 1fr: a long plate name like
-     "Telecommunications" sets a min-content width that would otherwise push
-     the track wider than its share of the row. */
-  .plateGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .plateLink { min-height: 120px; }
-  .plateName { overflow-wrap: anywhere; }
+  /* Two columns were too narrow for "Telecommunications", which broke
+     mid-word. One column of short rows keeps every name whole. */
+  .plateGrid { grid-template-columns: minmax(0, 1fr); }
+  .plateLink { min-height: 0; flex-direction: row; align-items: baseline; gap: 16px; padding: 18px 20px; }
+  .plateNumeral { flex: 0 0 72px; }
+  .plateName { font-size: 19px; }
 
   .closing { padding: 56px var(--page-x); }
   .closingActions { flex-direction: column; align-items: stretch; gap: 10px; }

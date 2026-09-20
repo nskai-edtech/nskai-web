@@ -56,6 +56,9 @@ export default function HomePage() {
           <a href="#products" className={styles.buttonOutline}>
             Explore products
           </a>
+          <Link href="/foundation/udara" className={styles.buttonUdara}>
+            The Udara Project
+          </Link>
         </div>
       </section>
 

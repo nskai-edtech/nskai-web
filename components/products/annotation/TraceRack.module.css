@@ -198,7 +198,11 @@
 
 @media (max-width: 1199px) {
   .grid { grid-template-columns: 1fr; gap: 32px; }
-  .panelWrap { min-height: 0; }
+  /* The panels cross-fade in one place. Stacked in a single grid cell they
+     still overlap, but the tallest one now sets the height instead of the
+     absolute panels spilling out of a collapsed wrapper. */
+  .panelWrap { min-height: 0; display: grid; }
+  .panel { position: relative; inset: auto; grid-area: 1 / 1; }
   .passes { grid-template-columns: 1fr; }
 }
 
@@ -206,4 +210,6 @@
   .panelHead { flex-direction: column; align-items: flex-start; gap: 8px; }
   .rulingHead { flex-wrap: wrap; gap: 4px 10px; }
   .splitRow { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .panel { padding: 20px; }
+  .rulingVerdict { white-space: normal; }
 }

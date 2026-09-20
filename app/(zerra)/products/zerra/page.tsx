@@ -150,13 +150,13 @@ export default function ZerraPage() {
             </g>
             <rect x="913" y="151" width="14" height="14" fill="#F6F1EF" stroke="#1E3A8A" strokeWidth="1.5" />
             <circle cx="40" cy="150" r="4" fill="#0B2A6B" />
-            <g fill="#5C4F4C" fontFamily="Author, Helvetica, sans-serif" fontSize="13">
+            <g className={styles.curveLabels} fill="#5C4F4C" fontFamily="Author, Helvetica, sans-serif" fontSize="13">
               <text x="253" y="215">arrives</text>
               <text x="473" y="215">estimate holds</text>
               <text x="693" y="215">route re-planned</text>
               <text x="913" y="215">signed off</text>
             </g>
-            <g fill="#8E827E" fontFamily="Author, Helvetica, sans-serif" fontSize="12">
+            <g className={styles.curveLabels} fill="#8E827E" fontFamily="Author, Helvetica, sans-serif" fontSize="12">
               <text x="1120" y="108">&theta; &rarr; &theta;&#770;</text>
             </g>
           </svg>

@@ -282,6 +282,7 @@
 }
 
 @media (max-width: 767px) {
+  .originLink { margin-top: 18px; padding: 10px 0; }
   .hero { padding: 48px var(--page-x) 40px; }
   .heroTitle { font-size: 36px; }
   .heroLead { font-size: 17px; }

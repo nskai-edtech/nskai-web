@@ -379,7 +379,7 @@
   .linesHead { gap: 32px; }
   /* Five fixed columns; the body and figure wrap under the label pair. */
   .lineRow { grid-template-columns: 48px 56px minmax(0, 1fr); gap: 12px 20px; }
-  .lineFigure { grid-column: 3; }
+  .lineBody, .lineFigure { grid-column: 3; }
   .restGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .closing { padding: 80px var(--page-x); }
   .closingTitle { font-size: 40px; }
@@ -395,8 +395,11 @@
   .h2Small { font-size: 23px; }
   .linesHead { flex-direction: column; align-items: flex-start; gap: 8px; }
   .peopleHead { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .lineRow { grid-template-columns: 40px minmax(0, 1fr); gap: 8px 12px; padding: 24px 0; }
-  .lineBody, .lineFigure { grid-column: 2; }
+  /* Index and icon share the first line; title, body and figure each take a
+     full-width line beneath, so nothing is auto-placed into the 40px column. */
+  .lineRow { grid-template-columns: 40px minmax(0, 1fr); align-items: start; gap: 10px 12px; padding: 24px 0; }
+  .lineTitle, .lineBody, .lineFigure { grid-column: 1 / -1; }
+  .lineTitle { font-size: 23px; }
   .restGrid { grid-template-columns: 1fr; }
   .restTile { min-height: 0; }
   .closing { padding: 56px var(--page-x); }

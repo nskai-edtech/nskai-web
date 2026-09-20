@@ -409,8 +409,15 @@
   .h2 { font-size: 27px; }
   .h2Small { font-size: 23px; }
   .kappaValue { font-size: 29px; }
-  .batchRow { grid-template-columns: 1fr; gap: 4px; }
-  .manifestRow { grid-template-columns: 40px 1fr; }
+  .batchRow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .batchCell { padding: 16px 20px; border-bottom: 1px solid var(--hairline); }
+  .batchCell:nth-child(2n) { border-right: none; }
+  /* Index beside the title; body and file names run under the title rather
+     than being auto-placed into the 40px index column. */
+  .manifestRow { grid-template-columns: 40px minmax(0, 1fr); gap: 10px 0; padding: 22px 20px; }
+  .manifestBody, .manifestFiles { grid-column: 2; }
+  .manifestFiles { justify-self: start; text-align: left; overflow-wrap: anywhere; }
+  .manifestFoot { flex-direction: column; gap: 4px; padding: 16px 20px; }
   .restGrid { grid-template-columns: 1fr; }
   .restTile { min-height: 0; }
   .closing { padding: 56px var(--page-x); }

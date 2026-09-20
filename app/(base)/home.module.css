@@ -46,7 +46,8 @@
 }
 
 .buttonSolid,
-.buttonOutline {
+.buttonOutline,
+.buttonUdara {
   font-family: var(--sans);
   display: inline-flex;
   align-items: center;
@@ -72,6 +73,16 @@
   transition: border-color 160ms ease;
 }
 .buttonOutline:hover { border-color: var(--ink); color: var(--ink); }
+
+/* The Foundation's programme, called out from the first screen. Udara's own
+   palette is a deep gold that would read as brown next to the red button, so
+   the call-out uses the bright gold, with ink text for contrast on it. */
+.buttonUdara {
+  background: #E8A317;
+  color: #1A1408;
+  transition: background 160ms ease;
+}
+.buttonUdara:hover { background: #D18F0A; color: #1A1408; }
 
 /* --- Quantization band --------------------------------------------------- */
 
@@ -575,7 +586,7 @@
   .heroTitle { font-size: 36px; }
   .heroLead { font-size: 17px; max-width: none; }
   .heroActions { flex-direction: column; align-items: stretch; gap: 10px; }
-  .buttonSolid, .buttonOutline, .buttonGhost { justify-content: center; }
+  .buttonSolid, .buttonOutline, .buttonUdara, .buttonGhost { justify-content: center; }
   .h2 { font-size: 27px; }
   .sectionHead { flex-direction: column; align-items: flex-start; gap: 8px; }
 
@@ -583,13 +594,23 @@
   .bandNote { grid-template-columns: 1fr; gap: 12px; }
 
   .promises { grid-template-columns: 1fr; }
-  .capabilities { grid-template-columns: 1fr; }
+  /* Square tiles one to a row were each a screen-width square, mostly
+     empty; two to a row keep the square and halve the scroll. */
+  .capabilities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tile { padding: 16px; }
+  .tileTitle { font-size: 21px; }
+  .tileCaption { font-size: 11px; letter-spacing: 0.06em; }
 
   .figure { height: 200px; }
+  .productHead { flex-direction: column; align-items: flex-start; gap: 16px; }
   .productTitle { font-size: 27px; }
   /* No hover on a phone, so the chips that the desktop card reveals would
      never be seen. */
   .chips { max-height: none; opacity: 1; transform: none; transition: none; }
+
+  /* A 15px line is a small target for a thumb; the padding makes it about
+     40px tall, taken back out of the margin above it. */
+  .researchLink { margin-top: 22px; padding: 10px 0; }
 
   .deployGrid { grid-template-columns: 1fr; }
   .deployIcon { height: 88px; }

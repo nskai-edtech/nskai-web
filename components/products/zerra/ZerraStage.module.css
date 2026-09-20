@@ -101,7 +101,7 @@
 }
 
 @media (max-width: 767px) {
-  .sticky, .canvas { height: 560px; }
+  .sticky, .canvas { height: 680px; }
   .captions { width: calc(100% - 2 * var(--page-x)); }
   .capTitle { font-size: 25px; }
 }
