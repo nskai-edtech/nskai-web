@@ -18,6 +18,7 @@ export default function SiteChrome({
       <Header />
       <main>{children}</main>
       <Footer />
+      {/* Inside the palette wrapper so it takes the page's colours. */}
     </div>
   );
 }

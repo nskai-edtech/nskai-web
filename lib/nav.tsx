@@ -234,6 +234,9 @@ export const company: NavItem[] = [
 export const DISCORD_URL = "https://discord.gg/SxDTz45GRk";
 export const CONTACT_EMAIL = "contact@nskai.org";
 
+/** The chapter lead application is a Google Form, not a page on this site. */
+export const CHAPTER_LEAD_FORM_URL = "https://forms.gle/hAmN1Tp1Kmcuwdae7";
+
 /** The canonical origin. Metadata, the sitemap and robots.txt all resolve
     against this, so relative URLs in page metadata become absolute.
 

@@ -16,6 +16,8 @@ const footerProducts = [
 const companyLinks = [
   { name: "Solutions", href: "/solutions" },
   { name: "Company", href: "/company" },
+  { name: "Lead a chapter", href: "/community/chapter-leads" },
+  { name: "Chapter Hub", href: "/hub" },
   { name: "Contact", href: "/contact" },
 ];
 

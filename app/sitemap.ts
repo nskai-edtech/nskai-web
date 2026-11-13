@@ -24,6 +24,7 @@ const ROUTES = [
   "/foundation/udara",
   "/foundation/rag-bootcamp-2025",
   "/community",
+  "/community/chapter-leads",
   "/company",
   "/contact",
 ];

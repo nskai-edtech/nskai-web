@@ -1,0 +1,338 @@
+/* The site assistant. It reads the page's palette tokens, so it takes the
+   colour of whichever product or section it is opened on. Sits above the
+   header (z-index 30). */
+
+.launcher {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 22px 0 18px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--ink);
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  transition: transform 200ms var(--ease-move), background 200ms ease;
+}
+.launcher:hover { transform: translateY(-2px); }
+
+.launcherMark {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+}
+/* On palettes whose accent is the ink itself the mark would vanish on the
+   dark launcher, so it carries a hairline of the paper colour. */
+.launcher .launcherMark { box-shadow: 0 0 0 1.5px var(--paper); }
+
+.panel {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 40;
+  width: 420px;
+  height: min(640px, calc(100vh - 56px));
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  animation: rise 260ms var(--ease-move);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* --- Header ---------------------------------------------------------------- */
+
+.head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 56px;
+  padding: 0 10px 0 18px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.headTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.headActions { display: flex; align-items: center; gap: 2px; }
+
+.textButton {
+  height: 40px;
+  padding: 0 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.textButton:hover { color: var(--ink); }
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--ink-muted);
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.iconButton:hover { color: var(--ink); background: var(--paper); }
+.iconButtonOn { color: var(--accent); }
+.iconButtonOn:hover { color: var(--accent); }
+
+/* --- Conversation ---------------------------------------------------------- */
+
+.list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 22px 18px 8px;
+}
+
+.empty { padding: 6px 2px 0; }
+
+.emptyTitle {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+
+.emptyLead {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  text-wrap: pretty;
+}
+
+.suggestions {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--hairline);
+}
+
+.suggestion {
+  position: relative;
+  padding: 14px 28px 14px 0;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.35;
+  text-align: left;
+  color: var(--ink);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--hairline);
+  cursor: pointer;
+  transition: color 160ms ease, padding-left 200ms var(--ease-move);
+}
+.suggestion::after {
+  content: "→";
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--sans);
+  color: var(--ink-faint);
+  transition: color 160ms ease;
+}
+.suggestion:hover { color: var(--accent); padding-left: 6px; }
+.suggestion:hover::after { color: var(--accent); }
+
+.question {
+  width: fit-content;
+  max-width: 86%;
+  margin: 0 0 14px auto;
+  padding: 10px 14px;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--paper);
+  background: var(--ink);
+  border-radius: 14px 14px 2px 14px;
+}
+
+.answer {
+  margin: 0 0 22px;
+  padding-left: 14px;
+  border-left: 2px solid var(--accent);
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.answer p { margin: 0 0 10px; }
+.answer ul { margin: 0 0 10px; padding-left: 20px; }
+.answer li { margin-bottom: 4px; }
+.answer > :last-child { margin-bottom: 0; }
+.answer a { color: var(--accent); border-bottom: 1px solid currentColor; }
+.answer a:hover { color: var(--accent-dark); }
+.answer strong { font-weight: 500; }
+
+.answerError { border-left-color: var(--ink-faint); color: var(--ink-muted); font-size: 16px; }
+
+.thinking { display: inline-flex; gap: 5px; align-items: center; height: 27px; }
+.thinking span {
+  width: 6px;
+  height: 6px;
+  background: var(--ink-faint);
+  animation: blink 1.2s ease-in-out infinite;
+}
+.thinking span:nth-child(2) { animation-delay: 0.18s; }
+.thinking span:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 1; background: var(--accent); }
+}
+
+/* --- Composer -------------------------------------------------------------- */
+
+.composer {
+  flex: none;
+  padding: 12px 14px 10px;
+  border-top: 1px solid var(--hairline);
+}
+
+.voiceRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 4px 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+}
+
+.bars { display: inline-flex; align-items: center; gap: 3px; height: 18px; flex: none; }
+.bars span {
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: center;
+  animation: level 0.9s ease-in-out infinite;
+}
+.bars span:nth-child(2) { animation-delay: 0.15s; }
+.bars span:nth-child(3) { animation-delay: 0.3s; }
+.bars span:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes level {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+.inputRow { display: flex; align-items: flex-end; gap: 8px; }
+
+.input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 14px;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: 22px;
+  resize: none;
+  outline: none;
+  transition: border-color 160ms ease;
+}
+.input::placeholder { color: var(--ink-muted); }
+.input:focus { border-color: var(--ink); }
+
+.roundButton {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.roundButton:hover:not(:disabled) { border-color: var(--ink); }
+.roundButton:disabled { opacity: 0.4; cursor: default; }
+
+.roundButtonLive,
+.roundButtonLive:hover:not(:disabled) {
+  color: #FFFFFF;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.roundButtonSolid { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+.roundButtonSolid:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+
+.footnote {
+  margin: 8px 4px 0;
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel { animation: none; }
+  .launcher, .suggestion { transition: none; }
+  .launcher:hover { transform: none; }
+  .thinking span { animation: none; opacity: 0.7; }
+  .bars span { animation: none; transform: scaleY(0.7); }
+}
+
+/* On a phone the panel is the whole screen. */
+@media (max-width: 767px) {
+  .launcher { right: 16px; bottom: 16px; }
+  .panel {
+    inset: 0;
+    width: auto;
+    height: 100dvh;
+    border: none;
+    border-radius: 0;
+  }
+  .head { padding-left: 16px; }
+  .list { padding: 20px 16px 8px; }
+  .composer { padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
+}

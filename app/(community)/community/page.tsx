@@ -51,6 +51,12 @@ export default function CommunityPage() {
           <a href="#week" className={styles.buttonOutline}>
             What runs each week
           </a>
+          <Link href="/community/chapter-leads" className={styles.buttonOutline}>
+            Lead a campus chapter
+          </Link>
+          <Link href="/hub" className={styles.buttonOutline}>
+            Chapter Hub ↗
+          </Link>
         </div>
       </section>
 

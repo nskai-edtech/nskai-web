@@ -102,6 +102,99 @@ serves weight 300 only.
 `mailto:` link — that is the designed behaviour, not a fault. The form posts a
 `company` honeypot field, which is answered with a fake success.
 
+## Chapter lead page
+
+`/community/chapter-leads` is a short public outline of the role whose apply
+buttons open the Google Form at `CHAPTER_LEAD_FORM_URL` (`lib/nav.tsx`). There is no on-site application form. By the owner's decision,
+nothing about money (pay, stipends, chapter finances, sponsorship) and nothing
+about what a lead may not handle is published, on this page or in the
+assistant's knowledge file.
+
+## Site assistant ("Ask NSK AI")
+
+`components/assistant/Assistant.tsx` is rendered by `SiteChrome`, so it appears
+on every page except the black login and invite pages, and takes the palette of
+the page it is opened on. Visitors type or speak; voice in and read-aloud use
+the browser's own speech APIs (no service, no cost), and the microphone button
+is hidden where the browser has no speech recognition. The conversation is kept
+in `sessionStorage` because the widget remounts whenever navigation crosses a
+route group.
+
+`/api/assistant` sends the question to xAI's Grok API (`XAI_API_KEY`, and
+`ASSISTANT_MODEL` for the model id — both required, no default model) with
+`lib/assistant-knowledge.ts` as the system prompt and streams plain text back. That file is the whole of
+what the assistant knows, and anything in it can be repeated to any visitor:
+keep it to published material, never internal documents. Its rate limit is
+in-memory and best-effort. Answers are rendered as React elements (bold, links,
+lists), never injected as HTML.
+
+## Chapter Hub (`/hub`)
+
+Internal dashboard for campus chapter leads and NSK AI admins — not part of the
+marketing site. `/hub` and `/hub/admin` share `SiteChrome` and the `community`
+palette via `app/(hub)/`. `/hub/login` and `/hub/invite/[token]` are the one
+deliberate exception: a separate route group, `app/(hub-auth)/`, with no
+`SiteChrome` at all — a standalone black page (see "Login and invite are the
+one black surface" below), because signing in is meant to read as a distinct
+moment, not a themed product page.
+
+**Sessions** (`lib/hub-session.ts`) are a signed cookie, not a database row: an
+HMAC over `{ email, role, chapterId, officerRole, name }` keyed by
+`SESSION_SECRET`. There is no fallback secret in production — `getSessionSecret()`
+throws rather than sign anything with a guessable default; in development it
+warns and uses one. Admin identity is a static allowlist, `ADMIN_EMAILS` (comma
+separated env var, no production fallback — see `lib/hub-data.ts`
+`getAdminEmails`).
+
+**Signing in is email plus password** (`/api/hub/auth`, action `login`). Emailed
+one-time codes were built first and removed at the owner's request, so the hub
+sends no email at all. An officer chooses a password when activating their
+invite link; it is stored only as a salted scrypt hash on their KV account
+(`lib/hub-password.ts`). Admins are the `ADMIN_EMAILS` allowlist plus one shared
+`ADMIN_PASSWORD` — no fallback, so with it unset nobody signs in as admin. Eight
+wrong passwords for one email lock that email for 15 minutes
+(`isLoginLocked`/`recordFailedLogin` in `lib/hub-kv.ts`), and the error is the
+same whether the email is unknown or the password wrong. There is no
+self-service reset: an officer who forgets their password gets their seat
+revoked and a fresh invite link from an admin.
+
+**Officer identity is invite-link based.** `lib/hub-kv.ts` holds three seats per
+chapter — `lead` / `deputy` / `treasurer` — each one `empty`, `invited` (an
+unconsumed token at `/hub/invite/[token]`), or `active` (a real account). An
+admin issues a seat's invite link from `/hub/admin`; the recipient activates it
+once with their name, email and a password of their choosing, which signs them
+in immediately and burns the token. Active accounts carry a KV TTL of exactly one year
+(`ACCOUNT_TTL_SECONDS`), so an account is wiped — not just inaccessible — a year
+after activation, no cleanup job needed. An admin can also revoke a seat
+(invited or active) immediately from `/hub/admin`; because officer sessions are
+re-validated against the KV record on every `/hub` page load
+(`getActiveSession`, not `getSession`), a revoke takes effect on the officer's
+very next request rather than waiting out their 30-day session cookie.
+
+All of this needs `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`
+(Upstash Redis free tier — see `.env.example`) in production: without them
+`lib/hub-kv.ts` throws rather than pretend persistence it can't offer, so no
+invite or account survives past the request that created it. In
+development, missing Upstash credentials fall back to a JSON file at
+`.data/hub-kv.dev.json` (gitignored) instead — real shared state across API
+routes, which an in-process `Map` singleton is not: Next.js compiles each route
+handler into its own bundle, so module-level state does not reliably share
+across routes even within one server process.
+
+### Login and invite are the one black surface
+
+`app/(hub-auth)/hub/login/login.module.css` and
+`.../hub/invite/invite.module.css` hardcode a near-black page (`#0A0A0A`) and
+off-white ink independent of `palettes.module.css` — this is intentionally the
+only page on the site that isn't a `--paper`/`--ink` palette swap. Typography
+still comes from the shared `var(--serif)` / `var(--sans)` / `var(--mono)` in
+`globals.css`; only colour changes. The mark on both pages is the NSK AI
+wordmark.
+
+Loading states in the hub are plain text on purpose ("Signing you in…", and `HubLoader` for `/hub`). A cube and a strange-attractor
+animation were both tried and removed at the owner's request: keep it simple,
+no loading animation and no artificial wait.
+
 ## Designs
 
 The source designs are not in this repo. They live in the Claude Design project
