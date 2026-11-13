@@ -96,7 +96,7 @@ export default function OfficerDashboardClient({
         </a>
         {CHARTER_DOCUMENT_URL && (
           <a href={CHARTER_DOCUMENT_URL} target="_blank" rel="noopener noreferrer" className={styles.cdLink}>
-            Charter Document ↗
+            Campus Charter Document ↗
           </a>
         )}
       </div>

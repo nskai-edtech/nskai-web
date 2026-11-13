@@ -24,7 +24,8 @@ export function isAdminEmail(email: string): boolean {
 export const HUB_SUPPORT_EMAIL = "nskai.org@gmail.com";
 
 /** Link to the charter document. The hub shows its button only once this is set. */
-export const CHARTER_DOCUMENT_URL = "";
+export const CHARTER_DOCUMENT_URL =
+  "https://drive.google.com/drive/folders/1j94MBY-FuOfTmzBAxFAJ3X9iD431iJ1v?usp=sharing";
 
 /** Official Google Form submission links (the last four are still placeholders
  * and are not linked from the hub until real ones exist). */
