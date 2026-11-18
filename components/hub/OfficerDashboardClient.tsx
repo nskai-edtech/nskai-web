@@ -142,7 +142,7 @@ export default function OfficerDashboardClient({
           className={`${styles.tabBtn} ${activeTab === "requests" ? styles.tabBtnActive : ""}`}
           onClick={() => setActiveTab("requests")}
         >
-          Requests &amp; Clearance ({requests.length})
+          Request a Session
         </button>
         <button
           className={`${styles.tabBtn} ${activeTab === "guides" ? styles.tabBtnActive : ""}`}
@@ -252,69 +252,6 @@ export default function OfficerDashboardClient({
             >
               + Demande d&apos;atelier (Français) ↗
             </a>
-          </div>
-
-          {/* Requests History Table */}
-          <div className={styles.cardBox}>
-            <h2 className={styles.boxTitle}>Chapter Clearance &amp; Request History</h2>
-            <div className={styles.boxSubtitle} style={{ marginBottom: "20px" }}>
-              Track the status of your event proposals, logistics funding, and partner engagements.
-            </div>
-
-            <div className={styles.tableWrap}>
-              <table className={styles.dataTable}>
-                <thead>
-                  <tr>
-                    <th>Title &amp; Scope</th>
-                    <th>Type</th>
-                    <th>Date Filed</th>
-                    <th>Budget / Est.</th>
-                    <th>Status</th>
-                    <th>Director Review Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {requests.map((req) => (
-                    <tr key={req.id}>
-                      <td>
-                        <strong>{req.title}</strong>
-                        {req.eventDate && (
-                          <div style={{ fontSize: "12px", color: "var(--ink-muted)" }}>
-                            Event Date: {req.eventDate} ({req.format})
-                          </div>
-                        )}
-                      </td>
-                      <td>
-                        <span style={{ fontFamily: "var(--mono)", fontSize: "11px", textTransform: "uppercase" }}>
-                          {req.type}
-                        </span>
-                      </td>
-                      <td style={{ fontFamily: "var(--mono)", fontSize: "12px" }}>{req.dateFiled}</td>
-                      <td>{req.amount || (req.attendeesEstimate ? `${req.attendeesEstimate} pax` : "—")}</td>
-                      <td>
-                        {req.status === "approved" && <span className={styles.statusApproved}>● APPROVED</span>}
-                        {req.status === "pending" && <span className={styles.statusPending}>🟡 UNDER REVIEW</span>}
-                        {req.status === "changes_requested" && (
-                          <span className={styles.statusChanges}>🔴 CHANGES REQUESTED</span>
-                        )}
-                        {req.status === "rejected" && <span className={styles.statusChanges}>✕ REJECTED</span>}
-                      </td>
-                      <td style={{ fontSize: "13px", color: "var(--ink-muted)" }}>{req.notes || "—"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Policy Notice Box */}
-          <div className={styles.policyNoticeBox}>
-            <strong>Operational Governance Reminder (Guidelines §5, §6, §9):</strong>
-            <ul style={{ margin: "8px 0 0", paddingLeft: "20px" }}>
-              <li>Chapters must <strong>never collect membership dues or informal financial contributions</strong> from students.</li>
-              <li>Every physical or online event must receive written approval before promotional materials or flyers are published.</li>
-              <li>Chapter officers cannot sign MOUs, commit NSK AI branding, or partner with outside companies without Country Director sign-off.</li>
-            </ul>
           </div>
         </div>
       )}

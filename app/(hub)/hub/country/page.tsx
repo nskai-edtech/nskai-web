@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { getActiveSession } from "@/lib/hub-session";
-import { getChapters, getAllRequests } from "@/lib/hub-data";
+import { getChapters } from "@/lib/hub-data";
 import { getSlotsForChapter, getExecutives } from "@/lib/hub-kv";
 import { OFFICER_ROLE_LABEL } from "@/lib/hub-types";
 import CountrySignOut from "@/components/hub/CountrySignOut";
@@ -11,13 +11,6 @@ export const metadata: Metadata = {
   title: "Country Overview — Chapter Hub",
   robots: { index: false },
 };
-
-const STATUS_LABEL = {
-  pending: "Pending",
-  approved: "Approved",
-  changes_requested: "Changes requested",
-  rejected: "Rejected",
-} as const;
 
 /** Read-only view of every chapter in one country, for its Country Director
  * and Country Deputy. Admins can open any country with ?country=<name>. */
@@ -35,21 +28,16 @@ export default async function CountryPage({
   else redirect("/hub");
   if (!country) redirect("/hub/admin");
 
-  const [allChapters, allRequests] = await Promise.all([getChapters(), getAllRequests()]);
+  const allChapters = await getChapters();
   const chapters = allChapters.filter((c) => c.country === country);
   const details = await Promise.all(
     chapters.map(async (c) => ({
       chapter: c,
       slots: await getSlotsForChapter(c.id),
       executives: await getExecutives(c.id),
-      requests: allRequests.filter((r) => r.chapterId === c.id),
     }))
   );
   const registeredLeads = details.filter((d) => d.slots.lead.status === "active").length;
-  const pendingRequests = details.reduce(
-    (n, d) => n + d.requests.filter((r) => r.status === "pending").length,
-    0
-  );
 
   return (
     <div className={styles.page}>
@@ -83,13 +71,9 @@ export default async function CountryPage({
           <span className={styles.metricNum}>{registeredLeads}</span>
           <span className={styles.metricLabel}>Leads signed in</span>
         </div>
-        <div className={styles.metricBadge}>
-          <span className={styles.metricNum}>{pendingRequests}</span>
-          <span className={styles.metricLabel}>Pending requests</span>
-        </div>
       </div>
 
-      {details.map(({ chapter, slots, executives, requests }) => (
+      {details.map(({ chapter, slots, executives }) => (
         <div key={chapter.id} className={styles.cardBox} style={{ marginBottom: 24 }}>
           <h2 className={styles.boxTitle}>{chapter.institution}</h2>
 
@@ -123,35 +107,6 @@ export default async function CountryPage({
               </p>
             ))}
 
-          <div className={styles.boxSubtitle} style={{ margin: "16px 0 8px" }}>
-            Requests ({requests.length})
-          </div>
-          {requests.length === 0 ? (
-            <p style={{ color: "var(--ink-muted)", margin: 0 }}>No requests yet.</p>
-          ) : (
-            <div className={styles.tableWrap}>
-              <table className={styles.dataTable}>
-                <thead>
-                  <tr>
-                    <th>Request</th>
-                    <th>Filed</th>
-                    <th>Event date</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {requests.map((r) => (
-                    <tr key={r.id}>
-                      <td>{r.title}</td>
-                      <td>{r.dateFiled}</td>
-                      <td>{r.eventDate ?? "—"}</td>
-                      <td>{STATUS_LABEL[r.status]}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
         </div>
       ))}
     </div>

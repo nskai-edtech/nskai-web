@@ -102,7 +102,6 @@ export default function AdminDashboardClient({
 
   const charteredCount = chapters.filter((c) => c.status === "chartered").length;
   const interimCount = chapters.filter((c) => c.status === "interim").length;
-  const pendingRequests = requests.filter((r) => r.status === "pending");
 
   const filteredChapters = chapters.filter((c) => {
     const q = filterQuery.toLowerCase();
@@ -323,12 +322,6 @@ export default function AdminDashboardClient({
           </span>
           <span className={styles.metricLabel}>Interim Campus Chapters</span>
         </div>
-        <div className={styles.metricCard}>
-          <span className={styles.metricVal} style={{ color: "#DC2626" }}>
-            {pendingRequests.length}
-          </span>
-          <span className={styles.metricLabel}>Requests Awaiting Clearance</span>
-        </div>
       </div>
 
       {/* Cache & Sync Status Box */}
@@ -349,164 +342,6 @@ export default function AdminDashboardClient({
         >
           {syncing ? "Refreshing..." : "🔄 Sync Now (Revalidate Cache)"}
         </button>
-      </div>
-
-      {/* Pending Triage Queue */}
-      <div className={styles.cardBox} style={{ marginBottom: "32px" }}>
-        <div className={styles.boxHeader}>
-          <h2 className={styles.boxTitle}>Pending Clearance Triage Queue ({pendingRequests.length})</h2>
-          <span style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--ink-muted)", textTransform: "uppercase" }}>
-            Approval SLA: 48 Hours
-          </span>
-        </div>
-
-        {pendingRequests.length === 0 ? (
-          <div style={{ padding: "16px", background: "#FAF8F7", fontSize: "14px", color: "var(--ink-muted)" }}>
-            ✓ No pending requests. All chapter events, finances, and partnerships are up to date.
-          </div>
-        ) : (
-          <div className={styles.tableWrap}>
-            <table className={styles.dataTable}>
-              <thead>
-                <tr>
-                  <th>Campus</th>
-                  <th>Type</th>
-                  <th>Request Title</th>
-                  <th>Date Filed</th>
-                  <th>Budget / Attendance</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {pendingRequests.map((req) => (
-                  <tr key={req.id}>
-                    <td><strong>{req.institution}</strong></td>
-                    <td>
-                      <span className={styles.badgePendingReq}>{req.type}</span>
-                    </td>
-                    <td>{req.title}</td>
-                    <td style={{ fontFamily: "var(--mono)", fontSize: "12px" }}>{req.dateFiled}</td>
-                    <td>{req.amount || (req.attendeesEstimate ? `${req.attendeesEstimate} pax` : "—")}</td>
-                    <td>
-                      <a
-                        href="https://docs.google.com/spreadsheets"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          fontSize: "12px",
-                          fontFamily: "var(--mono)",
-                          color: "var(--accent)",
-                          textDecoration: "underline",
-                        }}
-                      >
-                        Review in Google Sheet ↗
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
-
-      {/* Global Chapters Table */}
-      <div className={styles.cardBox}>
-        <div className={styles.boxHeader}>
-          <div>
-            <h2 className={styles.boxTitle}>Master Chapter Directory</h2>
-            <div style={{ fontFamily: "var(--sans)", fontSize: "13px", color: "var(--ink-muted)", marginTop: "4px" }}>
-              Filter and audit campus chapters across all active countries.
-            </div>
-          </div>
-          <a
-            href="https://docs.google.com/spreadsheets"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.sheetLinkBtn}
-          >
-            📊 Open Master Google Sheet ↗
-          </a>
-        </div>
-
-        {/* Filter input */}
-        <div style={{ marginBottom: "20px" }}>
-          <input
-            type="text"
-            placeholder="Search by campus, country, lead name, or status..."
-            value={filterQuery}
-            onChange={(e) => setFilterQuery(e.target.value)}
-            style={{
-              width: "100%",
-              maxWidth: "400px",
-              height: "40px",
-              padding: "0 12px",
-              fontFamily: "var(--sans)",
-              fontSize: "14px",
-              border: "1px solid var(--hairline)",
-              outline: "none",
-            }}
-          />
-        </div>
-
-        <div className={styles.tableWrap}>
-          <table className={styles.dataTable}>
-            <thead>
-              <tr>
-                <th>Campus &amp; Country</th>
-                <th>Status</th>
-                <th>Chapter Lead</th>
-                <th>Faculty Rep</th>
-                <th>Udara MOU</th>
-                <th>Members</th>
-                <th>Reporting</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredChapters.map((ch) => (
-                <tr key={ch.id}>
-                  <td>
-                    <strong>{ch.institution}</strong>
-                    <div style={{ fontSize: "12px", color: "var(--ink-muted)" }}>{ch.country}</div>
-                  </td>
-                  <td>
-                    {ch.status === "chartered" ? (
-                      <span className={styles.badgeChartered}>Chartered</span>
-                    ) : (
-                      <span className={styles.badgeInterim}>Interim</span>
-                    )}
-                  </td>
-                  <td>
-                    <div>{ch.leadName}</div>
-                    <div style={{ fontSize: "12px", color: "var(--ink-muted)", fontFamily: "var(--mono)" }}>
-                      {ch.leadEmail}
-                    </div>
-                  </td>
-                  <td>
-                    {ch.facultyRepConfirmed ? (
-                      <span style={{ color: "#059669", fontSize: "13px" }}>
-                        ✓ {ch.facultyRepName || "Confirmed"}
-                      </span>
-                    ) : (
-                      <span style={{ color: "#D97706", fontSize: "13px" }}>⏳ Pending</span>
-                    )}
-                  </td>
-                  <td>
-                    <span style={{ fontFamily: "var(--mono)", fontSize: "11px", textTransform: "uppercase" }}>
-                      {ch.udaraMouStatus.replace("_", " ")}
-                    </span>
-                  </td>
-                  <td style={{ fontFamily: "var(--mono)", fontSize: "13px" }}>{ch.totalMembers}</td>
-                  <td>
-                    <span style={{ fontSize: "13px" }}>
-                      {ch.lastReportSubmittedMonth ? `✓ ${ch.lastReportSubmittedMonth}` : "⚠️ Overdue"}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </div>
 
       {/* Chapter Access & Invite Links */}
@@ -545,8 +380,8 @@ export default function AdminDashboardClient({
       <div className={styles.cardBox} style={{ marginTop: "32px" }}>
         <h2 className={styles.boxTitle}>Country Directors &amp; Deputies</h2>
         <div className={styles.boxSubtitle} style={{ marginBottom: "20px" }}>
-          A Country Director or Deputy can view every chapter in their country (teams, contacts and
-          requests) but cannot change anything.
+          A Country Director or Deputy can view every chapter in their country (teams and contacts)
+          but cannot change anything.
         </div>
         {countries.map((country) => (
           <div key={country} style={{ marginBottom: "24px", paddingBottom: "24px", borderBottom: "1px solid var(--hairline)" }}>
