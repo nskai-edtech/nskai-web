@@ -24,6 +24,7 @@ const HERO_TITLE = "AI systems your enterprise can actually run.";
 const ORGANISATION = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.nskai.org/#organization",
   name: "NSK AI",
   alternateName: "NSK.AI",
   url: SITE_URL,
@@ -40,6 +41,19 @@ const ORGANISATION = {
     "https://medium.com/@NSK.AI",
     DISCORD_URL,
   ],
+  // NSK AI's summit, which has its own site. Helps search engines connect
+  // "NSK AI" and "Campus 54 by NSK AI".
+  event: {
+    "@type": "Event",
+    name: "Campus 54 by NSK AI",
+    url: "https://campus54.nskai.org/",
+    startDate: "2027-01-28T00:00:00+01:00",
+    endDate: "2027-01-30T23:59:00+01:00",
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: { "@type": "VirtualLocation", url: "https://campus54.nskai.org/" },
+    isAccessibleForFree: true,
+  },
 };
 
 /** The rail reuses each product's nav icon, at its own accent colour. */

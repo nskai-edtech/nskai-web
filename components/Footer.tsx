@@ -16,6 +16,7 @@ const footerProducts = [
 const companyLinks = [
   { name: "Solutions", href: "/solutions" },
   { name: "Company", href: "/company" },
+  { name: "Campus 54 (summit)", href: "https://campus54.nskai.org" },
   { name: "Lead a chapter", href: "/community/chapter-leads" },
   { name: "Chapter Hub", href: "/hub" },
   { name: "Contact", href: "/contact" },
