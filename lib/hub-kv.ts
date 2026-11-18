@@ -17,7 +17,7 @@ import { Redis } from "@upstash/redis";
 import { readFile, writeFile, mkdir } from "fs/promises";
 import { join } from "path";
 import { hashPassword } from "./hub-password";
-import type { HubAccount, HubSlot, OfficerRole } from "./hub-types";
+import type { ChapterExecutive, HubAccount, HubInvite, HubSlot, OfficerRole } from "./hub-types";
 
 const ACCOUNT_TTL_SECONDS = 60 * 60 * 24 * 365; // one year
 
@@ -153,7 +153,8 @@ export async function getSlotsForChapter(chapterId: string): Promise<Record<Offi
 export async function createInvite(
   chapterId: string,
   role: OfficerRole,
-  createdBy: string
+  createdBy: string,
+  preset?: { name: string; email: string }
 ): Promise<string> {
   const kv = getStore();
 
@@ -166,7 +167,10 @@ export async function createInvite(
   }
 
   const token = crypto.randomUUID().replace(/-/g, "") + crypto.randomUUID().replace(/-/g, "");
-  await kv.set(tokenKey(token), { chapterId, role });
+  const invite: HubInvite = preset
+    ? { chapterId, role, name: preset.name.trim(), email: preset.email.trim().toLowerCase() }
+    : { chapterId, role };
+  await kv.set(tokenKey(token), invite);
   await kv.set(slotKey(chapterId, role), {
     status: "invited",
     token,
@@ -176,8 +180,8 @@ export async function createInvite(
   return token;
 }
 
-export async function getInvite(token: string): Promise<{ chapterId: string; role: OfficerRole } | null> {
-  return readFromStore((kv) => kv.get<{ chapterId: string; role: OfficerRole }>(tokenKey(token)), null);
+export async function getInvite(token: string): Promise<HubInvite | null> {
+  return readFromStore((kv) => kv.get<HubInvite>(tokenKey(token)), null);
 }
 
 /** Activates an invite into a real account, consuming the token. */
@@ -193,6 +197,9 @@ export async function activateInvite(
   if (!invite) throw new Error("This invite link is invalid or has already been used.");
 
   const cleanEmail = email.trim().toLowerCase();
+  if (invite.email && invite.email !== cleanEmail) {
+    throw new Error("This invite link was issued to a different email address.");
+  }
   const existingForEmail = await kv.get<HubAccount>(emailKey(cleanEmail));
   if (existingForEmail) {
     throw new Error("This email already has an active Chapter Hub account.");
@@ -284,4 +291,18 @@ export async function getAdminPasswordHash(): Promise<string | null> {
 
 export async function setAdminPassword(password: string): Promise<void> {
   await getStore().set(ADMIN_PASSWORD_KEY, hashPassword(password));
+}
+
+function execsKey(chapterId: string) {
+  return `hub:execs:${chapterId}`;
+}
+
+/** The executive team a Chapter Lead entered on the hub (no TTL: it is the
+ * chapter's record, not a login). */
+export async function getExecutives(chapterId: string): Promise<ChapterExecutive[]> {
+  return readFromStore(async (kv) => (await kv.get<ChapterExecutive[]>(execsKey(chapterId))) ?? [], []);
+}
+
+export async function setExecutives(chapterId: string, execs: ChapterExecutive[]): Promise<void> {
+  await getStore().set(execsKey(chapterId), execs);
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getActiveSession } from "@/lib/hub-session";
-import { createInvite, revokeSlot } from "@/lib/hub-kv";
+import { createInvite, getExecutives, revokeSlot } from "@/lib/hub-kv";
 import type { OfficerRole } from "@/lib/hub-types";
 
 const VALID_ROLES: OfficerRole[] = ["lead", "deputy", "treasurer"];
@@ -21,7 +21,16 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "A chapterId and a valid role are required." }, { status: 400 });
     }
 
-    const token = await createInvite(chapterId, role, session.email);
+    // For the Deputy and Programs Coordinator seats, the link is tied to the
+    // person the Chapter Lead entered, so only that email can activate it.
+    const entered =
+      role === "lead" ? undefined : (await getExecutives(chapterId)).find((e) => e.seat === role);
+    const token = await createInvite(
+      chapterId,
+      role,
+      session.email,
+      entered ? { name: entered.name, email: entered.email } : undefined
+    );
     return NextResponse.json({ success: true, token, path: `/hub/invite/${token}` });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Failed to create invite.";

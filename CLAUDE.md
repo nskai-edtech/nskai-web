@@ -147,8 +147,8 @@ separated env var, no production fallback — see `lib/hub-data.ts`
 `getAdminEmails`).
 
 **Signing in is email plus password** (`/api/hub/auth`, action `login`). Emailed
-one-time codes were built first and removed at the owner's request, so the hub
-sends no email at all. An officer chooses a password when activating their
+one-time codes were built first and removed at the owner's request. The hub's only email is an
+invite link an admin chooses to send with "Email link" (`lib/hub-mail.ts`, Resend free plan). An officer chooses a password when activating their
 invite link; it is stored only as a salted scrypt hash on their KV account
 (`lib/hub-password.ts`). Admins are the `ADMIN_EMAILS` allowlist plus one shared
 `ADMIN_PASSWORD` — no fallback, so with it unset nobody signs in as admin. Eight
@@ -180,6 +180,40 @@ development, missing Upstash credentials fall back to a JSON file at
 routes, which an in-process `Map` singleton is not: Next.js compiles each route
 handler into its own bundle, so module-level state does not reliably share
 across routes even within one server process.
+
+### Executive team and admin preview
+
+The Chapter Lead's "Executive Team" tab (`components/hub/ExecutivesForm.tsx`,
+`/api/hub/executives`) records the chapter's executives in KV at
+`hub:execs:{chapterId}`. The Deputy Lead and Programs Coordinator are required.
+Nothing is sent automatically. The admin sees the
+lead-entered name and email under each seat on `/hub/admin`, generates that
+seat's invite link and sends it by hand. A Deputy/PC link generated after the
+lead has entered someone is **bound to that email** (`HubInvite.email`), and
+activating it with any other email is refused. Other executives are stored only,
+with no login.
+
+Admins open `/hub/admin/view/[chapterId]` ("View as Chapter Lead" on
+`/hub/admin`) to see that chapter's hub exactly as its lead does. Saves made
+there are real.
+
+### Country Directors and Deputies
+
+Two seats per country, stored like chapter seats under the pseudo chapter id
+`country:<Country>` (`countryScopeId` in `lib/hub-types.ts`): seat `lead` is the
+Country Director and `deputy` the Country Deputy. They sign in with role
+`"country"` and land on `/hub/country`, a read-only view of every chapter in
+their country (teams, contacts, requests). Every write route checks
+`role === "officer"` or `"admin"`, so country accounts can never edit. Admins
+open any country with `/hub/country?country=<name>`.
+
+### Requests come from the Google Form's response sheet
+
+`getAllRequests` (`lib/hub-data.ts`) reads `GOOGLE_REQUESTS_CSV_URL`, the
+form's response sheet published as CSV, and finds columns by header wording.
+The admin adds a `Status` column and types Approved / Rejected / Changes
+requested. Blank means pending. Rows are matched to chapters by chapter id or
+institution name, punctuation-insensitive, and unmatched rows are dropped. Cached 10 minutes.
 
 ### Login and invite are the one black surface
 

@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import type { ChapterExecutive } from "@/lib/hub-types";
 import type { Chapter, ClearanceRequest, HubSession, HubSlot, OfficerRole } from "@/lib/hub-types";
-import { OFFICER_ROLE_LABEL } from "@/lib/hub-types";
+import { OFFICER_ROLE_LABEL, COUNTRY_ROLE_LABEL, countryScopeId, countryFromScope } from "@/lib/hub-types";
 import styles from "@/app/(hub)/hub/admin/admin.module.css";
 
 interface Props {
@@ -11,16 +12,20 @@ interface Props {
   chapters: Chapter[];
   requests: ClearanceRequest[];
   slotsByChapter: Record<string, Record<OfficerRole, HubSlot>>;
+  executivesByChapter: Record<string, ChapterExecutive[]>;
 }
 
 const OFFICER_ROLES: OfficerRole[] = ["lead", "deputy", "treasurer"];
+const COUNTRY_ROLES: OfficerRole[] = ["lead", "deputy"];
 
 export default function AdminDashboardClient({
   session,
   chapters,
   requests,
   slotsByChapter,
+  executivesByChapter,
 }: Props) {
+  const countries = Array.from(new Set(chapters.map((c) => c.country))).sort();
   const router = useRouter();
   const [syncing, setSyncing] = useState(false);
   const [syncMessage, setSyncMessage] = useState<string | null>(null);
@@ -141,6 +146,140 @@ export default function AdminDashboardClient({
     } catch {
       setLoggingOut(false);
     }
+  };
+
+  const renderSeat = (scopeId: string, role: OfficerRole, label: string) => {
+              const key = slotKey(scopeId, role);
+              const slot = slots[scopeId]?.[role] ?? { status: "empty" as const };
+              const isPending = pendingSlot === key;
+              const error = slotErrors[key];
+              const link = generatedLinks[key];
+
+              return (
+                <div
+                  key={role}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                    gap: "16px",
+                    padding: "10px 0",
+                  }}
+                >
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontFamily: "var(--sans)", fontSize: "13px", color: "var(--ink)" }}>
+                      <strong>{label}</strong>
+                      {slot.status === "empty" && (
+                        <span style={{ color: "var(--ink-muted)" }}> — no invite issued</span>
+                      )}
+                      {slot.status === "invited" && (
+                        <span style={{ color: "#D97706" }}> — invite sent, awaiting activation</span>
+                      )}
+                      {slot.status === "active" && (
+                        <span style={{ color: "#059669" }}>
+                          {" "}
+                          — {slot.name} ({slot.email}), expires {new Date(slot.expiresAt).toLocaleDateString()}
+                        </span>
+                      )}
+                    </div>
+                    {role !== "lead" && !countryFromScope(scopeId) && (() => {
+                      const entered = executivesByChapter[scopeId]?.find((e) => e.seat === role);
+                      return (
+                        <div style={{ fontFamily: "var(--sans)", fontSize: "13px", color: "var(--ink-muted)", marginTop: "4px" }}>
+                          {entered ? (
+                            <>
+                              Entered by lead: {entered.name} ·{" "}
+                              <a href={`mailto:${entered.email}`}>{entered.email}</a>
+                              {entered.phone ? ` · ${entered.phone}` : ""}
+                              {slot.status === "empty" && " — generate a link and send it to this email."}
+                            </>
+                          ) : (
+                            "Not entered by the lead yet."
+                          )}
+                        </div>
+                      );
+                    })()}
+                    {link && (
+                      <div style={{ marginTop: "6px", display: "flex", gap: "8px", alignItems: "center" }}>
+                        <input
+                          readOnly
+                          value={link}
+                          onFocus={(e) => e.currentTarget.select()}
+                          style={{
+                            flex: 1,
+                            maxWidth: "420px",
+                            height: "32px",
+                            padding: "0 8px",
+                            fontFamily: "var(--mono)",
+                            fontSize: "12px",
+                            border: "1px solid var(--hairline)",
+                            background: "#FAF8F7",
+                          }}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => navigator.clipboard.writeText(link)}
+                          style={{
+                            fontSize: "12px",
+                            fontFamily: "var(--mono)",
+                            color: "var(--accent)",
+                            background: "none",
+                            border: "1px solid var(--hairline)",
+                            padding: "6px 10px",
+                            cursor: "pointer",
+                          }}
+                        >
+                          Copy
+                        </button>
+                      </div>
+                    )}
+                    {slot.status === "invited" && (
+                      <EmailLinkRow
+                        scopeId={scopeId}
+                        role={role}
+                        defaultTo={executivesByChapter[scopeId]?.find((e) => e.seat === role)?.email ?? ""}
+                        locked={role !== "lead" && Boolean(executivesByChapter[scopeId]?.find((e) => e.seat === role))}
+                        hasLink={Boolean(link)}
+                      />
+                    )}
+                    {error && (
+                      <div style={{ marginTop: "6px", fontSize: "12px", color: "#9F1239" }}>{error}</div>
+                    )}
+                  </div>
+
+                  <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+                    {slot.status === "empty" && (
+                      <button
+                        type="button"
+                        onClick={() => handleGenerateInvite(scopeId, role)}
+                        disabled={isPending}
+                        className={styles.syncBtn}
+                        style={{ fontSize: "12px", padding: "8px 14px" }}
+                      >
+                        {isPending ? "Generating…" : "Generate Invite Link"}
+                      </button>
+                    )}
+                    {(slot.status === "invited" || slot.status === "active") && (
+                      <button
+                        type="button"
+                        onClick={() => handleRevoke(scopeId, role)}
+                        disabled={isPending}
+                        style={{
+                          fontSize: "12px",
+                          padding: "8px 14px",
+                          fontFamily: "var(--sans)",
+                          color: "#9F1239",
+                          background: "none",
+                          border: "1px solid #FECDD3",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {isPending ? "Revoking…" : slot.status === "active" ? "Revoke Access" : "Revoke Invite"}
+                      </button>
+                    )}
+                  </div>
+                </div>
+              );
   };
 
   return (
@@ -382,118 +521,110 @@ export default function AdminDashboardClient({
           <div key={ch.id} style={{ marginBottom: "24px", paddingBottom: "24px", borderBottom: "1px solid var(--hairline)" }}>
             <div style={{ fontFamily: "var(--sans)", fontSize: "14px", fontWeight: 600, color: "var(--ink)", marginBottom: "12px" }}>
               {ch.institution} <span style={{ color: "var(--ink-muted)", fontWeight: 400 }}>({ch.country})</span>
+              {" · "}
+              <a href={`/hub/admin/view/${ch.id}`} style={{ fontWeight: 400 }}>
+                View as Chapter Lead →
+              </a>
             </div>
+            {(executivesByChapter[ch.id] ?? []).some((e) => e.seat === "other") && (
+              <div style={{ fontFamily: "var(--sans)", fontSize: "13px", color: "var(--ink-muted)", marginBottom: "8px" }}>
+                Other executives:{" "}
+                {(executivesByChapter[ch.id] ?? [])
+                  .filter((e) => e.seat === "other")
+                  .map((e) => `${e.title}: ${e.name} (${e.email}${e.phone ? `, ${e.phone}` : ""})`)
+                  .join(" · ")}
+              </div>
+            )}
 
-            {OFFICER_ROLES.map((role) => {
-              const key = slotKey(ch.id, role);
-              const slot = slots[ch.id]?.[role] ?? { status: "empty" as const };
-              const isPending = pendingSlot === key;
-              const error = slotErrors[key];
-              const link = generatedLinks[key];
-
-              return (
-                <div
-                  key={role}
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    justifyContent: "space-between",
-                    gap: "16px",
-                    padding: "10px 0",
-                  }}
-                >
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontFamily: "var(--sans)", fontSize: "13px", color: "var(--ink)" }}>
-                      <strong>{OFFICER_ROLE_LABEL[role]}</strong>
-                      {slot.status === "empty" && (
-                        <span style={{ color: "var(--ink-muted)" }}> — no invite issued</span>
-                      )}
-                      {slot.status === "invited" && (
-                        <span style={{ color: "#D97706" }}> — invite sent, awaiting activation</span>
-                      )}
-                      {slot.status === "active" && (
-                        <span style={{ color: "#059669" }}>
-                          {" "}
-                          — {slot.name} ({slot.email}), expires {new Date(slot.expiresAt).toLocaleDateString()}
-                        </span>
-                      )}
-                    </div>
-                    {link && (
-                      <div style={{ marginTop: "6px", display: "flex", gap: "8px", alignItems: "center" }}>
-                        <input
-                          readOnly
-                          value={link}
-                          onFocus={(e) => e.currentTarget.select()}
-                          style={{
-                            flex: 1,
-                            maxWidth: "420px",
-                            height: "32px",
-                            padding: "0 8px",
-                            fontFamily: "var(--mono)",
-                            fontSize: "12px",
-                            border: "1px solid var(--hairline)",
-                            background: "#FAF8F7",
-                          }}
-                        />
-                        <button
-                          type="button"
-                          onClick={() => navigator.clipboard.writeText(link)}
-                          style={{
-                            fontSize: "12px",
-                            fontFamily: "var(--mono)",
-                            color: "var(--accent)",
-                            background: "none",
-                            border: "1px solid var(--hairline)",
-                            padding: "6px 10px",
-                            cursor: "pointer",
-                          }}
-                        >
-                          Copy
-                        </button>
-                      </div>
-                    )}
-                    {error && (
-                      <div style={{ marginTop: "6px", fontSize: "12px", color: "#9F1239" }}>{error}</div>
-                    )}
-                  </div>
-
-                  <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
-                    {slot.status === "empty" && (
-                      <button
-                        type="button"
-                        onClick={() => handleGenerateInvite(ch.id, role)}
-                        disabled={isPending}
-                        className={styles.syncBtn}
-                        style={{ fontSize: "12px", padding: "8px 14px" }}
-                      >
-                        {isPending ? "Generating…" : "Generate Invite Link"}
-                      </button>
-                    )}
-                    {(slot.status === "invited" || slot.status === "active") && (
-                      <button
-                        type="button"
-                        onClick={() => handleRevoke(ch.id, role)}
-                        disabled={isPending}
-                        style={{
-                          fontSize: "12px",
-                          padding: "8px 14px",
-                          fontFamily: "var(--sans)",
-                          color: "#9F1239",
-                          background: "none",
-                          border: "1px solid #FECDD3",
-                          cursor: "pointer",
-                        }}
-                      >
-                        {isPending ? "Revoking…" : slot.status === "active" ? "Revoke Access" : "Revoke Invite"}
-                      </button>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
+            {OFFICER_ROLES.map((role) => renderSeat(ch.id, role, OFFICER_ROLE_LABEL[role]))}
           </div>
         ))}
       </div>
+
+      {/* Country Directors & Deputies */}
+      <div className={styles.cardBox} style={{ marginTop: "32px" }}>
+        <h2 className={styles.boxTitle}>Country Directors &amp; Deputies</h2>
+        <div className={styles.boxSubtitle} style={{ marginBottom: "20px" }}>
+          A Country Director or Deputy can view every chapter in their country (teams, contacts and
+          requests) but cannot change anything.
+        </div>
+        {countries.map((country) => (
+          <div key={country} style={{ marginBottom: "24px", paddingBottom: "24px", borderBottom: "1px solid var(--hairline)" }}>
+            <div style={{ fontFamily: "var(--sans)", fontSize: "14px", fontWeight: 600, color: "var(--ink)", marginBottom: "12px" }}>
+              {country}
+              {" · "}
+              <a href={`/hub/country?country=${encodeURIComponent(country)}`} style={{ fontWeight: 400 }}>
+                View country →
+              </a>
+            </div>
+            {COUNTRY_ROLES.map((role) => renderSeat(countryScopeId(country), role, COUNTRY_ROLE_LABEL[role] ?? role))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** Sends a pending invite link by email (Resend free tier). For a Deputy or
+ * Programs Coordinator the address is the one the lead entered and is locked. */
+function EmailLinkRow({
+  scopeId,
+  role,
+  defaultTo,
+  locked,
+  hasLink,
+}: {
+  scopeId: string;
+  role: OfficerRole;
+  defaultTo: string;
+  locked: boolean;
+  hasLink: boolean;
+}) {
+  const [to, setTo] = useState(defaultTo);
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+  if (!hasLink) {
+    return (
+      <div style={{ marginTop: "6px", fontSize: "12px", color: "var(--ink-muted)", fontFamily: "var(--sans)" }}>
+        To email this person a link, revoke this invite and generate a new one.
+      </div>
+    );
+  }
+  return (
+    <div style={{ marginTop: "6px", display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
+      <input
+        type="email"
+        value={to}
+        readOnly={locked}
+        onChange={(e) => setTo(e.target.value)}
+        placeholder="their@email.com"
+        aria-label="Email the link to"
+        style={{ height: "32px", padding: "0 8px", fontSize: "12px", border: "1px solid var(--hairline)", minWidth: "220px" }}
+      />
+      <button
+        type="button"
+        disabled={busy || !to}
+        onClick={async () => {
+          setBusy(true);
+          setMsg(null);
+          try {
+            const res = await fetch("/api/hub/invites/email", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ chapterId: scopeId, role, to }),
+            });
+            const data = await res.json();
+            setMsg(res.ok ? `Sent to ${to}.` : data.error || "Could not send.");
+          } catch {
+            setMsg("Network error.");
+          }
+          setBusy(false);
+        }}
+        style={{ fontSize: "12px", padding: "6px 10px", border: "1px solid var(--hairline)", background: "none", cursor: "pointer" }}
+      >
+        {busy ? "Sending…" : "Email link"}
+      </button>
+      {msg && <span style={{ fontSize: "12px", fontFamily: "var(--sans)" }}>{msg}</span>}
     </div>
   );
 }

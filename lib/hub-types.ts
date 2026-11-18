@@ -65,8 +65,10 @@ export interface ClearanceRequest {
 
 export interface HubSession {
   email: string;
-  role: "admin" | "officer";
+  role: "admin" | "officer" | "country";
   chapterId?: string;
+  /** For role "country": the country this director or deputy can view. */
+  country?: string;
   officerRole?: OfficerRole;
   name: string;
 }
@@ -86,6 +88,40 @@ export interface HubAccount {
   /** Salted scrypt hash (lib/hub-password.ts). Never sent to the browser. */
   passwordHash?: string;
 }
+
+/** One member of a chapter's executive team, as entered by the Chapter Lead.
+ * The Deputy and Programs Coordinator also get hub accounts (seats "deputy" and
+ * "treasurer"); every other entry is stored as a record only. */
+export interface ChapterExecutive {
+  /** "deputy" and "treasurer" are the two compulsory seats; anything else is a free-text title. */
+  seat: "deputy" | "treasurer" | "other";
+  title: string;
+  name: string;
+  email: string;
+  phone?: string;
+}
+
+/** What an invite link carries. Invites issued from the lead's Executives form
+ * are bound to the email the lead entered, so only that person can activate it. */
+export interface HubInvite {
+  chapterId: string;
+  role: OfficerRole;
+  name?: string;
+  email?: string;
+}
+
+/** Country Directors and their deputies hold seats like chapter officers, under
+ * a pseudo chapter id `country:<Country>`: seat "lead" is the Country Director
+ * and "deputy" the Country Deputy. Reusing the seat machinery gives them the
+ * same invite links, revoke, one-year expiry and per-request re-validation. */
+const COUNTRY_PREFIX = "country:";
+export const countryScopeId = (country: string) => `${COUNTRY_PREFIX}${country}`;
+export const countryFromScope = (id: string): string | null =>
+  id.startsWith(COUNTRY_PREFIX) ? id.slice(COUNTRY_PREFIX.length) : null;
+export const COUNTRY_ROLE_LABEL: Partial<Record<OfficerRole, string>> = {
+  lead: "Country Director",
+  deputy: "Country Deputy",
+};
 
 export const OFFICER_ROLE_LABEL: Record<OfficerRole, string> = {
   lead: "Chapter Lead",

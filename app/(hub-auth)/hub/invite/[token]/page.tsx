@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getInvite } from "@/lib/hub-kv";
 import { getChapterById } from "@/lib/hub-data";
-import { OFFICER_ROLE_LABEL } from "@/lib/hub-types";
+import { OFFICER_ROLE_LABEL, COUNTRY_ROLE_LABEL, countryFromScope } from "@/lib/hub-types";
 import InviteActivateForm from "@/components/hub/InviteActivateForm";
 import styles from "../invite.module.css";
 
@@ -30,7 +30,12 @@ export default async function InvitePage({ params }: { params: Promise<{ token: 
     );
   }
 
-  const chapter = await getChapterById(invite.chapterId);
+  const country = countryFromScope(invite.chapterId);
+  const chapter = country ? null : await getChapterById(invite.chapterId);
+  const roleLabel = country
+    ? COUNTRY_ROLE_LABEL[invite.role] ?? "Country team"
+    : OFFICER_ROLE_LABEL[invite.role];
+  const place = country ?? chapter?.institution;
 
   return (
     <div className={styles.page}>
@@ -38,15 +43,15 @@ export default async function InvitePage({ params }: { params: Promise<{ token: 
         <div className={styles.logo}>NSK AI</div>
         <span className={styles.monoLabel}>Chapter Operations</span>
         <h1 className={styles.title}>
-          Activate your {OFFICER_ROLE_LABEL[invite.role]} account
+          Activate your {roleLabel} account
         </h1>
         <p className={styles.desc}>
-          {chapter
-            ? `You're creating the ${OFFICER_ROLE_LABEL[invite.role]} account for ${chapter.institution}.`
-            : `You're creating a ${OFFICER_ROLE_LABEL[invite.role]} account.`}{" "}
+          {place
+            ? `You're creating the ${roleLabel} account for ${place}.`
+            : `You're creating a ${roleLabel} account.`}{" "}
           This access stays valid for one year and can be revoked by an NSK AI admin at any time.
         </p>
-        <InviteActivateForm token={token} />
+        <InviteActivateForm token={token} presetName={invite.name} presetEmail={invite.email} />
       </div>
     </div>
   );

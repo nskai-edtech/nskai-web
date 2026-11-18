@@ -3,8 +3,9 @@ import AdminPasswordForm from "@/components/hub/AdminPasswordForm";
 import type { Metadata } from "next";
 import { getActiveSession } from "@/lib/hub-session";
 import { getChapters, getAllRequests } from "@/lib/hub-data";
-import { getSlotsForChapter } from "@/lib/hub-kv";
-import type { OfficerRole, HubSlot } from "@/lib/hub-types";
+import { getSlotsForChapter, getExecutives } from "@/lib/hub-kv";
+import { countryScopeId, type OfficerRole, type HubSlot } from "@/lib/hub-types";
+import AdminViewPicker from "@/components/hub/AdminViewPicker";
 import AdminDashboardClient from "@/components/hub/AdminDashboardClient";
 
 export const metadata: Metadata = {
@@ -30,18 +31,28 @@ export default async function AdminPage() {
     getAllRequests(),
   ]);
 
+  const countries = Array.from(new Set(chapters.map((c) => c.country))).sort();
+  const scopeIds = [...chapters.map((c) => c.id), ...countries.map(countryScopeId)];
   const slotEntries = await Promise.all(
-    chapters.map(async (c) => [c.id, await getSlotsForChapter(c.id)] as [string, Record<OfficerRole, HubSlot>])
+    scopeIds.map(async (id) => [id, await getSlotsForChapter(id)] as [string, Record<OfficerRole, HubSlot>])
   );
   const slotsByChapter = Object.fromEntries(slotEntries);
+  const executivesByChapter = Object.fromEntries(
+    await Promise.all(chapters.map(async (c) => [c.id, await getExecutives(c.id)] as const))
+  );
 
   return (
     <>
+      <AdminViewPicker
+        chapters={chapters.map((c) => ({ id: c.id, label: `${c.institution} (${c.country})` }))}
+        countries={countries}
+      />
       <AdminDashboardClient
         session={session}
         chapters={chapters}
         requests={requests}
         slotsByChapter={slotsByChapter}
+        executivesByChapter={executivesByChapter}
       />
       <AdminPasswordForm />
     </>

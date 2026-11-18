@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import type { HubSession } from "./hub-types";
+import { countryFromScope, COUNTRY_ROLE_LABEL, type HubSession } from "./hub-types";
 import { isAdminEmail, getChapterById } from "./hub-data";
 import { getAccountByEmail } from "./hub-kv";
 
@@ -100,6 +100,17 @@ export async function authenticateEmail(email: string): Promise<HubSession | nul
   // 2. Check if the email holds an active officer seat (created via an invite link)
   const account = await getAccountByEmail(cleanEmail);
   if (account) {
+    const country = countryFromScope(account.chapterId);
+    if (country) {
+      return {
+        email: cleanEmail,
+        role: "country",
+        chapterId: account.chapterId,
+        officerRole: account.role,
+        country,
+        name: `${account.name} (${COUNTRY_ROLE_LABEL[account.role] ?? "Country team"}, ${country})`,
+      };
+    }
     const chapter = await getChapterById(account.chapterId);
     return {
       email: cleanEmail,
@@ -118,7 +129,7 @@ export async function authenticateEmail(email: string): Promise<HubSession | nul
  * session cookie. Admin sessions are not KV-backed and pass through unchanged. */
 export async function getActiveSession(): Promise<HubSession | null> {
   const session = await getSession();
-  if (!session || session.role !== "officer") return session;
+  if (!session || session.role === "admin") return session;
 
   const account = await getAccountByEmail(session.email);
   if (!account || account.chapterId !== session.chapterId) {

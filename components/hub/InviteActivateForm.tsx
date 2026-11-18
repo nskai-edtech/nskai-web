@@ -4,10 +4,18 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "@/app/(hub-auth)/hub/invite/invite.module.css";
 
-export default function InviteActivateForm({ token }: { token: string }) {
+export default function InviteActivateForm({
+  token,
+  presetName,
+  presetEmail,
+}: {
+  token: string;
+  presetName?: string;
+  presetEmail?: string;
+}) {
   const router = useRouter();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(presetName ?? "");
+  const [email, setEmail] = useState(presetEmail ?? "");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -67,6 +75,7 @@ export default function InviteActivateForm({ token }: { token: string }) {
           placeholder="you@university.edu"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          readOnly={Boolean(presetEmail)}
           required
         />
       </div>

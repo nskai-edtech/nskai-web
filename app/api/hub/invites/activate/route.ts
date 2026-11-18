@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { activateInvite } from "@/lib/hub-kv";
-import { setSessionCookie } from "@/lib/hub-session";
+import { authenticateEmail, setSessionCookie } from "@/lib/hub-session";
 import { MIN_PASSWORD_LENGTH } from "@/lib/hub-password";
-import { getChapterById } from "@/lib/hub-data";
 
 export async function POST(req: Request) {
   try {
@@ -24,18 +23,12 @@ export async function POST(req: Request) {
       );
     }
 
-    const account = await activateInvite(token, name, email, password);
-    const chapter = await getChapterById(account.chapterId);
+    await activateInvite(token, name, email, password);
+    const session = await authenticateEmail(email);
+    if (!session) throw new Error("Could not sign you in. Try signing in from the login page.");
+    await setSessionCookie(session);
 
-    await setSessionCookie({
-      email: email.trim().toLowerCase(),
-      role: "officer",
-      chapterId: account.chapterId,
-      officerRole: account.role,
-      name: chapter ? `${account.name} (${chapter.institution})` : account.name,
-    });
-
-    return NextResponse.json({ success: true, redirect: "/hub" });
+    return NextResponse.json({ success: true, redirect: session.role === "country" ? "/hub/country" : "/hub" });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Could not activate this invite.";
     return NextResponse.json({ error: message }, { status: 400 });

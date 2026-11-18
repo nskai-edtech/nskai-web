@@ -228,9 +228,132 @@ export async function getUdaraAmbassadors(chapterId: string): Promise<UdaraAmbas
 }
 
 export async function getRequestsForChapter(chapterId: string): Promise<ClearanceRequest[]> {
-  return SEED_REQUESTS.filter((r) => r.chapterId === chapterId);
+  return (await getAllRequests()).filter((r) => r.chapterId === chapterId);
 }
 
+/** Splits CSV text into rows, honouring quoted fields (commas, quotes and line
+ * breaks inside quotes), which Google Form answers routinely contain. */
+export function parseCsv(text: string): string[][] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let field = "";
+  let quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (quoted) {
+      if (ch === '"' && text[i + 1] === '"') {
+        field += '"';
+        i++;
+      } else if (ch === '"') {
+        quoted = false;
+      } else {
+        field += ch;
+      }
+    } else if (ch === '"') {
+      quoted = true;
+    } else if (ch === ",") {
+      row.push(field);
+      field = "";
+    } else if (ch === "\n" || ch === "\r") {
+      if (ch === "\r" && text[i + 1] === "\n") i++;
+      row.push(field);
+      if (row.some((c) => c.trim())) rows.push(row);
+      row = [];
+      field = "";
+    } else {
+      field += ch;
+    }
+  }
+  row.push(field);
+  if (row.some((c) => c.trim())) rows.push(row);
+  return rows;
+}
+
+const normalise = (v: string) => v.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]/g, "");
+
+function toStatus(v: string): ClearanceRequest["status"] {
+  const s = v.toLowerCase();
+  if (s.startsWith("approv")) return "approved";
+  if (s.startsWith("reject") || s.startsWith("declin")) return "rejected";
+  if (s.includes("change")) return "changes_requested";
+  return "pending";
+}
+
+/**
+ * Session requests come from the Google Form's response sheet, published as CSV
+ * (GOOGLE_REQUESTS_CSV_URL). Columns are found by their header wording, so the
+ * form's own question titles work: a "Timestamp" column, a chapter column
+ * (header containing "chapter id", "institution", "university" or "chapter"), a
+ * title column ("title", "topic" or "session"), and optional "type", event
+ * "date", "format", "notes"/"comment". Add a "Status" column to the sheet and
+ * type Approved / Rejected / Changes requested in it; blank means pending.
+ * Cached for 10 minutes.
+ */
 export async function getAllRequests(): Promise<ClearanceRequest[]> {
-  return SEED_REQUESTS;
+  const url = process.env.GOOGLE_REQUESTS_CSV_URL;
+  if (!url) return SEED_REQUESTS;
+
+  try {
+    const res = await fetch(url, { next: { revalidate: 600, tags: ["request-data"] } });
+    if (!res.ok) {
+      console.warn(`Failed to fetch requests CSV: ${res.statusText}`);
+      return SEED_REQUESTS;
+    }
+    const [header, ...rows] = parseCsv(await res.text());
+    if (!header) return SEED_REQUESTS;
+    const heads = header.map((h) => h.trim().toLowerCase());
+    const find = (...words: string[]) => {
+      for (const w of words) {
+        const i = heads.findIndex((h) => h.includes(w));
+        if (i !== -1) return i;
+      }
+      return -1;
+    };
+    const iTime = find("timestamp");
+    const iChapter = find("chapter id", "chapter_id", "institution", "university", "school", "chapter");
+    const iTitle = find("title", "topic", "session name", "session");
+    const iType = find("type");
+    const iEventDate = heads.findIndex((h) => h.includes("date") && !h.includes("timestamp"));
+    const iFormat = find("format", "online or");
+    const iNotes = find("notes", "comment");
+    const iStatus = find("status");
+
+    const chapters = await getChapters();
+    const byKey = new Map<string, Chapter>();
+    for (const c of chapters) {
+      byKey.set(normalise(c.id), c);
+      byKey.set(normalise(c.institution), c);
+    }
+    const col = (r: string[], i: number) => (i === -1 ? "" : (r[i] ?? "").trim());
+
+    const out: ClearanceRequest[] = [];
+    rows.forEach((r, n) => {
+      const chapter = byKey.get(normalise(col(r, iChapter)));
+      if (!chapter) return;
+      const typeRaw = col(r, iType).toLowerCase();
+      const formatRaw = col(r, iFormat).toLowerCase();
+      out.push({
+        id: `req-${n + 2}`,
+        chapterId: chapter.id,
+        institution: chapter.institution,
+        type: typeRaw.includes("partner") ? "partnership" : typeRaw.includes("financ") ? "finance" : "event",
+        title: col(r, iTitle) || "Session request",
+        dateFiled: col(r, iTime),
+        status: toStatus(col(r, iStatus)),
+        eventDate: col(r, iEventDate) || undefined,
+        format: formatRaw.includes("hybrid")
+          ? "hybrid"
+          : formatRaw.includes("online") || formatRaw.includes("virtual")
+            ? "online"
+            : formatRaw
+              ? "physical"
+              : undefined,
+        notes: col(r, iNotes) || undefined,
+      });
+    });
+    return out.reverse();
+  } catch (err) {
+    console.error("Error reading requests CSV:", err);
+    return SEED_REQUESTS;
+  }
 }

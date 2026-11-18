@@ -717,3 +717,76 @@
     font-size: 28px;
   }
 }
+
+/* Executives form (lead's Executives tab) */
+.execRow {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr 1.4fr 1fr auto;
+  gap: 10px;
+  align-items: end;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.execField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.execInput {
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 9px 10px;
+  border: 1px solid var(--hairline);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 4px;
+}
+.execInput:disabled {
+  opacity: 0.7;
+}
+.execFixedRole {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 9px 0;
+}
+.execRemove {
+  background: none;
+  border: none;
+  color: var(--ink-muted);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 9px 4px;
+  text-decoration: underline;
+}
+.execMessage {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 16px;
+  color: var(--ink);
+}
+.previewBanner {
+  font-family: var(--sans);
+  font-size: 14px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.previewBanner a {
+  color: var(--paper);
+}
+@media (max-width: 760px) {
+  .execRow {
+    grid-template-columns: 1fr;
+  }
+}

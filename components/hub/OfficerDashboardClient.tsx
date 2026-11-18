@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { Chapter, UdaraAmbassador, ClearanceRequest, HubSession } from "@/lib/hub-types";
+import type { Chapter, UdaraAmbassador, ClearanceRequest, HubSession, ChapterExecutive } from "@/lib/hub-types";
+import ExecutivesForm from "./ExecutivesForm";
+import { MONTH_LABEL, PAPER_TOPICS, PROJECT_DEMOS } from "@/lib/hub-monthly";
 import { OFFICER_ROLE_LABEL, type OfficerRole, type HubSlot } from "@/lib/hub-types";
 import { GOOGLE_FORM_LINKS, BRAND_ASSET_LINKS, HUB_SUPPORT_EMAIL, CHARTER_DOCUMENT_URL } from "@/lib/hub-data";
 import styles from "@/app/(hub)/hub/hub.module.css";
@@ -13,6 +15,11 @@ interface Props {
   ambassadors: UdaraAmbassador[];
   requests: ClearanceRequest[];
   slots: Record<OfficerRole, HubSlot>;
+  executives: ChapterExecutive[];
+  /** Set when an admin is viewing this chapter's hub as its lead. */
+  adminPreview?: boolean;
+  /** The registered Country Director for this chapter's country, if any. */
+  countryDirectorName?: string;
 }
 
 export default function OfficerDashboardClient({
@@ -21,9 +28,12 @@ export default function OfficerDashboardClient({
   ambassadors,
   requests,
   slots,
+  executives,
+  adminPreview = false,
+  countryDirectorName,
 }: Props) {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<"overview" | "requests" | "guides" | "brand">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "executives" | "requests" | "guides" | "brand">("overview");
   const [showCertificate, setShowCertificate] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
 
@@ -43,9 +53,20 @@ export default function OfficerDashboardClient({
   };
 
   const isChartered = chapter.status === "chartered";
+  const canEditExecs = adminPreview || session.officerRole === "lead";
+  const execsMissing = executives.filter((e) => e.seat !== "other").length < 2;
 
   return (
     <div className={styles.page}>
+      {adminPreview && (
+        <div className={styles.previewBanner}>
+          <span>
+            Admin preview: you are seeing exactly what this chapter&apos;s lead sees. Changes you save
+            here are real.
+          </span>
+          <a href="/hub/admin">← Back to admin</a>
+        </div>
+      )}
       {/* Top Bar with Chapter Identity */}
       <div className={styles.topBar}>
         <div>
@@ -69,13 +90,15 @@ export default function OfficerDashboardClient({
               </span>
             )}
           </div>
-          <button
-            onClick={handleLogout}
-            className={styles.logoutBtn}
-            disabled={loggingOut}
-          >
-            {loggingOut ? "Signing out..." : "Sign Out"}
-          </button>
+          {!adminPreview && (
+            <button
+              onClick={handleLogout}
+              className={styles.logoutBtn}
+              disabled={loggingOut}
+            >
+              {loggingOut ? "Signing out..." : "Sign Out"}
+            </button>
+          )}
         </div>
       </div>
 
@@ -83,7 +106,7 @@ export default function OfficerDashboardClient({
       <div className={styles.cdCard}>
         <div className={styles.cdInfo}>
           <span className={styles.cdLabel}>Assigned Country Director</span>
-          <span className={styles.cdName}>{chapter.countryDirectorName}</span>
+          <span className={styles.cdName}>{countryDirectorName ?? chapter.countryDirectorName}</span>
           <span style={{ fontSize: "13px", color: "var(--ink-muted)", fontFamily: "var(--mono)" }}>
             {HUB_SUPPORT_EMAIL}
           </span>
@@ -110,6 +133,12 @@ export default function OfficerDashboardClient({
           Overview &amp; Campus Charter
         </button>
         <button
+          className={`${styles.tabBtn} ${activeTab === "executives" ? styles.tabBtnActive : ""}`}
+          onClick={() => setActiveTab("executives")}
+        >
+          Executive Team
+        </button>
+        <button
           className={`${styles.tabBtn} ${activeTab === "requests" ? styles.tabBtnActive : ""}`}
           onClick={() => setActiveTab("requests")}
         >
@@ -126,8 +155,32 @@ export default function OfficerDashboardClient({
       {/* =========================================================================
           TAB 1: OVERVIEW & CAMPUS CHARTER
          ========================================================================= */}
+      {activeTab === "executives" && (
+        <div className={styles.section}>
+          <ExecutivesForm
+            chapterId={chapter.id}
+            initial={executives}
+            slots={{ deputy: slots.deputy, treasurer: slots.treasurer }}
+            canEdit={canEditExecs}
+          />
+        </div>
+      )}
+
       {activeTab === "overview" && (
         <div className={styles.section}>
+          {canEditExecs && execsMissing && (
+            <div className={styles.reportBanner}>
+              <div>
+                <div className={styles.bannerTitle}>Add your executive team</div>
+                <div className={styles.bannerDesc}>
+                  Enter your Deputy Lead and Programs Coordinator so they can get their own sign-in.
+                </div>
+              </div>
+              <button type="button" className={styles.bannerAction} onClick={() => setActiveTab("executives")}>
+                Add executives →
+              </button>
+            </div>
+          )}
           {/* Monthly Report Banner */}
           <div className={styles.reportBanner}>
             <div>
@@ -293,34 +346,30 @@ export default function OfficerDashboardClient({
               </div>
 
               <h3 style={{ fontFamily: "var(--serif)", fontSize: "18px", margin: "0 0 12px" }}>
-                Suggested Starting Papers:
+                This Month&apos;s Topics ({MONTH_LABEL})
               </h3>
-              <div className={styles.topicList}>
-                <div className={styles.topicItem}>
-                  <div className={styles.topicName}>Attention Is All You Need (Vaswani et al.)</div>
-                  <div className={styles.topicDetails}>
-                    The foundational Transformer paper. Key discussion: why self-attention removes recurrence bottlenecks.
+              {PAPER_TOPICS.map((t) => (
+                <div key={t.topic} style={{ marginBottom: "24px" }}>
+                  <div style={{ fontFamily: "var(--sans)", fontWeight: 600, fontSize: "15px", margin: "0 0 4px" }}>
+                    {t.topic}
+                  </div>
+                  <p className={styles.guideDesc} style={{ margin: "0 0 10px" }}>{t.why}</p>
+                  <div className={styles.topicList}>
+                    {t.papers.map((p) => (
+                      <div key={p.url} className={styles.topicItem}>
+                        <div className={styles.topicName}>
+                          <a href={p.url} target="_blank" rel="noopener noreferrer">
+                            {p.title} ↗
+                          </a>
+                        </div>
+                        <div className={styles.topicDetails}>
+                          {p.authors}, {p.year}. {p.discuss}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className={styles.topicItem}>
-                  <div className={styles.topicName}>LoRA: Low-Rank Adaptation of LLMs (Hu et al.)</div>
-                  <div className={styles.topicDetails}>
-                    Parameter-efficient fine-tuning via matrix decomposition. Ideal for campus computing setups.
-                  </div>
-                </div>
-                <div className={styles.topicItem}>
-                  <div className={styles.topicName}>DeepSeek V3 &amp; R1: Architecture &amp; Reasoning</div>
-                  <div className={styles.topicDetails}>
-                    Multi-Head Latent Attention (MLA) and pure RL reasoning without human supervised data.
-                  </div>
-                </div>
-                <div className={styles.topicItem}>
-                  <div className={styles.topicName}>Retrieval-Augmented Generation for NLP (Lewis et al.)</div>
-                  <div className={styles.topicDetails}>
-                    Connecting external vector indexes to parametric models for real-world enterprise applications.
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Technical Sessions & Labs Guide */}
@@ -329,6 +378,29 @@ export default function OfficerDashboardClient({
               <p className={styles.guideDesc}>
                 Practical, hands-on sessions help members move from theory to shipping real AI projects.
               </p>
+
+              <h3 style={{ fontFamily: "var(--serif)", fontSize: "18px", margin: "0 0 12px" }}>
+                Project Demos for {MONTH_LABEL}
+              </h3>
+              <div className={styles.topicList} style={{ marginBottom: "24px" }}>
+                {PROJECT_DEMOS.map((d) => (
+                  <div key={d.title} className={styles.topicItem}>
+                    <div className={styles.topicName}>{d.title}</div>
+                    <div className={styles.topicDetails}>
+                      {d.summary}
+                      <ol style={{ margin: "8px 0 0", paddingLeft: "18px", lineHeight: 1.5 }}>
+                        {d.steps.map((step) => (
+                          <li key={step}>{step}</li>
+                        ))}
+                      </ol>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <h3 style={{ fontFamily: "var(--serif)", fontSize: "18px", margin: "0 0 12px" }}>
+                Labs You Can Run Any Month
+              </h3>
 
               <div className={styles.topicList}>
                 <div className={styles.topicItem}>

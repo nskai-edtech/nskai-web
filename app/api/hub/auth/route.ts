@@ -60,7 +60,8 @@ export async function POST(req: Request) {
 
       await clearFailedLogins(cleanEmail);
       await setSessionCookie(session);
-      const redirect = session.role === "admin" ? "/hub/admin" : "/hub";
+      const redirect =
+        session.role === "admin" ? "/hub/admin" : session.role === "country" ? "/hub/country" : "/hub";
       return NextResponse.json({
         success: true,
         redirect,
