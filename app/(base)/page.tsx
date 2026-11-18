@@ -37,7 +37,11 @@ const ORGANISATION = {
     { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "London", addressCountry: "GB" } },
   ],
   sameAs: [
-    "https://ng.linkedin.com/company/ai-nsk",
+    "https://www.linkedin.com/company/nskai/",
+    "https://www.tiktok.com/@nsk.ai",
+    "https://www.instagram.com/nskaicommunity/",
+    "https://x.com/NskAiCommunity",
+    "https://www.youtube.com/@Nskaicommunity",
     "https://medium.com/@NSK.AI",
     DISCORD_URL,
   ],
