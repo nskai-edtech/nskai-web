@@ -32,6 +32,7 @@ export const CHARTER_DOCUMENT_URL =
 export const GOOGLE_FORM_LINKS = {
   monthlyReport: "https://forms.gle/Yo8gzrtVDqSNLWeP6",
   monthlyReportFr: "https://forms.gle/GFooid2XbNjNRioe7",
+  bookWorkshop: "https://forms.gle/H6kWUzo2C8xUi2e86",
   workshopRequest: "https://forms.gle/Heu5TryXTJhqjNEL7",
   workshopRequestFr: "https://forms.gle/5zg4wjcT6cJiwL9EA",
   financialRequest: "https://docs.google.com/forms/d/e/1FAIpQLSc-finance-request/viewform",
