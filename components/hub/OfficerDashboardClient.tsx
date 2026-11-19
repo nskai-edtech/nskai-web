@@ -208,14 +208,29 @@ export default function OfficerDashboardClient({
             >
               Rapport mensuel (Français) ↗
             </a>
-            <a
-              href={GOOGLE_FORM_LINKS.bookWorkshop}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.bannerAction}
-            >
-              Book a Workshop ↗
-            </a>
+          </div>
+
+          {/* Book a workshop */}
+          <div className={styles.cardBox}>
+            <h2 className={styles.boxTitle}>Book a Workshop</h2>
+            <div className={styles.actionBtnsRow}>
+              <a
+                href={GOOGLE_FORM_LINKS.bookWorkshop}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaBtnPrimary}
+              >
+                + Book a Workshop (English) ↗
+              </a>
+              <a
+                href={GOOGLE_FORM_LINKS.workshopRequestFr}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaBtnSecondary}
+              >
+                + Réserver un atelier (Français) ↗
+              </a>
+            </div>
           </div>
 
           {/* The three people with access to this chapter's hub */}
